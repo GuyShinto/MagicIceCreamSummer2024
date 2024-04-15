@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://sctptykp0ome"]
+
+[ext_resource type="Script" path="res://scripts/melt.gd" id="1_b6rka"]
+
+[node name="melt" type="Node"]
+script = ExtResource("1_b6rka")
+
+[node name="timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0

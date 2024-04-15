@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://erup7tk34o2n"]
+
+[ext_resource type="PackedScene" uid="uid://bsnqgs0adi17p" path="res://scenes/components/item.tscn" id="1_2fo3i"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_7tlaj"]
+[ext_resource type="Texture2D" uid="uid://bjv8fhnchxirw" path="res://artwork/unnamed.png" id="1_k352c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8c1u0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dn0k5"]
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_7tlaj")
+
+[node name="temperature" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8c1u0")
+
+[node name="icon" type="TextureRect" parent="temperature"]
+layout_mode = 0
+offset_left = -152.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 248.0
+texture = ExtResource("1_k352c")
+expand_mode = 1
+
+[node name="indicator" type="TextureRect" parent="temperature"]
+layout_mode = 0
+offset_left = -232.0
+offset_top = 64.0
+offset_right = -192.0
+offset_bottom = 104.0
+texture = ExtResource("1_k352c")
+expand_mode = 1
+
+[node name="items" type="Panel" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dn0k5")
+
+[node name="box" type="HBoxContainer" parent="items"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="item" parent="items/box" instance=ExtResource("1_2fo3i")]
+layout_mode = 2
+
+[node name="desc" type="Panel" parent="."]
+offset_top = 144.0
+offset_right = 384.0
+offset_bottom = 320.0
+
+[node name="cursor" type="TextureRect" parent="."]
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+texture = ExtResource("1_k352c")
+expand_mode = 1
