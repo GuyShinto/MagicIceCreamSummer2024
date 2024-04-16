@@ -1,10 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://erup7tk34o2n"]
+[gd_scene load_steps=18 format=3 uid="uid://erup7tk34o2n"]
 
 [ext_resource type="PackedScene" uid="uid://bsnqgs0adi17p" path="res://scenes/components/item.tscn" id="1_2fo3i"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7tlaj"]
-[ext_resource type="Texture2D" uid="uid://bjv8fhnchxirw" path="res://artwork/unnamed.png" id="1_k352c"]
+[ext_resource type="Script" path="res://scripts/temperature.gd" id="2_fq0aw"]
+[ext_resource type="Texture2D" uid="uid://bgbeyy3sbbxvg" path="res://artwork/icon_temperature.png" id="2_yjk3f"]
+[ext_resource type="PackedScene" uid="uid://b03hqvt6otq7r" path="res://scenes/components/highlight.tscn" id="3_f0dmt"]
+[ext_resource type="Texture2D" uid="uid://csx3f63rycbco" path="res://artwork/indicator_cool.png" id="3_wjvlm"]
+[ext_resource type="Texture2D" uid="uid://44h0lu41nptn" path="res://artwork/icon_temperature_highlight.png" id="4_bk0ro"]
+[ext_resource type="Texture2D" uid="uid://cj01mrfnxfsll" path="res://artwork/cursor_sky.png" id="4_cnm1i"]
+[ext_resource type="Texture2D" uid="uid://u74jeokpkmvl" path="res://artwork/icon_ice.png" id="4_j2jd2"]
+[ext_resource type="Texture2D" uid="uid://c6gxbircgb321" path="res://artwork/indicator_highlight.png" id="5_2k11r"]
+[ext_resource type="Texture2D" uid="uid://3w68weol06mf" path="res://artwork/icon_fire.png" id="5_n8eee"]
+[ext_resource type="Texture2D" uid="uid://xdqqfpcwmrnc" path="res://artwork/icon_ice_highlight.png" id="7_g0ey0"]
+[ext_resource type="Texture2D" uid="uid://dowxxa7h5wv0c" path="res://artwork/icon_fire_highlight.png" id="9_3mkrf"]
+[ext_resource type="Script" path="res://scripts/cursor.gd" id="14_323sj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8c1u0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e4qt6"]
+font_size = 32
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dn0k5"]
 
@@ -16,25 +30,93 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8c1u0")
+script = ExtResource("2_fq0aw")
 
 [node name="icon" type="TextureRect" parent="temperature"]
 layout_mode = 0
-offset_left = -152.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 248.0
-texture = ExtResource("1_k352c")
+offset_left = -144.0
+offset_top = 72.0
+offset_right = 16.0
+offset_bottom = 240.0
+pivot_offset = Vector2(80, 88)
+texture = ExtResource("2_yjk3f")
 expand_mode = 1
+
+[node name="highlight" parent="temperature/icon" instance=ExtResource("3_f0dmt")]
+normal = ExtResource("2_yjk3f")
+highlight = ExtResource("4_bk0ro")
 
 [node name="indicator" type="TextureRect" parent="temperature"]
 layout_mode = 0
-offset_left = -232.0
-offset_top = 64.0
-offset_right = -192.0
-offset_bottom = 104.0
-texture = ExtResource("1_k352c")
+offset_left = -152.0
+offset_top = 128.0
+offset_right = -96.0
+offset_bottom = 184.0
+pivot_offset = Vector2(28, 28)
 expand_mode = 1
+
+[node name="icon" type="TextureRect" parent="temperature/indicator"]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 56.0
+pivot_offset = Vector2(28, 28)
+texture = ExtResource("3_wjvlm")
+expand_mode = 1
+
+[node name="title" type="Label" parent="temperature/indicator/icon"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -23.0
+offset_right = -56.0
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(96, 27)
+text = "0 °c"
+label_settings = SubResource("LabelSettings_e4qt6")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="highlight" parent="temperature/indicator" instance=ExtResource("3_f0dmt")]
+highlight = ExtResource("5_2k11r")
+
+[node name="ice" type="TextureRect" parent="temperature"]
+layout_mode = 0
+offset_left = -96.0
+offset_top = 240.0
+offset_right = -32.0
+offset_bottom = 304.0
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("4_j2jd2")
+expand_mode = 1
+
+[node name="highlight" parent="temperature/ice" instance=ExtResource("3_f0dmt")]
+normal = ExtResource("4_j2jd2")
+highlight = ExtResource("7_g0ey0")
+
+[node name="fire" type="TextureRect" parent="temperature"]
+layout_mode = 0
+offset_left = -96.0
+offset_right = -32.0
+offset_bottom = 64.0
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("5_n8eee")
+expand_mode = 1
+
+[node name="highlight" parent="temperature/fire" instance=ExtResource("3_f0dmt")]
+normal = ExtResource("5_n8eee")
+highlight = ExtResource("9_3mkrf")
+
+[node name="timer" type="Timer" parent="temperature"]
+process_callback = 0
+autostart = true
 
 [node name="items" type="Panel" parent="."]
 offset_left = 24.0
@@ -56,10 +138,12 @@ layout_mode = 2
 offset_top = 144.0
 offset_right = 384.0
 offset_bottom = 320.0
+mouse_filter = 2
 
 [node name="cursor" type="TextureRect" parent="."]
-offset_right = 128.0
-offset_bottom = 128.0
+offset_right = 88.0
+offset_bottom = 88.0
 mouse_filter = 2
-texture = ExtResource("1_k352c")
+texture = ExtResource("4_cnm1i")
 expand_mode = 1
+script = ExtResource("14_323sj")
