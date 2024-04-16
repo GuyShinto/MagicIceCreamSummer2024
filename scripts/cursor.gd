@@ -22,6 +22,7 @@ func _input(event):
 			_click()
 		if Input.is_action_pressed("right_click"):
 			_click()
+			Global.rewards._show(2)
 	if event is InputEventMouseMotion:
 		self.position = get_viewport().get_mouse_position()
 		speedMosue += (event.velocity.x/10000) + (-event.velocity.y/10000)

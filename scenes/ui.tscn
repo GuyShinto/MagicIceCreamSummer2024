@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://erup7tk34o2n"]
+[gd_scene load_steps=36 format=3 uid="uid://erup7tk34o2n"]
 
 [ext_resource type="PackedScene" uid="uid://bsnqgs0adi17p" path="res://scenes/components/item.tscn" id="1_2fo3i"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7tlaj"]
@@ -13,7 +13,18 @@
 [ext_resource type="Texture2D" uid="uid://3w68weol06mf" path="res://artwork/icon_fire.png" id="5_n8eee"]
 [ext_resource type="Texture2D" uid="uid://xdqqfpcwmrnc" path="res://artwork/icon_ice_highlight.png" id="7_g0ey0"]
 [ext_resource type="Texture2D" uid="uid://dowxxa7h5wv0c" path="res://artwork/icon_fire_highlight.png" id="9_3mkrf"]
+[ext_resource type="Script" path="res://scripts/rewards.gd" id="13_6pg3b"]
+[ext_resource type="Texture2D" uid="uid://qa66dkkrdqrd" path="res://artwork/background_rewards.png" id="13_u444q"]
+[ext_resource type="Texture2D" uid="uid://x30547yg8ic5" path="res://artwork/icecream_sky.png" id="14_0xt2j"]
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="14_323sj"]
+[ext_resource type="Resource" uid="uid://duy806ug2vo4m" path="res://resources/IceCreamSky.tres" id="14_xtdhn"]
+[ext_resource type="Texture2D" uid="uid://b3n473sniqmhc" path="res://artwork/background_sky.png" id="15_55yp3"]
+[ext_resource type="Resource" uid="uid://b2s050wmur1xy" path="res://resources/IceCreamBlue.tres" id="15_gf1ej"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="16_7f8p6"]
+[ext_resource type="Texture2D" uid="uid://yxj5lmb86np0" path="res://artwork/background_rewards2.png" id="17_mwy7i"]
+[ext_resource type="Texture2D" uid="uid://dmkm12ys5ykb1" path="res://artwork/new.png" id="19_hrn2n"]
+[ext_resource type="Texture2D" uid="uid://b0nji2deshrdx" path="res://artwork/button.png" id="21_gen20"]
+[ext_resource type="Texture2D" uid="uid://cqc81kps1bupw" path="res://artwork/button_highlight.png" id="22_f5bkw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8c1u0"]
 
@@ -21,6 +32,25 @@
 font_size = 32
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dn0k5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prlr5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q324t"]
+shader = ExtResource("16_7f8p6")
+shader_parameter/power = 0.0
+shader_parameter/Amount = 150.0
+shader_parameter/GOLDEN_ANGLE = 2.39996
+shader_parameter/NUMBER = 150.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdgwt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03bvq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_46sm8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oh678"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwd0d"]
 
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_7tlaj")
@@ -140,7 +170,153 @@ offset_right = 384.0
 offset_bottom = 320.0
 mouse_filter = 2
 
+[node name="rewards" type="Panel" parent="."]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_prlr5")
+script = ExtResource("13_6pg3b")
+iceCreamList = Array[Resource("res://scripts/icecream.gd")]([ExtResource("14_xtdhn"), ExtResource("15_gf1ej")])
+
+[node name="blur" type="ColorRect" parent="rewards"]
+material = SubResource("ShaderMaterial_q324t")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -704.0
+offset_top = -448.0
+offset_right = 704.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="TextureRect" parent="rewards"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -320.0
+offset_right = 320.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(320, 320)
+mouse_filter = 2
+texture = ExtResource("13_u444q")
+expand_mode = 1
+
+[node name="background2" type="TextureRect" parent="rewards"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -320.0
+offset_right = 320.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(320, 320)
+mouse_filter = 2
+texture = ExtResource("17_mwy7i")
+expand_mode = 1
+
+[node name="background_icon" type="TextureRect" parent="rewards"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -192.0
+offset_right = 192.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(192, 192)
+mouse_filter = 2
+texture = ExtResource("15_55yp3")
+expand_mode = 1
+
+[node name="icon" type="TextureRect" parent="rewards"]
+layout_mode = 0
+offset_left = -104.0
+offset_top = -100.0
+offset_right = 104.0
+offset_bottom = 108.0
+pivot_offset = Vector2(104, 104)
+texture = ExtResource("14_0xt2j")
+expand_mode = 1
+
+[node name="highlight" parent="rewards/icon" instance=ExtResource("3_f0dmt")]
+
+[node name="new" type="TextureRect" parent="rewards"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 296.0
+offset_top = 76.0
+offset_right = 544.0
+offset_bottom = 324.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(128, 136)
+mouse_filter = 2
+texture = ExtResource("19_hrn2n")
+expand_mode = 1
+
+[node name="button" type="TextureRect" parent="rewards"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 172.0
+offset_right = 128.0
+offset_bottom = 268.0
+pivot_offset = Vector2(96, 56)
+texture = ExtResource("21_gen20")
+expand_mode = 1
+
+[node name="title" type="Button" parent="rewards/button"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 96.0
+pivot_offset = Vector2(96, 48)
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hdgwt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_03bvq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_46sm8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_oh678")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwd0d")
+text = "OK"
+flat = true
+
+[node name="highlight" parent="rewards/button" instance=ExtResource("3_f0dmt")]
+normal = ExtResource("21_gen20")
+highlight = ExtResource("22_f5bkw")
+
 [node name="cursor" type="TextureRect" parent="."]
+process_mode = 3
 offset_right = 88.0
 offset_bottom = 88.0
 mouse_filter = 2
