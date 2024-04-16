@@ -1,19 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=15 format=3 uid="uid://5a8xxdgot35"]
 
-[ext_resource type="Shader" path="res://shaders/freeze.gdshader" id="1_6aelu"]
-[ext_resource type="Texture2D" uid="uid://bjv8fhnchxirw" path="res://artwork/unnamed.png" id="1_hielf"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
+[ext_resource type="Texture2D" uid="uid://bqefhhqf6o3q2" path="res://artwork/road.png" id="3_4qlyq"]
 [ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_ri6xi"]
 [ext_resource type="PackedScene" uid="uid://cx8jhcse056l0" path="res://scenes/objects/ice.tscn" id="4_84b7g"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="4_i4hf1"]
+[ext_resource type="PackedScene" uid="uid://d0oi5rtre11ta" path="res://scenes/objects/cooly.tscn" id="4_vhmns"]
 [ext_resource type="PackedScene" uid="uid://erup7tk34o2n" path="res://scenes/ui.tscn" id="4_ytiwv"]
 [ext_resource type="Texture2D" uid="uid://bctqsbb2cstwy" path="res://artwork/player_shell.png" id="5_nqpcx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qm2e"]
-size = Vector2(602, 114)
+[ext_resource type="Texture2D" uid="uid://dd5vqs2e5cc2y" path="res://artwork/background_parallax2.png" id="9_b60b1"]
+[ext_resource type="Texture2D" uid="uid://bc1n8xxrfhku7" path="res://artwork/background_parallax1.png" id="9_sh8ua"]
+[ext_resource type="Texture2D" uid="uid://duiqwbvqup48v" path="res://artwork/background_parallax_lower.png" id="10_h54iy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbni0"]
-shader = ExtResource("1_6aelu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qm2e"]
+size = Vector2(1280, 248)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j82aa"]
 friction = 0.3
@@ -27,44 +29,40 @@ script = ExtResource("1_kb7a6")
 [node name="floors" type="Node2D" parent="."]
 
 [node name="road" type="StaticBody2D" parent="floors"]
-rotation = 0.120428
-
-[node name="collision" type="CollisionShape2D" parent="floors/road"]
-position = Vector2(-8, 216)
-shape = SubResource("RectangleShape2D_6qm2e")
 
 [node name="icon" type="Sprite2D" parent="floors/road"]
 material = SubResource("ShaderMaterial_nbni0")
 position = Vector2(-6.00001, 216)
-scale = Vector2(1.67778, 0.311111)
-texture = ExtResource("1_hielf")
+texture = ExtResource("3_4qlyq")
+
+[node name="collision" type="CollisionShape2D" parent="floors/road"]
+position = Vector2(-8, 220)
+shape = SubResource("RectangleShape2D_6qm2e")
 
 [node name="road2" type="StaticBody2D" parent="floors"]
-rotation = 0.120428
-
-[node name="collision" type="CollisionShape2D" parent="floors/road2"]
-position = Vector2(-626.514, 349.801)
-shape = SubResource("RectangleShape2D_6qm2e")
+position = Vector2(1280, 56)
+rotation = 0.0878534
 
 [node name="icon" type="Sprite2D" parent="floors/road2"]
 material = SubResource("ShaderMaterial_nbni0")
-position = Vector2(-626.514, 349.801)
-scale = Vector2(1.67778, 0.311111)
-texture = ExtResource("1_hielf")
+position = Vector2(-6.00001, 216)
+texture = ExtResource("3_4qlyq")
+
+[node name="collision" type="CollisionShape2D" parent="floors/road2"]
+position = Vector2(-8, 220)
+shape = SubResource("RectangleShape2D_6qm2e")
 
 [node name="road3" type="StaticBody2D" parent="floors"]
-position = Vector2(1200, 248)
-rotation = 0.120428
-
-[node name="collision" type="CollisionShape2D" parent="floors/road3"]
-position = Vector2(-626.514, 349.801)
-shape = SubResource("RectangleShape2D_6qm2e")
+position = Vector2(2520, 112)
 
 [node name="icon" type="Sprite2D" parent="floors/road3"]
 material = SubResource("ShaderMaterial_nbni0")
-position = Vector2(-626.514, 349.801)
-scale = Vector2(1.67778, 0.311111)
-texture = ExtResource("1_hielf")
+position = Vector2(-6.00001, 216)
+texture = ExtResource("3_4qlyq")
+
+[node name="collision" type="CollisionShape2D" parent="floors/road3"]
+position = Vector2(-8, 220)
+shape = SubResource("RectangleShape2D_6qm2e")
 
 [node name="objects" type="Node2D" parent="."]
 
@@ -83,12 +81,16 @@ position = Vector2(-200, -176)
 [node name="ice5" parent="objects" instance=ExtResource("4_84b7g")]
 position = Vector2(-288, -168)
 
+[node name="cooly" parent="objects" instance=ExtResource("4_vhmns")]
+position = Vector2(240, -64)
+
 [node name="players" type="Node2D" parent="."]
 
 [node name="player" type="RigidBody2D" parent="players" groups=["player"]]
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_j82aa")
 script = ExtResource("4_i4hf1")
+speed = 500
 
 [node name="icon" type="Sprite2D" parent="players/player"]
 scale = Vector2(0.144444, 0.132434)
@@ -101,3 +103,31 @@ polygon = PackedVector2Array(503, -355.4, 503, -353.9, 585, -348.9, 585, -340.4,
 [node name="object" parent="players/player" instance=ExtResource("3_ri6xi")]
 
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(3800, 0)
+
+[node name="icon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(0, -564.75)
+scale = Vector2(1.28, 1)
+texture = ExtResource("9_b60b1")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(3800, 0)
+
+[node name="icon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-6.10352e-05, -564.75)
+scale = Vector2(1.28, 1)
+texture = ExtResource("9_sh8ua")
+
+[node name="lower" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(3800, 0)
+
+[node name="icon" type="Sprite2D" parent="ParallaxBackground/lower"]
+position = Vector2(3.43323e-05, 1368)
+scale = Vector2(5, 3)
+texture = ExtResource("10_h54iy")

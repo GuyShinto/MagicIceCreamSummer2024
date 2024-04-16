@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="IceCream" load_steps=6 format=3 uid="uid://dhg7me7o0tbcp"]
+
+[ext_resource type="Script" path="res://scripts/icecream.gd" id="1_n5ija"]
+[ext_resource type="Texture2D" uid="uid://cxtwiug5idl6u" path="res://artwork/background_orange.png" id="1_wg2iw"]
+[ext_resource type="Texture2D" uid="uid://472382btjbj2" path="res://artwork/cursor_orange.png" id="2_sncla"]
+[ext_resource type="Texture2D" uid="uid://e2gyw6noy7ee" path="res://artwork/icecream_orange_highlight.png" id="3_osf4p"]
+[ext_resource type="Texture2D" uid="uid://dtfedct7xwp78" path="res://artwork/icecream_orange.png" id="4_vpmj0"]
+
+[resource]
+script = ExtResource("1_n5ija")
+id = 3
+normal = ExtResource("4_vpmj0")
+highlight = ExtResource("3_osf4p")
+cursor = ExtResource("2_sncla")
+background = ExtResource("1_wg2iw")
+color = Color(1, 0.384314, 0, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://erup7tk34o2n"]
+[gd_scene load_steps=40 format=3 uid="uid://erup7tk34o2n"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7tlaj"]
 [ext_resource type="Script" path="res://scripts/temperature.gd" id="2_fq0aw"]
@@ -16,11 +16,16 @@
 [ext_resource type="Texture2D" uid="uid://qa66dkkrdqrd" path="res://artwork/background_rewards.png" id="13_u444q"]
 [ext_resource type="Texture2D" uid="uid://x30547yg8ic5" path="res://artwork/icecream_sky.png" id="14_0xt2j"]
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="14_323sj"]
+[ext_resource type="Resource" uid="uid://cwpchjoqrt5xu" path="res://resources/IceCreamGreen.tres" id="14_d7xx1"]
 [ext_resource type="Resource" uid="uid://duy806ug2vo4m" path="res://resources/IceCreamSky.tres" id="14_xtdhn"]
+[ext_resource type="Resource" uid="uid://dhg7me7o0tbcp" path="res://resources/IceCreamOrange.tres" id="15_3trvn"]
 [ext_resource type="Texture2D" uid="uid://b3n473sniqmhc" path="res://artwork/background_sky.png" id="15_55yp3"]
 [ext_resource type="Resource" uid="uid://b2s050wmur1xy" path="res://resources/IceCreamBlue.tres" id="15_gf1ej"]
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="16_7f8p6"]
+[ext_resource type="Resource" uid="uid://cx6sexa57duci" path="res://resources/IceCreamPurple.tres" id="16_s504m"]
 [ext_resource type="Texture2D" uid="uid://yxj5lmb86np0" path="res://artwork/background_rewards2.png" id="17_mwy7i"]
+[ext_resource type="Resource" uid="uid://bs4ltyo4hg4al" path="res://resources/IceCreamRed.tres" id="17_rgcuy"]
+[ext_resource type="Resource" uid="uid://cx58xog100nyy" path="res://resources/IceCreamYellow.tres" id="19_brh10"]
 [ext_resource type="Texture2D" uid="uid://dmkm12ys5ykb1" path="res://artwork/new.png" id="19_hrn2n"]
 [ext_resource type="Texture2D" uid="uid://b0nji2deshrdx" path="res://artwork/button.png" id="21_gen20"]
 [ext_resource type="Texture2D" uid="uid://cqc81kps1bupw" path="res://artwork/button_highlight.png" id="22_f5bkw"]
@@ -177,7 +182,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_prlr5")
 script = ExtResource("13_6pg3b")
-iceCreamList = Array[Resource("res://scripts/icecream.gd")]([ExtResource("14_xtdhn"), ExtResource("15_gf1ej")])
+iceCreamList = Array[Resource("res://scripts/icecream.gd")]([ExtResource("15_gf1ej"), ExtResource("14_d7xx1"), ExtResource("15_3trvn"), ExtResource("16_s504m"), ExtResource("17_rgcuy"), ExtResource("14_xtdhn"), ExtResource("19_brh10")])
 
 [node name="blur" type="ColorRect" parent="rewards"]
 material = SubResource("ShaderMaterial_q324t")
@@ -187,10 +192,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -896.0
-offset_top = -640.0
-offset_right = 896.0
-offset_bottom = 640.0
+offset_left = -1172.0
+offset_top = -782.0
+offset_right = 1172.0
+offset_bottom = 782.0
 grow_horizontal = 2
 grow_vertical = 2
 

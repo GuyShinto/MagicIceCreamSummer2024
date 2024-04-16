@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0oi5rtre11ta"]
+
+[ext_resource type="Texture2D" uid="uid://dvs065ddo8gx3" path="res://artwork/cooly_off.png" id="1_sopbi"]
+[ext_resource type="PackedScene" uid="uid://beh2hjltheqi2" path="res://scenes/components/electrical.tscn" id="2_q3yib"]
+[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_j7h3x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jdq4d"]
+friction = 0.8
+bounce = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caupk"]
+size = Vector2(96, 160)
+
+[node name="cooly" type="RigidBody2D"]
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_jdq4d")
+
+[node name="icon" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_sopbi")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_caupk")
+
+[node name="electrical" parent="." instance=ExtResource("2_q3yib")]
+
+[node name="object" parent="." instance=ExtResource("3_j7h3x")]

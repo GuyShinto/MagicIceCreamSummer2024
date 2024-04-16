@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://sctptykp0ome" path="res://scenes/components/melt.tscn" id="1_oqy7f"]
 [ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="2_de4v3"]
-[ext_resource type="Texture2D" uid="uid://bjv8fhnchxirw" path="res://artwork/unnamed.png" id="3_k30lb"]
+[ext_resource type="Texture2D" uid="uid://dthasv372nj0f" path="res://artwork/ice.png" id="3_xqj2p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ritmh"]
 friction = 0.0
@@ -21,9 +21,9 @@ max_malt = 60.0
 [node name="object" parent="." instance=ExtResource("2_de4v3")]
 
 [node name="icon" type="Sprite2D" parent="."]
-position = Vector2(-7.15256e-07, -9.53674e-07)
-scale = Vector2(0.0888889, 0.0888889)
-texture = ExtResource("3_k30lb")
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.0416667, 0.0416667)
+texture = ExtResource("3_xqj2p")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_inpjl")

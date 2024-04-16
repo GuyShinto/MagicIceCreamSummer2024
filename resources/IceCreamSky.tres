@@ -8,7 +8,7 @@
 
 [resource]
 script = ExtResource("1_tkerd")
-id = 1
+id = 6
 normal = ExtResource("3_2w1nk")
 highlight = ExtResource("2_hasan")
 cursor = ExtResource("2_y8c8y")
