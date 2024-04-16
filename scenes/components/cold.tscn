@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cquvejqepj1t5"]
+
+[ext_resource type="Script" path="res://scripts/cold.gd" id="1_kiohj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2kv0n"]
+radius = 96.3328
+
+[node name="cold" type="Node"]
+script = ExtResource("1_kiohj")
+
+[node name="area" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+shape = SubResource("CircleShape2D_2kv0n")
+debug_color = Color(0, 0.6, 0.701961, 0.129412)

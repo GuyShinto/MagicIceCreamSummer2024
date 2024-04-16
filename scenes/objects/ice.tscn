@@ -11,12 +11,12 @@ bounce = 0.4
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inpjl"]
 size = Vector2(32, 32)
 
-[node name="ice" type="RigidBody2D"]
+[node name="ice" type="RigidBody2D" groups=["ice"]]
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_ritmh")
 
 [node name="melt" parent="." instance=ExtResource("1_oqy7f")]
-max_malt = 60.0
+max_malt = 20.0
 
 [node name="object" parent="." instance=ExtResource("2_de4v3")]
 

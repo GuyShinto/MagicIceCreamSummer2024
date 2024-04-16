@@ -7,4 +7,3 @@ script = ExtResource("1_b6rka")
 
 [node name="timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 10.0

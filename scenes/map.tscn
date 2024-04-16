@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=18 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
 [ext_resource type="Texture2D" uid="uid://bqefhhqf6o3q2" path="res://artwork/road.png" id="3_4qlyq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dd5vqs2e5cc2y" path="res://artwork/background_parallax2.png" id="9_b60b1"]
 [ext_resource type="Texture2D" uid="uid://bc1n8xxrfhku7" path="res://artwork/background_parallax1.png" id="9_sh8ua"]
 [ext_resource type="Texture2D" uid="uid://duiqwbvqup48v" path="res://artwork/background_parallax_lower.png" id="10_h54iy"]
+[ext_resource type="Script" path="res://scripts/mouse_local.gd" id="12_ou6y3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbni0"]
 
@@ -20,6 +21,12 @@ size = Vector2(1280, 248)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j82aa"]
 friction = 0.3
 bounce = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jg1s1"]
+radius = 184.174
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2y705"]
+radius = 192.0
 
 [node name="map" type="Node2D"]
 
@@ -102,6 +109,12 @@ polygon = PackedVector2Array(503, -355.4, 503, -353.9, 585, -348.9, 585, -340.4,
 
 [node name="object" parent="players/player" instance=ExtResource("3_ri6xi")]
 
+[node name="area" type="Area2D" parent="players/player"]
+
+[node name="collision" type="CollisionShape2D" parent="players/player/area"]
+shape = SubResource("CircleShape2D_jg1s1")
+debug_color = Color(0, 0.6, 0.701961, 0.129412)
+
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -131,3 +144,11 @@ motion_mirroring = Vector2(3800, 0)
 position = Vector2(3.43323e-05, 1368)
 scale = Vector2(5, 3)
 texture = ExtResource("10_h54iy")
+
+[node name="mouse" type="Marker2D" parent="."]
+script = ExtResource("12_ou6y3")
+
+[node name="area" type="Area2D" parent="mouse"]
+
+[node name="collision" type="CollisionShape2D" parent="mouse/area"]
+shape = SubResource("CircleShape2D_2y705")

@@ -1,5 +1,6 @@
 extends TextureRect
 
+@export var maxIceMove:float = 200
 
 var speedMosue :float = 0
 var indexItem :int = 0
@@ -31,6 +32,13 @@ func _set_mouse(_index):
 		self.texture = Global.items[indexItem-1].cursor
 		_click()
 
+func _process(_delta):
+	if Input.is_action_pressed("left_click"):
+		#_spell()
+		pass
+	elif Input.is_action_just_pressed("right_click"):
+		_spell()
+
 func _input(event):
 	if event is InputEventKey:
 		if Input.is_action_pressed("sort1"):
@@ -56,6 +64,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			_click()
+			_spell()
 		elif Input.is_action_just_pressed("right_click"):
 			_click()
 			Global.rewards._show(randi_range(1,7))
@@ -66,6 +75,17 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		self.position = get_viewport().get_mouse_position()
 		speedMosue += (event.velocity.x/10000) + (-event.velocity.y/10000)
+
+func _spell():
+	for ice in Global.mouse.list:
+		if ice.is_in_group("ice"):
+			var mousePostion:Vector2 = Global.mouse.global_position
+			ice.linear_velocity = Vector2(clamp(mousePostion.x-ice.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-ice.global_position.y,-maxIceMove,maxIceMove))
+
+func _spell2():
+	for ice in Global.mouse.list:
+		if ice.has_node("melt"):
+			ice.get_node("melt")._on_timeout()
 
 func SetSize(alpha:Vector2):
 	self.scale = alpha
