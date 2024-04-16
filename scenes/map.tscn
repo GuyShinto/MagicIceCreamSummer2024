@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=12 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Shader" path="res://shaders/freeze.gdshader" id="1_6aelu"]
 [ext_resource type="Texture2D" uid="uid://bjv8fhnchxirw" path="res://artwork/unnamed.png" id="1_hielf"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
 [ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_ri6xi"]
+[ext_resource type="PackedScene" uid="uid://cx8jhcse056l0" path="res://scenes/objects/ice.tscn" id="4_84b7g"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="4_i4hf1"]
 [ext_resource type="PackedScene" uid="uid://erup7tk34o2n" path="res://scenes/ui.tscn" id="4_ytiwv"]
+[ext_resource type="Texture2D" uid="uid://bctqsbb2cstwy" path="res://artwork/player_shell.png" id="5_nqpcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qm2e"]
 size = Vector2(602, 114)
@@ -13,9 +15,9 @@ size = Vector2(602, 114)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbni0"]
 shader = ExtResource("1_6aelu")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3n6r"]
-radius = 24.0
-height = 96.0
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j82aa"]
+friction = 0.3
+bounce = 0.1
 
 [node name="map" type="Node2D"]
 
@@ -37,17 +39,64 @@ position = Vector2(-6.00001, 216)
 scale = Vector2(1.67778, 0.311111)
 texture = ExtResource("1_hielf")
 
+[node name="road2" type="StaticBody2D" parent="floors"]
+rotation = 0.120428
+
+[node name="collision" type="CollisionShape2D" parent="floors/road2"]
+position = Vector2(-626.514, 349.801)
+shape = SubResource("RectangleShape2D_6qm2e")
+
+[node name="icon" type="Sprite2D" parent="floors/road2"]
+material = SubResource("ShaderMaterial_nbni0")
+position = Vector2(-626.514, 349.801)
+scale = Vector2(1.67778, 0.311111)
+texture = ExtResource("1_hielf")
+
+[node name="road3" type="StaticBody2D" parent="floors"]
+position = Vector2(1200, 248)
+rotation = 0.120428
+
+[node name="collision" type="CollisionShape2D" parent="floors/road3"]
+position = Vector2(-626.514, 349.801)
+shape = SubResource("RectangleShape2D_6qm2e")
+
+[node name="icon" type="Sprite2D" parent="floors/road3"]
+material = SubResource("ShaderMaterial_nbni0")
+position = Vector2(-626.514, 349.801)
+scale = Vector2(1.67778, 0.311111)
+texture = ExtResource("1_hielf")
+
+[node name="objects" type="Node2D" parent="."]
+
+[node name="ice" parent="objects" instance=ExtResource("4_84b7g")]
+position = Vector2(-208, -48)
+
+[node name="ice2" parent="objects" instance=ExtResource("4_84b7g")]
+position = Vector2(-232, -184)
+
+[node name="ice3" parent="objects" instance=ExtResource("4_84b7g")]
+position = Vector2(-184, -136)
+
+[node name="ice4" parent="objects" instance=ExtResource("4_84b7g")]
+position = Vector2(-200, -176)
+
+[node name="ice5" parent="objects" instance=ExtResource("4_84b7g")]
+position = Vector2(-288, -168)
+
 [node name="players" type="Node2D" parent="."]
 
 [node name="player" type="RigidBody2D" parent="players" groups=["player"]]
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_j82aa")
 script = ExtResource("4_i4hf1")
 
 [node name="icon" type="Sprite2D" parent="players/player"]
-scale = Vector2(0.133333, 0.266667)
-texture = ExtResource("1_hielf")
+scale = Vector2(0.144444, 0.132434)
+texture = ExtResource("5_nqpcx")
 
-[node name="collision" type="CollisionShape2D" parent="players/player"]
-shape = SubResource("CapsuleShape2D_i3n6r")
+[node name="collision" type="CollisionPolygon2D" parent="players/player"]
+scale = Vector2(0.144444, 0.132434)
+polygon = PackedVector2Array(503, -355.4, 503, -353.9, 585, -348.9, 585, -340.4, 598.4, -304.5, 592.2, -304.5, 585.2, -218.5, 575.4, -218.5, 567.8, -217.6, 552.7, 323.5, 542.5, 323.5, 488.7, 326.1, 476.9, 376.5, 459, 376.5, 185, 378.5, 185, 367.5, 180.1, 324.5, -179, 324.5, -179, 331.7, -180.3, 372.5, -188.7, 372.5, -204.6, 380.5, -310.1, 380.5, -469, 377.3, -469, 373.7, -484, 368.7, -484, 358.2, -488.6, 326.5, -553, 325.3, -553, 307.5, -567.7, -217.5, -584.3, -217.5, -592.7, -339.5, -582.4, -339.5, -534.4, -353.5, -514.3, -353.5, -225, -361.2, -225, -362.6)
 
 [node name="object" parent="players/player" instance=ExtResource("3_ri6xi")]
 

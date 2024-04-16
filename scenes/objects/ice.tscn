@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx8jhcse056l0"]
+
+[ext_resource type="PackedScene" uid="uid://sctptykp0ome" path="res://scenes/components/melt.tscn" id="1_oqy7f"]
+[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="2_de4v3"]
+[ext_resource type="Texture2D" uid="uid://bjv8fhnchxirw" path="res://artwork/unnamed.png" id="3_k30lb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ritmh"]
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inpjl"]
+size = Vector2(32, 32)
+
+[node name="ice" type="RigidBody2D"]
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_ritmh")
+
+[node name="melt" parent="." instance=ExtResource("1_oqy7f")]
+max_malt = 60.0
+
+[node name="object" parent="." instance=ExtResource("2_de4v3")]
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(-7.15256e-07, -9.53674e-07)
+scale = Vector2(0.0888889, 0.0888889)
+texture = ExtResource("3_k30lb")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_inpjl")
