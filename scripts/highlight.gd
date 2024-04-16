@@ -6,7 +6,7 @@ extends Node
 @export var highlight:Texture2D
 @export var power:float = 1.05
 
-var onHighlight:bool = false
+var onHighlight:bool
 
 var time:float = 0
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=10 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Shader" path="res://shaders/freeze.gdshader" id="1_6aelu"]
 [ext_resource type="Texture2D" uid="uid://bjv8fhnchxirw" path="res://artwork/unnamed.png" id="1_hielf"]
-[ext_resource type="PackedScene" uid="uid://sctptykp0ome" path="res://scenes/components/melt.tscn" id="2_f8i7m"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
 [ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_ri6xi"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="4_i4hf1"]
 [ext_resource type="PackedScene" uid="uid://erup7tk34o2n" path="res://scenes/ui.tscn" id="4_ytiwv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qm2e"]
@@ -19,6 +20,7 @@ height = 96.0
 [node name="map" type="Node2D"]
 
 [node name="camera" type="Camera2D" parent="."]
+script = ExtResource("1_kb7a6")
 
 [node name="floors" type="Node2D" parent="."]
 
@@ -37,7 +39,8 @@ texture = ExtResource("1_hielf")
 
 [node name="players" type="Node2D" parent="."]
 
-[node name="player" type="RigidBody2D" parent="players"]
+[node name="player" type="RigidBody2D" parent="players" groups=["player"]]
+script = ExtResource("4_i4hf1")
 
 [node name="icon" type="Sprite2D" parent="players/player"]
 scale = Vector2(0.133333, 0.266667)
@@ -45,9 +48,6 @@ texture = ExtResource("1_hielf")
 
 [node name="collision" type="CollisionShape2D" parent="players/player"]
 shape = SubResource("CapsuleShape2D_i3n6r")
-
-[node name="melt" parent="players/player" instance=ExtResource("2_f8i7m")]
-max_malt = 4.0
 
 [node name="object" parent="players/player" instance=ExtResource("3_ri6xi")]
 

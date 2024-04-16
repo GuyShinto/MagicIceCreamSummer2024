@@ -1,6 +1,5 @@
-[gd_scene load_steps=36 format=3 uid="uid://erup7tk34o2n"]
+[gd_scene load_steps=35 format=3 uid="uid://erup7tk34o2n"]
 
-[ext_resource type="PackedScene" uid="uid://bsnqgs0adi17p" path="res://scenes/components/item.tscn" id="1_2fo3i"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7tlaj"]
 [ext_resource type="Script" path="res://scripts/temperature.gd" id="2_fq0aw"]
 [ext_resource type="Texture2D" uid="uid://bgbeyy3sbbxvg" path="res://artwork/icon_temperature.png" id="2_yjk3f"]
@@ -161,9 +160,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="item" parent="items/box" instance=ExtResource("1_2fo3i")]
-layout_mode = 2
-
 [node name="desc" type="Panel" parent="."]
 offset_top = 144.0
 offset_right = 384.0
@@ -191,10 +187,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -704.0
-offset_top = -448.0
-offset_right = 704.0
-offset_bottom = 448.0
+offset_left = -896.0
+offset_top = -640.0
+offset_right = 896.0
+offset_bottom = 640.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -255,16 +251,24 @@ texture = ExtResource("15_55yp3")
 expand_mode = 1
 
 [node name="icon" type="TextureRect" parent="rewards"]
-layout_mode = 0
-offset_left = -104.0
-offset_top = -100.0
-offset_right = 104.0
-offset_bottom = 108.0
-pivot_offset = Vector2(104, 104)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(128, 124)
 texture = ExtResource("14_0xt2j")
 expand_mode = 1
 
 [node name="highlight" parent="rewards/icon" instance=ExtResource("3_f0dmt")]
+process_mode = 4
 
 [node name="new" type="TextureRect" parent="rewards"]
 modulate = Color(1, 1, 1, 0)

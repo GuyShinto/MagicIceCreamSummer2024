@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsnqgs0adi17p"]
+[gd_scene load_steps=8 format=3 uid="uid://bsnqgs0adi17p"]
 
-[ext_resource type="Texture2D" uid="uid://bjv8fhnchxirw" path="res://artwork/unnamed.png" id="1_3lit0"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_jeqws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xd0am"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7dgv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6d7wn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eggcv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pqd2i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_susgj"]
 
 [node name="item" type="Panel"]
 custom_minimum_size = Vector2(80, 80)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xd0am")
 script = ExtResource("1_jeqws")
 
 [node name="icon" type="TextureRect" parent="."]
@@ -22,5 +34,17 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(32, 32)
 mouse_filter = 2
-texture = ExtResource("1_3lit0")
 expand_mode = 1
+
+[node name="button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 56.0
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y7dgv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6d7wn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_eggcv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pqd2i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_susgj")
