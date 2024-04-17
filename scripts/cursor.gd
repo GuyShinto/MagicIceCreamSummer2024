@@ -127,7 +127,6 @@ func _spell7():
 	for w in Global.mouse.list:
 		if w:
 			if w.is_in_group("watergun"):
-				print(w.get_node("water_gun"))
 				w.get_node("water_gun")._shoot()
 
 func SetSize(alpha:Vector2):

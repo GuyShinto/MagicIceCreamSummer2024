@@ -2,8 +2,8 @@ extends Node
 
 @onready var main := $".."
 
-var water_object := preload("res://scenes/components/water_gun.tscn")
-
+var water_object := preload("res://scenes/objects/water.tscn")
+var speed:float = 20
 var fromshoot:Marker2D
 var toshoot:Marker2D
 
@@ -15,5 +15,6 @@ func _ready():
 
 func _shoot():
 	var water = water_object.instantiate()
-	water.linear_velocity = Vector2(toshoot.global_position.x-fromshoot.global_position.x,toshoot.global_position.y-fromshoot.global_position.y)
+	water.global_position = fromshoot.global_position
+	water.linear_velocity = Vector2(toshoot.global_position.x-fromshoot.global_position.x,toshoot.global_position.y-fromshoot.global_position.y)*speed
 	Global.water.add_child(water)
