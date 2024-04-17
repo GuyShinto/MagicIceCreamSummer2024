@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cs07dderal8g4"]
+[gd_scene load_steps=18 format=3 uid="uid://cs07dderal8g4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_j7ws3"]
 [ext_resource type="Texture2D" uid="uid://jf5lkccxjx8l" path="res://artwork/player_shell_lower.png" id="2_qn4rc"]
@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://jok42oj25egi" path="res://artwork/player_eye1.png" id="5_e2xtb"]
 [ext_resource type="Texture2D" uid="uid://3uvd1p6dtncf" path="res://artwork/player_eye4.png" id="6_454o4"]
 [ext_resource type="Texture2D" uid="uid://bl2f8pm46thad" path="res://artwork/player_eye6.png" id="6_gsh4p"]
+[ext_resource type="Texture2D" uid="uid://xdqqfpcwmrnc" path="res://artwork/icon_ice_highlight.png" id="9_prwom"]
 [ext_resource type="PackedScene" uid="uid://c0s33wnas2xmu" path="res://scenes/components/hpbar.tscn" id="11_e6prw"]
+[ext_resource type="Texture2D" uid="uid://du4jbihx6jilq" path="res://artwork/text_box.png" id="12_u0fqj"]
+[ext_resource type="Texture2D" uid="uid://dowxxa7h5wv0c" path="res://artwork/icon_fire_highlight.png" id="13_s783c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j82aa"]
 friction = 0.3
@@ -33,6 +36,8 @@ eyeIdle = ExtResource("4_r7lr1")
 eyeMove = ExtResource("5_e2xtb")
 eyeDying = ExtResource("6_454o4")
 eyeDie = ExtResource("6_gsh4p")
+hot = ExtResource("13_s783c")
+cold = ExtResource("9_prwom")
 
 [node name="icon" type="Sprite2D" parent="."]
 scale = Vector2(0.144444, 0.132434)
@@ -43,16 +48,13 @@ position = Vector2(-10, -47)
 scale = Vector2(0.2, 0.2)
 
 [node name="face" type="Sprite2D" parent="face"]
-scale = Vector2(1, 1)
 texture = ExtResource("3_yh5q1")
 
 [node name="hair" type="Sprite2D" parent="face"]
-scale = Vector2(1, 1)
 texture = ExtResource("4_hl8xi")
 
 [node name="eye" type="Sprite2D" parent="face"]
 position = Vector2(40, -10)
-scale = Vector2(1, 1)
 texture = ExtResource("5_e2xtb")
 
 [node name="collision" type="CollisionPolygon2D" parent="."]
@@ -78,6 +80,24 @@ debug_color = Color(0, 0.6, 0.701961, 0.129412)
 [node name="hpbar" parent="." instance=ExtResource("11_e6prw")]
 offset_top = -141.0
 offset_bottom = 371.0
+
+[node name="textbox" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 56.0
+offset_top = -152.0
+offset_right = 176.0
+offset_bottom = -64.0
+mouse_filter = 2
+texture = ExtResource("12_u0fqj")
+expand_mode = 1
+
+[node name="icon" type="TextureRect" parent="textbox"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 88.0
+offset_bottom = 56.0
+texture = ExtResource("13_s783c")
+expand_mode = 1
 
 [node name="timer" type="Timer" parent="."]
 process_callback = 0
