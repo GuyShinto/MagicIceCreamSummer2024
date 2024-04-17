@@ -4,6 +4,7 @@ extends TextureRect
 
 var speedMosue :float = 0
 var indexItem :int = 0
+var hasSkill:bool
 
 var skillui = preload("res://scenes/skill.tscn")
 
@@ -133,7 +134,9 @@ func _spell7():
 				w.get_node("water_gun")._shoot()
 
 func _skill():
-	get_tree().current_scene.add_child(skillui.instantiate())
+	if not hasSkill:
+		get_tree().current_scene.add_child(skillui.instantiate())
+		hasSkill = true
 
 func SetSize(alpha:Vector2):
 	self.scale = alpha

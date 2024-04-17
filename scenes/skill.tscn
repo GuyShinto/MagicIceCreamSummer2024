@@ -1,145 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8v11gdpbqqyd"]
+[gd_scene load_steps=8 format=3 uid="uid://c8v11gdpbqqyd"]
 
 [ext_resource type="Script" path="res://scripts/skill_ui.gd" id="1_o3exi"]
 [ext_resource type="Texture2D" uid="uid://b8s2peu7uabvm" path="res://artwork/frame_skill.png" id="1_xpyc5"]
 [ext_resource type="Texture2D" uid="uid://bc3sqqtk7aq52" path="res://artwork/title_skill.png" id="2_kbspv"]
+[ext_resource type="Shader" path="res://shaders/skill_labal.gdshader" id="4_ejxu1"]
+[ext_resource type="Texture2D" uid="uid://bcuu7sjafb12i" path="res://artwork/labalskill.png" id="5_y5pko"]
 
-[sub_resource type="Animation" id="Animation_dtylx"]
-resource_name = "skill"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("frame_up:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.466516, 1),
-"update": 0,
-"values": [Vector2(0, 368), Vector2(352, 368)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("frame_down:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(1200, 280), Vector2(800, 280)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("title:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.4),
-"transitions": PackedFloat32Array(0.210225, 1),
-"update": 0,
-"values": [Vector2(-48, -200), Vector2(-48, 128)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("frame_down:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.812252, 1),
-"update": 0,
-"values": [Vector2(600, 600), Vector2(400, 400)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("frame_up:size")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(600, 600), Vector2(400, 400)]
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uinpi"]
+shader = ExtResource("4_ejxu1")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = 0.2
 
-[sub_resource type="Animation" id="Animation_lbxkc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("frame_up:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(352, 368)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("frame_down:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(800, 280)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("title:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-48, 120)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("frame_down:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(400, 400)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("frame_up:size")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(400.005, 400)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ea57"]
-_data = {
-"RESET": SubResource("Animation_lbxkc"),
-"skill": SubResource("Animation_dtylx")
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nso8m"]
+shader = ExtResource("4_ejxu1")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = -0.2
 
 [node name="skill" type="CanvasLayer"]
 layer = 110
 script = ExtResource("1_o3exi")
+
+[node name="labal_down" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_uinpi")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_top = 72.0
+offset_right = 3456.0
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_y5pko")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="labal_up" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_nso8m")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1152.0
+offset_top = -200.0
+offset_right = 3456.0
+offset_bottom = 24.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_y5pko")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="frame_down" type="TextureRect" parent="."]
 anchors_preset = 3
@@ -147,36 +59,31 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -352.0
-offset_top = -368.0
-offset_right = 47.9998
+offset_left = -52.0
+offset_top = -320.0
+offset_right = 572.0
 offset_bottom = 32.0
 grow_horizontal = 0
 grow_vertical = 0
-size_flags_horizontal = 8
-size_flags_vertical = 8
+pivot_offset = Vector2(344, 368)
 texture = ExtResource("1_xpyc5")
 expand_mode = 1
 
 [node name="frame_up" type="TextureRect" parent="."]
-offset_left = 352.0
-offset_top = 368.0
-offset_right = 752.005
-offset_bottom = 768.0
+offset_left = 56.0
+offset_top = 313.0
+offset_right = 681.0
+offset_bottom = 658.0
 rotation = 3.14159
 texture = ExtResource("1_xpyc5")
 expand_mode = 1
 
 [node name="title" type="TextureRect" parent="."]
-offset_left = -48.0
-offset_top = 120.0
-offset_right = 240.0
-offset_bottom = 312.0
-rotation = -0.632082
+offset_left = -2.54389
+offset_top = 6.97644
+offset_right = 317.456
+offset_bottom = 219.976
+rotation = -0.359641
+pivot_offset = Vector2(164.12, 113.531)
 texture = ExtResource("2_kbspv")
 expand_mode = 1
-
-[node name="animation" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_2ea57")
-}
