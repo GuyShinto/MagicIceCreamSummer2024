@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://by2hv8lkjqboj"]
+[gd_scene load_steps=7 format=3 uid="uid://by2hv8lkjqboj"]
 
 [ext_resource type="Texture2D" uid="uid://b7y2jsp48e8d4" path="res://artwork/fan_off.png" id="1_od67x"]
 [ext_resource type="PackedScene" uid="uid://beh2hjltheqi2" path="res://scenes/components/electrical.tscn" id="2_ak4yu"]
 [ext_resource type="Texture2D" uid="uid://bjm7l70aofxd0" path="res://artwork/fan_on.png" id="3_y403n"]
+[ext_resource type="PackedScene" uid="uid://nagx8ytpbr8s" path="res://scenes/components/cpbar.tscn" id="4_ou4cy"]
+[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="4_vfq1f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1v5a"]
 radius = 172.0
@@ -30,3 +32,9 @@ shape = SubResource("CircleShape2D_q1v5a")
 cooly = 1.0
 electricalOff = ExtResource("1_od67x")
 electricalOn = ExtResource("3_y403n")
+
+[node name="object" parent="." instance=ExtResource("4_vfq1f")]
+
+[node name="cpbar" parent="." instance=ExtResource("4_ou4cy")]
+offset_top = -177.0
+offset_bottom = 335.0

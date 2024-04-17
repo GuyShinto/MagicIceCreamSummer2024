@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bah7dxaijttc2"]
+[gd_scene load_steps=6 format=3 uid="uid://bah7dxaijttc2"]
 
 [ext_resource type="Texture2D" uid="uid://durikec5datkt" path="res://artwork/fridge_empty.png" id="1_5y5te"]
 [ext_resource type="PackedScene" uid="uid://beh2hjltheqi2" path="res://scenes/components/electrical.tscn" id="2_3mrfb"]
+[ext_resource type="PackedScene" uid="uid://nagx8ytpbr8s" path="res://scenes/components/cpbar.tscn" id="3_cq7gm"]
+[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_u7cvm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0y0l"]
 radius = 196.163
@@ -29,3 +31,9 @@ shape = SubResource("CircleShape2D_y0y0l")
 cooly = 1.0
 electricalOff = ExtResource("1_5y5te")
 electricalOn = ExtResource("1_5y5te")
+
+[node name="object" parent="." instance=ExtResource("3_u7cvm")]
+
+[node name="cpbar" parent="." instance=ExtResource("3_cq7gm")]
+offset_top = -278.0
+offset_bottom = 234.0

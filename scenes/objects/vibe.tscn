@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3pnps10m85uf"]
+[gd_scene load_steps=7 format=3 uid="uid://d3pnps10m85uf"]
 
 [ext_resource type="Texture2D" uid="uid://we5ltt65q2op" path="res://artwork/vibe_off.png" id="1_t3xpj"]
 [ext_resource type="PackedScene" uid="uid://beh2hjltheqi2" path="res://scenes/components/electrical.tscn" id="2_gho6m"]
 [ext_resource type="Texture2D" uid="uid://ce0r3hlj4wexr" path="res://artwork/vibe_on.png" id="3_cn0bv"]
+[ext_resource type="PackedScene" uid="uid://nagx8ytpbr8s" path="res://scenes/components/cpbar.tscn" id="4_b461g"]
+[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="5_o2uv5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8nxsk"]
 radius = 162.25
@@ -30,3 +32,9 @@ shape = SubResource("CircleShape2D_8nxsk")
 cooly = 0.5
 electricalOff = ExtResource("1_t3xpj")
 electricalOn = ExtResource("3_cn0bv")
+
+[node name="object" parent="." instance=ExtResource("5_o2uv5")]
+
+[node name="cpbar" parent="." instance=ExtResource("4_b461g")]
+offset_top = -157.0
+offset_bottom = 355.0

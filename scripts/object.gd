@@ -4,7 +4,6 @@ extends Node
 @onready var main := $".."
 
 @export var canFreeze : bool = true
-@export var cpBarLocal : Vector2
 @export var maxCp : float = 60
 @export var maltcp:float = 1
 
@@ -17,7 +16,7 @@ func _ready():
 	if canFreeze and main.has_node("cpbar"):
 		cpbar = main.get_node("cpbar")
 		cool_material = main.get_node("icon")
-		cool_material.material = load("res://shaders/freeze_material.tres")
+		cool_material.material = load("res://shaders/freeze_material.tres").duplicate()
 		cpbar.max_value = maxCp
 		timer.timeout.connect(_on_timeout)
 		timer.start()
