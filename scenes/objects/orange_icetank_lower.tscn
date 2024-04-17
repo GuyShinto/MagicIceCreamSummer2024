@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://n1fxg2w5npbu"]
+
+[ext_resource type="Texture2D" uid="uid://bgsjab21mt8ys" path="res://artwork/orange_icetank_lower.png" id="1_itf4t"]
+
+[node name="orange_icetank_lower" type="RigidBody2D"]
+mass = 30.0
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, -32)
+scale = Vector2(0.138287, 0.138287)
+texture = ExtResource("1_itf4t")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(4.76837e-07, -32)
+scale = Vector2(0.138287, 0.138287)
+polygon = PackedVector2Array(289.253, -209.708, 325.409, -209.708, 349, -132, 349, -120.5, 356.3, 109.5, 354, 109.5, 344, 205.5, 340, 205.5, 322, 239.5, 304.6, 239.5, 211, 245.1, 211, 235.8, 202.4, 217, 198.1, 216.5, -206.7, 217.5, -231.6, 244.5, -295.3, 244.5, -335, 241.9, -335, 233.3, -359, 167.3, -359, 161.4, -355.9, -91.5, -353.7, -91.5, -337.7, -208.5, -331.4, -208.5, -303.715, -209.708, -289.253, 195.246, -57.8506, 188.014, 289.253, 188.014)

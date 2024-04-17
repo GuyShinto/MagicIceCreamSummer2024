@@ -34,7 +34,7 @@ func _set_mouse(_index):
 
 func _process(_delta):
 	if Input.is_action_pressed("left_click"):
-		#_spell()
+		#_spell4()
 		pass
 	elif Input.is_action_just_pressed("right_click"):
 		_spell()
@@ -64,7 +64,9 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			_click()
-			_spell3()
+			_spell5()
+			#_spell3()
+			#_spell()
 		elif Input.is_action_just_pressed("right_click"):
 			_click()
 			Global.rewards._show(randi_range(1,7))
@@ -78,18 +80,36 @@ func _input(event):
 
 func _spell():
 	for ice in Global.mouse.list:
-		if ice.is_in_group("ice"):
-			var mousePostion:Vector2 = Global.mouse.global_position
-			ice.linear_velocity = Vector2(clamp(mousePostion.x-ice.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-ice.global_position.y,-maxIceMove,maxIceMove))
+		if ice:
+			if ice.is_in_group("ice"):
+				var mousePostion:Vector2 = Global.mouse.global_position
+				ice.linear_velocity = Vector2(clamp(mousePostion.x-ice.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-ice.global_position.y,-maxIceMove,maxIceMove))
 
 func _spell2():
 	for ice in Global.mouse.list:
-		if ice.has_node("melt"):
-			ice.get_node("melt")._on_timeout()
+		if ice:
+			if ice.has_node("melt"):
+				ice.get_node("melt")._on_timeout()
 
 func _spell3():
 	if not get_tree().paused:
 		Effects.SetRipple(get_global_mouse_position())
+
+func _spell4():
+	for wat in Global.mouse.list:
+		if wat:
+			if wat.is_in_group("water"):
+				var mousePostion:Vector2 = Global.mouse.global_position
+				wat.linear_velocity = Vector2(clamp(mousePostion.x-wat.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-wat.global_position.y,-maxIceMove,maxIceMove))
+			
+func _spell5():
+	if not get_tree().paused:
+		Effects.SetRipple(get_global_mouse_position())
+	for i in Global.mouse.listl:
+		if i:
+			if i.is_in_group("water") or i.is_in_group("ice"):
+				var mousePostion:Vector2 = Global.mouse.global_position
+				i.linear_velocity = -Vector2(1.0,1.0)/(Vector2(clamp(mousePostion.x-i.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-i.global_position.y,-maxIceMove,maxIceMove))*0.00001)
 
 func SetSize(alpha:Vector2):
 	self.scale = alpha

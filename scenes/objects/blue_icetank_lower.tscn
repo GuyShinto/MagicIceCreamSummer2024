@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo3an6igjgdxc"]
+
+[ext_resource type="Texture2D" uid="uid://cp5vycgwwples" path="res://artwork/blue_icetank_lower.png" id="1_xsvs6"]
+
+[node name="blue_icetank_lower" type="RigidBody2D"]
+mass = 30.0
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(0, -48)
+scale = Vector2(0.192238, 0.192238)
+texture = ExtResource("1_xsvs6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -48)
+scale = Vector2(0.192238, 0.192238)
+polygon = PackedVector2Array(390.141, -202.873, 436.957, -202.873, 448.8, -105, 445.8, -105, 428.8, 114, 426.2, 114, 390.2, 248, 368.5, 248, 220.5, 249, 220.5, 243.2, 193.2, 224, 173.5, 224, -196.6, 222, -228.7, 251, -276.6, 251, -387.5, 248.8, -387.5, 240.4, -411.5, 191.3, -411.5, 185.9, -442.5, 26, -442.5, 24, -447.361, -202.873, -436.957, -202.873, -400.544, -202.873, -364.131, 197.671, 0, 202.873, 369.333, 202.873)

@@ -16,7 +16,7 @@ mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_ritmh")
 
 [node name="melt" parent="." instance=ExtResource("1_oqy7f")]
-max_malt = 20.0
+max_malt = 60.0
 
 [node name="object" parent="." instance=ExtResource("2_de4v3")]
 

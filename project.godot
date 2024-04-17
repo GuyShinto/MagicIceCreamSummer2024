@@ -106,6 +106,12 @@ sort0={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="upper"
+2d_physics/layer_2="middle"
+2d_physics/layer_3="lower"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

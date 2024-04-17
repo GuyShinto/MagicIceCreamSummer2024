@@ -24,5 +24,6 @@ func _physics_process(_delta):
 
 func _on_timeout():
 	timer.stop()
+	Global.mouse._outlist(self)
 	Global.temperature.cold.erase(self)
 	main.queue_free()

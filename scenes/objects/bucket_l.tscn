@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp3gr1vkxxgjv"]
+
+[ext_resource type="Texture2D" uid="uid://bewsa33mx5wro" path="res://artwork/bucket_2.png" id="1_403rr"]
+
+[node name="bucket_l" type="RigidBody2D"]
+mass = 20.0
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, -13)
+scale = Vector2(0.100624, 0.100624)
+texture = ExtResource("1_403rr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(4.76837e-07, -13)
+scale = Vector2(0.100624, 0.100624)
+polygon = PackedVector2Array(327.953, 89.4417, 457.146, -139.131, 482, -128.2, 482, -122.2, 486.96, -89.4417, 488.8, -63, 472.8, -35, 467.2, -35, 432.5, -19.8, 346.8, 128, 337.7, 128, 98.3, 144, 96.9, 144, -302, 133.7, -302, 132, -351, 127, -351, 119.7, -430.8, -18.6, -481, -41.6, -481, -47.5, -494, -72.6, -494, -79.3, -479.6, -132, -471.6, -132, -447.208, -139.131, -308.077, 99.3796)

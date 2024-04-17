@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=35 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
-[ext_resource type="Texture2D" uid="uid://bqefhhqf6o3q2" path="res://artwork/road.png" id="3_4qlyq"]
+[ext_resource type="PackedScene" uid="uid://ddy27muki4lid" path="res://scenes/objects/road.tscn" id="2_ofcyl"]
 [ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_ri6xi"]
 [ext_resource type="PackedScene" uid="uid://cx8jhcse056l0" path="res://scenes/objects/ice.tscn" id="4_84b7g"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="4_i4hf1"]
@@ -17,12 +17,20 @@
 [ext_resource type="Texture2D" uid="uid://bc1n8xxrfhku7" path="res://artwork/background_parallax1.png" id="9_sh8ua"]
 [ext_resource type="PackedScene" uid="uid://oid37qewiy1t" path="res://scenes/objects/air.tscn" id="10_5mtvr"]
 [ext_resource type="Texture2D" uid="uid://duiqwbvqup48v" path="res://artwork/background_parallax_lower.png" id="10_h54iy"]
+[ext_resource type="PackedScene" uid="uid://cnta0k8o5adt0" path="res://scenes/objects/watergun_1.tscn" id="11_8rguw"]
+[ext_resource type="PackedScene" uid="uid://ch288sc7inqsh" path="res://scenes/objects/watergun_2.tscn" id="12_js1tq"]
 [ext_resource type="Script" path="res://scripts/mouse_local.gd" id="12_ou6y3"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbni0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qm2e"]
-size = Vector2(1280, 248)
+[ext_resource type="PackedScene" uid="uid://dsrswbvl2mbst" path="res://scenes/objects/watergun_3.tscn" id="13_hkkwk"]
+[ext_resource type="PackedScene" uid="uid://c6mpldrhag5rr" path="res://scenes/objects/sign.tscn" id="14_fiqnm"]
+[ext_resource type="PackedScene" uid="uid://dwngc1bovo3ks" path="res://scenes/objects/bucket_m.tscn" id="15_ef27f"]
+[ext_resource type="PackedScene" uid="uid://dp3gr1vkxxgjv" path="res://scenes/objects/bucket_l.tscn" id="16_dsh0w"]
+[ext_resource type="PackedScene" uid="uid://cqd2mikvbsiwm" path="res://scenes/objects/bucket_s.tscn" id="17_v3od1"]
+[ext_resource type="PackedScene" uid="uid://bo3an6igjgdxc" path="res://scenes/objects/blue_icetank_lower.tscn" id="18_goerj"]
+[ext_resource type="PackedScene" uid="uid://7c6s3fqkd0xx" path="res://scenes/objects/blue_icetank_upper.tscn" id="19_03556"]
+[ext_resource type="PackedScene" uid="uid://n1fxg2w5npbu" path="res://scenes/objects/orange_icetank_lower.tscn" id="20_abkoc"]
+[ext_resource type="PackedScene" uid="uid://cd2l527w2ry2y" path="res://scenes/objects/orange_icetank_upper.tscn" id="21_d15pb"]
+[ext_resource type="PackedScene" uid="uid://c4y5n7wq08hfq" path="res://scenes/objects/fridge_frame_upper.tscn" id="25_8imd5"]
+[ext_resource type="PackedScene" uid="uid://dfmxjxi8inupn" path="res://scenes/objects/fridge_frame_lower.tscn" id="26_43nqq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j82aa"]
 friction = 0.3
@@ -32,7 +40,7 @@ bounce = 0.1
 radius = 184.174
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2y705"]
-radius = 192.0
+radius = 364.26
 
 [node name="map" type="Node2D"]
 
@@ -41,41 +49,15 @@ script = ExtResource("1_kb7a6")
 
 [node name="floors" type="Node2D" parent="."]
 
-[node name="road" type="StaticBody2D" parent="floors"]
+[node name="road2" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(1278, 304)
 
-[node name="icon" type="Sprite2D" parent="floors/road"]
-material = SubResource("ShaderMaterial_nbni0")
-position = Vector2(-6.00001, 216)
-texture = ExtResource("3_4qlyq")
+[node name="road" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(0, 274)
 
-[node name="collision" type="CollisionShape2D" parent="floors/road"]
-position = Vector2(-8, 220)
-shape = SubResource("RectangleShape2D_6qm2e")
-
-[node name="road2" type="StaticBody2D" parent="floors"]
-position = Vector2(1280, 56)
-rotation = 0.0878534
-
-[node name="icon" type="Sprite2D" parent="floors/road2"]
-material = SubResource("ShaderMaterial_nbni0")
-position = Vector2(-6.00001, 216)
-texture = ExtResource("3_4qlyq")
-
-[node name="collision" type="CollisionShape2D" parent="floors/road2"]
-position = Vector2(-8, 220)
-shape = SubResource("RectangleShape2D_6qm2e")
-
-[node name="road3" type="StaticBody2D" parent="floors"]
-position = Vector2(2520, 112)
-
-[node name="icon" type="Sprite2D" parent="floors/road3"]
-material = SubResource("ShaderMaterial_nbni0")
-position = Vector2(-6.00001, 216)
-texture = ExtResource("3_4qlyq")
-
-[node name="collision" type="CollisionShape2D" parent="floors/road3"]
-position = Vector2(-8, 220)
-shape = SubResource("RectangleShape2D_6qm2e")
+[node name="road3" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(2541, 378)
+rotation = 0.113372
 
 [node name="objects" type="Node2D" parent="."]
 
@@ -101,7 +83,7 @@ position = Vector2(240, -64)
 position = Vector2(-464, -296)
 
 [node name="fridge" parent="objects" instance=ExtResource("6_t0a4k")]
-position = Vector2(400, -224)
+position = Vector2(386, -228)
 
 [node name="freeze" parent="objects" instance=ExtResource("7_rh7mv")]
 position = Vector2(600, -280)
@@ -114,6 +96,24 @@ position = Vector2(240, -360)
 
 [node name="air" parent="objects" instance=ExtResource("10_5mtvr")]
 position = Vector2(-368, -464)
+
+[node name="watergun_1" parent="objects" instance=ExtResource("11_8rguw")]
+position = Vector2(624, -184)
+
+[node name="watergun_2" parent="objects" instance=ExtResource("12_js1tq")]
+position = Vector2(-264, -248)
+
+[node name="watergun_3" parent="objects" instance=ExtResource("13_hkkwk")]
+position = Vector2(408, -128)
+
+[node name="sign" parent="objects" instance=ExtResource("14_fiqnm")]
+position = Vector2(795, -198)
+
+[node name="blue_icetank_upper" parent="objects" instance=ExtResource("19_03556")]
+position = Vector2(-445, -116)
+
+[node name="orange_icetank_upper" parent="objects" instance=ExtResource("21_d15pb")]
+position = Vector2(243, -316)
 
 [node name="players" type="Node2D" parent="."]
 
@@ -138,6 +138,29 @@ polygon = PackedVector2Array(503, -355.4, 503, -353.9, 585, -348.9, 585, -340.4,
 [node name="collision" type="CollisionShape2D" parent="players/player/area"]
 shape = SubResource("CircleShape2D_jg1s1")
 debug_color = Color(0, 0.6, 0.701961, 0.129412)
+
+[node name="upper_objects" type="Node2D" parent="."]
+
+[node name="bucket_m" parent="upper_objects" instance=ExtResource("15_ef27f")]
+position = Vector2(1075, 111)
+
+[node name="bucket_l" parent="upper_objects" instance=ExtResource("16_dsh0w")]
+position = Vector2(946, -13)
+
+[node name="bucket_s" parent="upper_objects" instance=ExtResource("17_v3od1")]
+position = Vector2(799, -35)
+
+[node name="blue_icetank_lower" parent="upper_objects" instance=ExtResource("18_goerj")]
+position = Vector2(-445, -15)
+
+[node name="orange_icetank_lower" parent="upper_objects" instance=ExtResource("20_abkoc")]
+position = Vector2(244, -247)
+
+[node name="fridge_frame_upper" parent="upper_objects" instance=ExtResource("25_8imd5")]
+position = Vector2(128, -390)
+
+[node name="fridge_frame_lower" parent="upper_objects" instance=ExtResource("26_43nqq")]
+position = Vector2(104, -160)
 
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
 
@@ -176,3 +199,10 @@ script = ExtResource("12_ou6y3")
 
 [node name="collision" type="CollisionShape2D" parent="mouse/area"]
 shape = SubResource("CircleShape2D_2y705")
+debug_color = Color(0, 0.6, 0.701961, 0.101961)
+
+[node name="area_long" type="Area2D" parent="mouse"]
+
+[node name="collision" type="CollisionShape2D" parent="mouse/area_long"]
+shape = SubResource("CircleShape2D_2y705")
+debug_color = Color(0, 0.6, 0.701961, 0.105882)

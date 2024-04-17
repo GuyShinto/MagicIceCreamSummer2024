@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6mpldrhag5rr"]
+
+[ext_resource type="Texture2D" uid="uid://mq6we74q15dj" path="res://artwork/sign.png" id="1_o281r"]
+
+[node name="sign" type="RigidBody2D"]
+mass = 10.0
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(0, -122)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_o281r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -122)
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(118, -458.5, 118, -455.8, 262.6, -220.2, 256.9, -210, 250, -210, 37, -211.9, 34, 576, 31.9, 576, 26.9, 618, -22.1, 618, -30, 610.1, -30, 602, -36.9, -213, -241, -212, -241, -232, -250, -232, -250, -222, -258.5, -227.2, -113.6, -465, -111.8, -465, -11, -592.4, -11, -597.1, 2.29999, -601.8)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4y5n7wq08hfq"]
+
+[ext_resource type="Texture2D" uid="uid://ds5cpvoi77ijq" path="res://artwork/fridge_frame_upper.png" id="1_qmcq8"]
+
+[node name="fridge_frame_upper" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 10.0
+
+[node name="icon" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_qmcq8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(228, -118.9, 228, -108, 239.1, -4, 236.6, -4, 231.5, 103, 226, 103, 214, 119, -215, 119, -215, 109.7, -231, 64.7, -231, 61.9, -226.8, -116, -216.4, -116, -134, -119.6, -134, -121.1)
