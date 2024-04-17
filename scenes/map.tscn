@@ -48,22 +48,22 @@ position = Vector2(1278, 304)
 position = Vector2(0, 274)
 
 [node name="road3" parent="floors" instance=ExtResource("2_ofcyl")]
-position = Vector2(2541, 378)
+position = Vector2(2539, 377)
 rotation = 0.113372
 
 [node name="objects" type="Node2D" parent="."]
 
 [node name="ice" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(1041, -155)
+position = Vector2(-112, -139)
 
 [node name="ice2" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(976, -291)
+position = Vector2(-177, -275)
 
 [node name="ice3" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(1065, -243)
+position = Vector2(-88, -227)
 
 [node name="ice4" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(1008, -283)
+position = Vector2(-145, -267)
 
 [node name="ice5" parent="objects" instance=ExtResource("4_84b7g")]
 position = Vector2(-145, -315)
@@ -136,6 +136,8 @@ position = Vector2(389, -304)
 
 [node name="player_shell_upper" parent="upper_objects" instance=ExtResource("25_wubf4")]
 position = Vector2(0, -92)
+
+[node name="water" type="Node2D" parent="." groups=["water_group"]]
 
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
 

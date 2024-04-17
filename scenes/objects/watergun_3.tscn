@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsrswbvl2mbst"]
+[gd_scene load_steps=3 format=3 uid="uid://dsrswbvl2mbst"]
 
 [ext_resource type="Texture2D" uid="uid://5vtv0qgjlwef" path="res://artwork/watergun_3.png" id="1_fj5ep"]
+[ext_resource type="PackedScene" uid="uid://cwf2kpluq8n3j" path="res://scenes/components/water_gun.tscn" id="2_57kof"]
 
-[node name="watergun_3" type="RigidBody2D" groups=["water"]]
+[node name="watergun_3" type="RigidBody2D" groups=["water", "watergun"]]
 mass = 5.0
 
 [node name="icon" type="Sprite2D" parent="."]
@@ -13,3 +14,11 @@ texture = ExtResource("1_fj5ep")
 visible = false
 scale = Vector2(0.12, 0.12)
 polygon = PackedVector2Array(240.5, -263.3, 240.5, -258.2, 418.8, -150.8, 459.5, -164.4, 459.5, -157.3, 564.5, -130.3, 564.5, -122.3, 571.3, -36.5, 561.6, -36.5, 441.5, 12.5, 439.4, 12.5, 221.7, 32.5, 244.7, 32.5, 305.5, 34.9, 305.5, 39.7, 347.1, 63.7, 343.2, 78.5, 338, 78.5, 289.1, 118.5, 250.2, 118.5, 68.5, 107.8, 57.5, 114.9, 56.1, 151.5, 41.8, 151.5, 14.2, 135.4, -38.7, 270.5, -56.6, 270.5, -208.5, 268.4, -208.5, 255.3, -171.2, 101.4, -485.5, 99.5, -485.5, 93, -545.5, 40, -545.5, 35.3, -573, -36.5, -564.5, -36.5, -535.5, -116.5, -530.2, -116.5, -420.2, -181.5, -415.8, -181.5, -346.8, -199.5, -331.9, -199.5, -214.2, -204.3, -172.2, -254.5, -158, -254.5, 62.5, -265, 62.5, -266.7)
+
+[node name="from_shoot" type="Marker2D" parent="."]
+position = Vector2(70, -10)
+
+[node name="to_shoot" type="Marker2D" parent="."]
+position = Vector2(122, -10)
+
+[node name="water_gun" parent="." instance=ExtResource("2_57kof")]

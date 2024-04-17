@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwf2kpluq8n3j"]
+
+[ext_resource type="Script" path="res://scripts/water_gun.gd" id="1_kp20u"]
+
+[node name="water_gun" type="Node"]
+script = ExtResource("1_kp20u")

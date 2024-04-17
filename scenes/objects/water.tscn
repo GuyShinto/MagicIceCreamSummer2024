@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuyhhn6iycyds"]
+
+[sub_resource type="Gradient" id="Gradient_ehovu"]
+offsets = PackedFloat32Array(0.416244, 0.720812)
+colors = PackedColorArray(0, 0.52549, 1, 0.52549, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3jl5i"]
+gradient = SubResource("Gradient_ehovu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dj83"]
+radius = 18.2483
+
+[node name="water" type="RigidBody2D"]
+
+[node name="icon" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_3jl5i")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_7dj83")

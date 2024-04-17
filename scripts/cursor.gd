@@ -35,6 +35,7 @@ func _set_mouse(_index):
 func _process(_delta):
 	if Input.is_action_pressed("left_click"):
 		#_spell4()
+		_spell1()
 		pass
 	elif Input.is_action_just_pressed("right_click"):
 		#_spell1()
@@ -65,7 +66,8 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			_click()
-			_spell3()
+			_spell7()
+			#_spell3()
 			#_spell3()
 			#_spell()
 		elif Input.is_action_just_pressed("right_click"):
@@ -120,6 +122,13 @@ func _spell6():
 		if el:
 			if el.has_node("electrical"):
 				el.get_node("electrical")._add_energy(5)
+
+func _spell7():
+	for w in Global.mouse.list:
+		if w:
+			if w.is_in_group("watergun"):
+				print(w.get_node("water_gun"))
+				w.get_node("water_gun")._shoot()
 
 func SetSize(alpha:Vector2):
 	self.scale = alpha

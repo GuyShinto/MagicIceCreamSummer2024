@@ -4,10 +4,12 @@ extends Node
 @onready var main := $".."
 
 @export var canFreeze : bool = true
+@export var damge:float = 1
 @export var maxHp:float = 30
 @export var maxCp : float = 60
 @export var maltcp:float = 1
 
+var hasHp:bool
 var showtime:float = 2.5
 var cpbar = null
 var hpbar = null
@@ -16,7 +18,10 @@ var cp :float
 var hp : float
 
 func _ready():
+	if main is RigidBody2D:
+		main.body_shape_entered.connect(_entered)
 	if main.has_node("hpbar"):
+		hasHp = true
 		hpbar = main.get_node("hpbar")
 		hp = maxHp
 		hpbar.value = maxHp
@@ -79,8 +84,13 @@ func _highcool():
 	#main.get_node("icon").texture = electricalOn
 	pass
 
+func _entered(_rid, _body, _body_index, _local_index):
+	if (abs(main.linear_velocity.x) > 500 or abs(main.linear_velocity.y) > 500):
+		if _body.is_in_group("player"):
+			_body.get_node("object")._take_damge(1)
+
 func _process(_delta):
-	if (Global.despawn_y <= main.position.y) or (hp <= 0):
+	if (Global.despawn_y <= main.position.y) or (hasHp and hp <= 0):
 		Global.mouse._outlist(self)
 		Global.temperature.cold.erase(self)
 		Global.temperature.cooly.erase(self)
