@@ -19,6 +19,7 @@ physics_material_override = SubResource("PhysicsMaterial_ritmh")
 max_malt = 60.0
 
 [node name="object" parent="." instance=ExtResource("2_de4v3")]
+canFreeze = false
 
 [node name="icon" type="Sprite2D" parent="."]
 position = Vector2(0, 9.53674e-07)

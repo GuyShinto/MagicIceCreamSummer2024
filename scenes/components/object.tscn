@@ -4,3 +4,6 @@
 
 [node name="object" type="Node"]
 script = ExtResource("1_kef6q")
+
+[node name="timer" type="Timer" parent="."]
+process_callback = 0

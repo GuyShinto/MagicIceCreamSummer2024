@@ -65,7 +65,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			_click()
-			_spell6()
+			_spell3()
 			#_spell3()
 			#_spell()
 		elif Input.is_action_just_pressed("right_click"):
@@ -93,8 +93,11 @@ func _spell2():
 				ice.get_node("melt")._on_timeout()
 
 func _spell3():
-	if not get_tree().paused:
-		Effects.SetRipple(get_global_mouse_position())
+	for o in Global.mouse.list:
+		if o:
+			if o.has_node("object"):
+				if o.get_node("object").canFreeze:
+					o.get_node("object")._add_cool(1)
 
 func _spell4():
 	for wat in Global.mouse.list:

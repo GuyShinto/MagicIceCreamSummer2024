@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://nagx8ytpbr8s"]
+
+[ext_resource type="Texture2D" uid="uid://d4n4frmq63nm7" path="res://artwork/cp_full.png" id="1_b2rdh"]
+[ext_resource type="Texture2D" uid="uid://fo4btkrc2jkb" path="res://artwork/cp_empty.png" id="1_bwt2l"]
+
+[node name="cpbar" type="TextureProgressBar"]
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+offset_left = -80.0
+offset_top = -24.0
+offset_right = 1200.0
+offset_bottom = 488.0
+scale = Vector2(0.125, 0.08)
+texture_under = ExtResource("1_bwt2l")
+texture_progress = ExtResource("1_b2rdh")
