@@ -2,6 +2,7 @@ extends CanvasLayer
 
 #@onready var anim:AnimationPlayer = $"animation"
 @onready var blur = $"blur".material
+@onready var damge = $"damge"
 @onready var frame_down = $"frame_down"
 @onready var yee = $"yee"
 @onready var tree = $"tree"
@@ -25,6 +26,7 @@ extends CanvasLayer
 
 var canpress:bool
 
+var damgeV:Vector2
 var bgT:float
 var bgV:Vector2
 var BaseDown:Vector2
@@ -54,7 +56,10 @@ var ricont:float
 var ricong2:bool
 var ricont2:float
 
+var total:int
+
 func _ready():
+	damgeV = damge.position
 	yeeV = yee.pivot_offset
 	treeV = tree.pivot_offset
 	yeeV2 = yee.position
@@ -107,6 +112,8 @@ func _ready():
 	sword.texture = sword_frame[5]
 	var tween6 = create_tween()
 	tween6.tween_method(SetFade5, 0.0, 1.0, 1.0).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	total += randi_range(1000,10000)
+	damge.text = str(total)
 	var tween7 = create_tween()
 	tween7.tween_method(SetShack, 0.0, 1.0, 6.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	riconb = true
@@ -139,6 +146,8 @@ func _ready():
 	await get_tree().create_timer(0.2).timeout
 	var tween11 = create_tween()
 	tween11.tween_method(SetBr, 0.0, 1.0, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	total += randi_range(10000,100000)
+	damge.text = str(total)
 	var tween12 = create_tween()
 	tween12.tween_method(SetShack, 0.0, 1.0, 6.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	await get_tree().create_timer(2).timeout
@@ -196,6 +205,7 @@ func SetFade5(alpha:float):
 	sword.position = swordV + Vector2(randf_range(-1.0,1.0),randf_range(-1.0,1.0))*100.0
 
 func SetShack(alpha:float):
+	damge.position = damgeV+Vector2(randf_range(-1.0,1.0),randf_range(-1.0,1.0))*100.0*(1-alpha)
 	frame_up.position = BaseUp+Vector2(500,0) + Vector2(randf_range(-1.0,1.0),randf_range(-1.0,1.0))*100.0*(1-alpha)
 	frame_down.position = BaseDown+Vector2(-500,0) + Vector2(randf_range(-1.0,1.0),randf_range(-1.0,1.0))*100.0*(1-alpha)
 	labal_down.position = LabalDown+Vector2(0,-200) + Vector2(randf_range(-1.0,1.0),randf_range(-1.0,1.0))*100.0*(1-alpha)
