@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cevnly25jko6q"]
+[gd_scene load_steps=5 format=3 uid="uid://cevnly25jko6q"]
 
 [ext_resource type="Texture2D" uid="uid://xuy85shv03et" path="res://artwork/freeze_off.png" id="1_tlq8h"]
+[ext_resource type="PackedScene" uid="uid://beh2hjltheqi2" path="res://scenes/components/electrical.tscn" id="2_3afdl"]
+[ext_resource type="Texture2D" uid="uid://dkkf5omkj44t6" path="res://artwork/freeze_on.png" id="3_x8qca"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xp6u2"]
+radius = 142.285
 
 [node name="freeze" type="RigidBody2D"]
 mass = 10.0
@@ -14,3 +19,14 @@ texture = ExtResource("1_tlq8h")
 position = Vector2(0, -46)
 scale = Vector2(0.13, 0.13)
 polygon = PackedVector2Array(599, -341.8, 599, -331, 610.3, -241, 601.7, -241, 586, -227.4, 589, 295, 578.6, 295, 535.5, 300.8, 531.3, 359, 499.9, 359, 207, 354.9, 207, 342.3, 195.9, 293, -195.7, 293, -208.9, 355, -270.8, 355, -532, 359.2, -532, 344.8, -535.4, 301, -589, 293.7, -589, 282, -586, -226.5, -609, -245.3, -609, -251.4, -601.1, -339, -591.3, -339, -125, -354.7, -125, -356.2)
+
+[node name="area" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+position = Vector2(0, -64)
+shape = SubResource("CircleShape2D_xp6u2")
+
+[node name="electrical" parent="." instance=ExtResource("2_3afdl")]
+cooly = 1.0
+electricalOff = ExtResource("1_tlq8h")
+electricalOn = ExtResource("3_x8qca")

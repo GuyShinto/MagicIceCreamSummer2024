@@ -37,7 +37,8 @@ func _process(_delta):
 		#_spell4()
 		pass
 	elif Input.is_action_just_pressed("right_click"):
-		_spell()
+		#_spell1()
+		pass
 
 func _input(event):
 	if event is InputEventKey:
@@ -64,7 +65,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			_click()
-			_spell5()
+			_spell6()
 			#_spell3()
 			#_spell()
 		elif Input.is_action_just_pressed("right_click"):
@@ -78,7 +79,7 @@ func _input(event):
 		self.position = get_viewport().get_mouse_position()
 		speedMosue += (event.velocity.x/10000) + (-event.velocity.y/10000)
 
-func _spell():
+func _spell1():
 	for ice in Global.mouse.list:
 		if ice:
 			if ice.is_in_group("ice"):
@@ -110,6 +111,12 @@ func _spell5():
 			if i.is_in_group("water") or i.is_in_group("ice"):
 				var mousePostion:Vector2 = Global.mouse.global_position
 				i.linear_velocity = -Vector2(1.0,1.0)/(Vector2(clamp(mousePostion.x-i.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-i.global_position.y,-maxIceMove,maxIceMove))*0.00001)
+
+func _spell6():
+	for el in Global.mouse.list:
+		if el:
+			if el.has_node("electrical"):
+				el.get_node("electrical")._add_energy(5)
 
 func SetSize(alpha:Vector2):
 	self.scale = alpha

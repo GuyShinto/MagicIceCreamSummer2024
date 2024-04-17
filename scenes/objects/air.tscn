@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://oid37qewiy1t"]
+[gd_scene load_steps=5 format=3 uid="uid://oid37qewiy1t"]
 
 [ext_resource type="Texture2D" uid="uid://c2iux1pijbcyr" path="res://artwork/air_off.png" id="1_h8k66"]
+[ext_resource type="PackedScene" uid="uid://beh2hjltheqi2" path="res://scenes/components/electrical.tscn" id="2_ku2e8"]
+[ext_resource type="Texture2D" uid="uid://b7xgs2ymwej53" path="res://artwork/air_on.png" id="3_ep0eu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5wvk"]
+radius = 256.0
 
 [node name="air" type="RigidBody2D"]
 mass = 10.0
@@ -14,3 +19,13 @@ texture = ExtResource("1_h8k66")
 position = Vector2(0, -22)
 scale = Vector2(0.172527, 0.129516)
 polygon = PackedVector2Array(526, -163.9, 526, -157.2, 563, -120.1, 563, -116.4, 594, -50.2, 594, -47.5, 613.4, 103, 609.5, 103, 598.5, 171, -601, 171, -601, 160, -609.6, 8, -605.2, 8, -562.2, -123, -558.3, -123, -519.3, -164, -509.5, -164, -417, -168.5, -417, -170.1)
+
+[node name="area" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+shape = SubResource("CircleShape2D_a5wvk")
+
+[node name="electrical" parent="." instance=ExtResource("2_ku2e8")]
+cooly = 1.0
+electricalOff = ExtResource("1_h8k66")
+electricalOn = ExtResource("3_ep0eu")

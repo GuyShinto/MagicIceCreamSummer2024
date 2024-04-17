@@ -18,6 +18,8 @@ var heat : float
 
 var cold : Array
 
+var cooly : Array
+
 func _ready():
 	Global.temperature = self
 	timer.timeout.connect(_timeout)
@@ -44,7 +46,13 @@ func SetFade(alpha:float):
 	indicator.position.y = baseIndicator.y - clamp(alpha,-80,80)
 
 func _timeout():
-	_hot(-1.5 - (cold.size()*0.2))
+	_hot(0.5 - (cold.size()*0.2) - (sum_cool()))
+
+func sum_cool():
+	var _sum:float = 0
+	for c in cooly:
+		_sum += c.cooly
+	return _sum
 
 func _physics_process(delta):
 	indicatorIcon.position = Vector2() + Vector2(randf()*abs(heat*2),randf()*abs(heat*2)) * delta

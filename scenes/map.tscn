@@ -62,19 +62,19 @@ rotation = 0.113372
 [node name="objects" type="Node2D" parent="."]
 
 [node name="ice" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(-208, -48)
+position = Vector2(1041, -155)
 
 [node name="ice2" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(-232, -184)
+position = Vector2(976, -291)
 
 [node name="ice3" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(-184, -136)
+position = Vector2(1065, -243)
 
 [node name="ice4" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(-200, -176)
+position = Vector2(1008, -283)
 
 [node name="ice5" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(-288, -168)
+position = Vector2(920, -275)
 
 [node name="cooly" parent="objects" instance=ExtResource("4_vhmns")]
 position = Vector2(240, -64)
@@ -133,7 +133,7 @@ polygon = PackedVector2Array(503, -355.4, 503, -353.9, 585, -348.9, 585, -340.4,
 
 [node name="object" parent="players/player" instance=ExtResource("3_ri6xi")]
 
-[node name="area" type="Area2D" parent="players/player"]
+[node name="area" type="Area2D" parent="players/player" groups=["player"]]
 
 [node name="collision" type="CollisionShape2D" parent="players/player/area"]
 shape = SubResource("CircleShape2D_jg1s1")
@@ -165,6 +165,7 @@ position = Vector2(104, -160)
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 1)
@@ -193,6 +194,7 @@ scale = Vector2(5, 3)
 texture = ExtResource("10_h54iy")
 
 [node name="mouse" type="Marker2D" parent="."]
+visible = false
 script = ExtResource("12_ou6y3")
 
 [node name="area" type="Area2D" parent="mouse"]

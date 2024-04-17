@@ -4,3 +4,6 @@
 
 [node name="electrical" type="Node"]
 script = ExtResource("1_qflan")
+
+[node name="timer" type="Timer" parent="."]
+process_callback = 0
