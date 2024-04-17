@@ -29,6 +29,8 @@ func _hot(value):
 	var tween = get_tree().create_tween()
 	tween.tween_method(SetFade, heat, heat+value, 0.3).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	heat += value
+	if Global.player:
+		Global.player._change_hair(heat)
 	Postprocess.SetHeat(heat/maxHeat)
 	if (heat > 0):
 		if(heat > maxHeat):

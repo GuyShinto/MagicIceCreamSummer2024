@@ -11,5 +11,6 @@ offset_top = -24.0
 offset_right = 1200.0
 offset_bottom = 488.0
 scale = Vector2(0.125, 0.08)
+mouse_filter = 2
 texture_under = ExtResource("1_bwt2l")
 texture_progress = ExtResource("1_b2rdh")

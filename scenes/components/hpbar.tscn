@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0s33wnas2xmu"]
+
+[ext_resource type="Texture2D" uid="uid://bfomot5ywofmu" path="res://artwork/hp_empty.png" id="1_h6xgi"]
+[ext_resource type="Texture2D" uid="uid://c4j6tm5ytii3" path="res://artwork/hp_full.png" id="2_0ms0n"]
+
+[node name="hpbar" type="TextureProgressBar"]
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+offset_left = -80.0
+offset_top = -24.0
+offset_right = 1200.0
+offset_bottom = 488.0
+scale = Vector2(0.125, 0.08)
+mouse_filter = 2
+texture_under = ExtResource("1_h6xgi")
+texture_progress = ExtResource("2_0ms0n")

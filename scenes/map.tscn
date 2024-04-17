@@ -1,14 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=32 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
 [ext_resource type="PackedScene" uid="uid://ddy27muki4lid" path="res://scenes/objects/road.tscn" id="2_ofcyl"]
-[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_ri6xi"]
 [ext_resource type="PackedScene" uid="uid://cx8jhcse056l0" path="res://scenes/objects/ice.tscn" id="4_84b7g"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="4_i4hf1"]
 [ext_resource type="PackedScene" uid="uid://d0oi5rtre11ta" path="res://scenes/objects/cooly.tscn" id="4_vhmns"]
 [ext_resource type="PackedScene" uid="uid://erup7tk34o2n" path="res://scenes/ui.tscn" id="4_ytiwv"]
 [ext_resource type="PackedScene" uid="uid://d3pnps10m85uf" path="res://scenes/objects/vibe.tscn" id="5_jc3pp"]
-[ext_resource type="Texture2D" uid="uid://bctqsbb2cstwy" path="res://artwork/player_shell.png" id="5_nqpcx"]
 [ext_resource type="PackedScene" uid="uid://bah7dxaijttc2" path="res://scenes/objects/fridge.tscn" id="6_t0a4k"]
 [ext_resource type="PackedScene" uid="uid://cevnly25jko6q" path="res://scenes/objects/freeze.tscn" id="7_rh7mv"]
 [ext_resource type="PackedScene" uid="uid://c4h0n5vu6g1xl" path="res://scenes/objects/cone.tscn" id="8_2iofa"]
@@ -24,20 +21,15 @@
 [ext_resource type="PackedScene" uid="uid://c6mpldrhag5rr" path="res://scenes/objects/sign.tscn" id="14_fiqnm"]
 [ext_resource type="PackedScene" uid="uid://dwngc1bovo3ks" path="res://scenes/objects/bucket_m.tscn" id="15_ef27f"]
 [ext_resource type="PackedScene" uid="uid://dp3gr1vkxxgjv" path="res://scenes/objects/bucket_l.tscn" id="16_dsh0w"]
+[ext_resource type="PackedScene" uid="uid://cs07dderal8g4" path="res://scenes/player.tscn" id="17_a7kvp"]
 [ext_resource type="PackedScene" uid="uid://cqd2mikvbsiwm" path="res://scenes/objects/bucket_s.tscn" id="17_v3od1"]
 [ext_resource type="PackedScene" uid="uid://bo3an6igjgdxc" path="res://scenes/objects/blue_icetank_lower.tscn" id="18_goerj"]
 [ext_resource type="PackedScene" uid="uid://7c6s3fqkd0xx" path="res://scenes/objects/blue_icetank_upper.tscn" id="19_03556"]
 [ext_resource type="PackedScene" uid="uid://n1fxg2w5npbu" path="res://scenes/objects/orange_icetank_lower.tscn" id="20_abkoc"]
 [ext_resource type="PackedScene" uid="uid://cd2l527w2ry2y" path="res://scenes/objects/orange_icetank_upper.tscn" id="21_d15pb"]
 [ext_resource type="PackedScene" uid="uid://c4y5n7wq08hfq" path="res://scenes/objects/fridge_frame_upper.tscn" id="25_8imd5"]
+[ext_resource type="PackedScene" uid="uid://b5vh06l6upboq" path="res://scenes/objects/player_shell_upper.tscn" id="25_wubf4"]
 [ext_resource type="PackedScene" uid="uid://dfmxjxi8inupn" path="res://scenes/objects/fridge_frame_lower.tscn" id="26_43nqq"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j82aa"]
-friction = 0.3
-bounce = 0.1
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jg1s1"]
-radius = 184.174
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2y705"]
 radius = 364.26
@@ -74,7 +66,7 @@ position = Vector2(1065, -243)
 position = Vector2(1008, -283)
 
 [node name="ice5" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(-74, -430)
+position = Vector2(-145, -315)
 
 [node name="cooly" parent="objects" instance=ExtResource("4_vhmns")]
 position = Vector2(240, -64)
@@ -117,28 +109,7 @@ position = Vector2(243, -316)
 
 [node name="players" type="Node2D" parent="."]
 
-[node name="player" type="RigidBody2D" parent="players" groups=["player"]]
-mass = 20.0
-physics_material_override = SubResource("PhysicsMaterial_j82aa")
-script = ExtResource("4_i4hf1")
-speed = 500
-
-[node name="icon" type="Sprite2D" parent="players/player"]
-scale = Vector2(0.144444, 0.132434)
-texture = ExtResource("5_nqpcx")
-
-[node name="collision" type="CollisionPolygon2D" parent="players/player"]
-scale = Vector2(0.144444, 0.132434)
-polygon = PackedVector2Array(503, -355.4, 503, -353.9, 585, -348.9, 585, -340.4, 598.4, -304.5, 592.2, -304.5, 585.2, -218.5, 575.4, -218.5, 567.8, -217.6, 552.7, 323.5, 542.5, 323.5, 488.7, 326.1, 476.9, 376.5, 459, 376.5, 185, 378.5, 185, 367.5, 180.1, 324.5, -179, 324.5, -179, 331.7, -180.3, 372.5, -188.7, 372.5, -204.6, 380.5, -310.1, 380.5, -469, 377.3, -469, 373.7, -484, 368.7, -484, 358.2, -488.6, 326.5, -553, 325.3, -553, 307.5, -567.7, -217.5, -584.3, -217.5, -592.7, -339.5, -582.4, -339.5, -534.4, -353.5, -514.3, -353.5, -225, -361.2, -225, -362.6)
-
-[node name="object" parent="players/player" instance=ExtResource("3_ri6xi")]
-canFreeze = false
-
-[node name="area" type="Area2D" parent="players/player" groups=["player"]]
-
-[node name="collision" type="CollisionShape2D" parent="players/player/area"]
-shape = SubResource("CircleShape2D_jg1s1")
-debug_color = Color(0, 0.6, 0.701961, 0.129412)
+[node name="player" parent="players" instance=ExtResource("17_a7kvp")]
 
 [node name="upper_objects" type="Node2D" parent="."]
 
@@ -158,10 +129,13 @@ position = Vector2(-445, -15)
 position = Vector2(244, -247)
 
 [node name="fridge_frame_upper" parent="upper_objects" instance=ExtResource("25_8imd5")]
-position = Vector2(128, -390)
+position = Vector2(386, -409)
 
 [node name="fridge_frame_lower" parent="upper_objects" instance=ExtResource("26_43nqq")]
-position = Vector2(104, -160)
+position = Vector2(389, -304)
+
+[node name="player_shell_upper" parent="upper_objects" instance=ExtResource("25_wubf4")]
+position = Vector2(0, -92)
 
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
 
@@ -195,16 +169,17 @@ scale = Vector2(5, 3)
 texture = ExtResource("10_h54iy")
 
 [node name="mouse" type="Marker2D" parent="."]
-visible = false
 script = ExtResource("12_ou6y3")
 
 [node name="area" type="Area2D" parent="mouse"]
+visible = false
 
 [node name="collision" type="CollisionShape2D" parent="mouse/area"]
 shape = SubResource("CircleShape2D_2y705")
 debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
 [node name="area_long" type="Area2D" parent="mouse"]
+visible = false
 
 [node name="collision" type="CollisionShape2D" parent="mouse/area_long"]
 shape = SubResource("CircleShape2D_2y705")
