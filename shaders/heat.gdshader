@@ -12,7 +12,7 @@ float map(float value, float min1, float max1, float min2, float max2)
 
 float heatDistortionIntensity(vec2 uvCoord)
 {
-    float result = (1.0-uvCoord.y) * (1.0-uvCoord.y) * (1.0-uvCoord.y);
+    float result = uvCoord.y * uvCoord.y * uvCoord.y;
     return map(result, 0.0, 1.0, 0.0, 0.5);
 }
 
@@ -74,6 +74,10 @@ void fragment() {
     float sine_range = sin(-phase + frequency) * amplitude;
     vec2 distort = vec2(sine_range,0.0);
     vec2 blur = vec2(rand(uv + vec2(TIME)) / 30.0 * heatDistortionIntensity(uv));
-	//COLOR.rgb = linearToSrgb(color);
-	COLOR = texture(screen_texture, uv + distort + blur);
+	//COLOR = vec3(linearToSrgb(color),1.0);
+	vec4 normal = texture(screen_texture,uv);
+	vec4 hot = texture(screen_texture, uv + distort + blur) * vec4(1.0, 0.5, 0.0, 0.2) * 2.0;
+	vec4 cold = vec4(linearToSrgb(color),1.0);
+	COLOR = mix(cold,mix(normal,hot,clamp(heat,0.0,1.0)),clamp(heat+1.0,0.0,1.0));
+	//COLOR = 
 }

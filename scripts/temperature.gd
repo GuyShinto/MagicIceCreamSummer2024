@@ -5,6 +5,8 @@ extends Panel
 @onready var title : Label = $"indicator/icon/title"
 @onready var timer :Timer = $"timer"
 
+@export var maxHeat:float = 40;
+
 var icon_cool:Texture2D = preload("res://artwork/indicator_cool.png")
 var icon_verycool:Texture2D = preload("res://artwork/indicator_verycool.png")
 var icon_hot:Texture2D = preload("res://artwork/indicator_hot.png")
@@ -25,13 +27,14 @@ func _hot(value):
 	var tween = get_tree().create_tween()
 	tween.tween_method(SetFade, heat, heat+value, 0.3).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	heat += value
+	Postprocess.SetHeat(heat/maxHeat)
 	if (heat > 0):
-		if(heat > 40):
+		if(heat > maxHeat):
 			indicatorIcon.texture = icon_veryhot
 		else:
 			indicatorIcon.texture = icon_hot
 	else:
-		if(heat < -40):
+		if(heat < -maxHeat):
 			indicatorIcon.texture = icon_verycool
 		else:
 			indicatorIcon.texture = icon_cool
@@ -41,7 +44,7 @@ func SetFade(alpha:float):
 	indicator.position.y = baseIndicator.y - clamp(alpha,-80,80)
 
 func _timeout():
-	_hot(0.5 - (cold.size()*0.2))
+	_hot(-1.5 - (cold.size()*0.2))
 
 func _physics_process(delta):
 	indicatorIcon.position = Vector2() + Vector2(randf()*abs(heat*2),randf()*abs(heat*2)) * delta

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://rh4fejxnoswe"]
+[gd_scene load_steps=4 format=3 uid="uid://rh4fejxnoswe"]
 
+[ext_resource type="Script" path="res://scripts/postprocess.gd" id="1_phhmv"]
 [ext_resource type="Shader" path="res://shaders/heat.gdshader" id="1_yxkio"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3vk1r"]
@@ -8,6 +9,7 @@ shader_parameter/heat = 0.0
 
 [node name="postprocess" type="CanvasLayer"]
 layer = 100
+script = ExtResource("1_phhmv")
 
 [node name="heat" type="ColorRect" parent="."]
 process_mode = 3
