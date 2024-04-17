@@ -5,6 +5,8 @@ extends TextureRect
 var speedMosue :float = 0
 var indexItem :int = 0
 
+var skillui = preload("res://scenes/skill.tscn")
+
 func _ready():
 	Global.cursor = self
 
@@ -72,7 +74,8 @@ func _input(event):
 			#_spell()
 		elif Input.is_action_just_pressed("right_click"):
 			_click()
-			Global.rewards._show(randi_range(1,7))
+			_skill()
+			#Global.rewards._show(randi_range(1,7))
 		elif Input.is_action_pressed("left_wheel"):
 			_set_mouse(indexItem+1)
 		elif Input.is_action_pressed("right_wheel"):
@@ -128,6 +131,9 @@ func _spell7():
 		if w:
 			if w.is_in_group("watergun"):
 				w.get_node("water_gun")._shoot()
+
+func _skill():
+	get_tree().current_scene.add_child(skillui.instantiate())
 
 func SetSize(alpha:Vector2):
 	self.scale = alpha
