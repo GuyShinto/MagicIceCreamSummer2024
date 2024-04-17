@@ -57,6 +57,7 @@ func _show(_id):
 			tween.tween_method(SetFade, 0.0, 1.0, 1.0).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 			tweennew.tween_method(SetFadeNew, 0.0, 1.0, 1.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 
+
 func _physics_process(delta):
 	if hasShow:
 		time += delta/4

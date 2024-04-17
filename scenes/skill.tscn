@@ -1,10 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8v11gdpbqqyd"]
+[gd_scene load_steps=25 format=3 uid="uid://c8v11gdpbqqyd"]
 
 [ext_resource type="Script" path="res://scripts/skill_ui.gd" id="1_o3exi"]
 [ext_resource type="Texture2D" uid="uid://b8s2peu7uabvm" path="res://artwork/frame_skill.png" id="1_xpyc5"]
 [ext_resource type="Texture2D" uid="uid://bc3sqqtk7aq52" path="res://artwork/title_skill.png" id="2_kbspv"]
+[ext_resource type="Texture2D" uid="uid://dejgqrxfwc425" path="res://artwork/frame/skill_freme2.png" id="3_t6q1q"]
+[ext_resource type="Texture2D" uid="uid://dgmny08xeylgl" path="res://artwork/frame/skill_freme3.png" id="4_3hdsp"]
 [ext_resource type="Shader" path="res://shaders/skill_labal.gdshader" id="4_ejxu1"]
+[ext_resource type="Texture2D" uid="uid://dk762i548gcmt" path="res://artwork/frame/skill_freme4png.png" id="5_3gfr1"]
 [ext_resource type="Texture2D" uid="uid://bcuu7sjafb12i" path="res://artwork/labalskill.png" id="5_y5pko"]
+[ext_resource type="Texture2D" uid="uid://bnttwey8q4ed0" path="res://artwork/frame/skill_freme5.png" id="6_2dyf5"]
+[ext_resource type="Texture2D" uid="uid://dmxyjrr4j0cfu" path="res://artwork/frame/skill_freme1.png" id="6_ejhdc"]
+[ext_resource type="Texture2D" uid="uid://d131stsy4phcw" path="res://artwork/frame/skill_freme6.png" id="7_s85eq"]
+[ext_resource type="Texture2D" uid="uid://dhs6plulh1qxq" path="res://artwork/background_space.png" id="8_4xooa"]
+[ext_resource type="Texture2D" uid="uid://oha5odvil81w" path="res://artwork/earth.png" id="12_3dq2e"]
+[ext_resource type="Texture2D" uid="uid://cqy16scrylwk3" path="res://artwork/sun.png" id="13_o8c2c"]
+[ext_resource type="Texture2D" uid="uid://c1jvmcpprydtf" path="res://artwork/icon_pressx.png" id="15_6gusk"]
+[ext_resource type="Texture2D" uid="uid://duiqwbvqup48v" path="res://artwork/background_parallax_lower.png" id="16_ie7p3"]
+[ext_resource type="Texture2D" uid="uid://d0sarnh2dh31f" path="res://artwork/hit_effect.png" id="17_c2stf"]
+[ext_resource type="Texture2D" uid="uid://c32nlhci0a67i" path="res://artwork/star_skill.png" id="18_v1gmv"]
+[ext_resource type="Texture2D" uid="uid://cs48w47n486bx" path="res://artwork/yee.png" id="19_qauke"]
+[ext_resource type="Texture2D" uid="uid://b5qgmpq5erbxh" path="res://artwork/tree_evil.png" id="20_xmm0l"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="21_5db6r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uinpi"]
 shader = ExtResource("4_ejxu1")
@@ -16,9 +32,121 @@ shader = ExtResource("4_ejxu1")
 shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed = -0.2
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyka8"]
+shader = ExtResource("21_5db6r")
+shader_parameter/power = 0.0
+shader_parameter/Amount = 150.0
+shader_parameter/GOLDEN_ANGLE = 2.39996
+shader_parameter/NUMBER = 150.0
+
 [node name="skill" type="CanvasLayer"]
 layer = 110
 script = ExtResource("1_o3exi")
+sword_frame = Array[Texture2D]([ExtResource("6_ejhdc"), ExtResource("3_t6q1q"), ExtResource("4_3hdsp"), ExtResource("5_3gfr1"), ExtResource("6_2dyf5"), ExtResource("7_s85eq")])
+
+[node name="bg" type="TextureRect" parent="."]
+modulate = Color(0.490196, 0.490196, 0.490196, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1680.5
+offset_top = -1093.0
+offset_right = 1680.5
+offset_bottom = 1093.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_4xooa")
+
+[node name="icon2" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -648.0
+offset_top = -492.0
+offset_right = -16.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_o8c2c")
+expand_mode = 1
+
+[node name="sword" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.0
+offset_top = -532.0
+offset_right = 700.0
+offset_bottom = 520.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ejhdc")
+expand_mode = 1
+
+[node name="icon1" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -254.0
+offset_right = 254.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(254, 250)
+texture = ExtResource("12_3dq2e")
+expand_mode = 1
+
+[node name="yee" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -712.0
+offset_top = -476.0
+offset_right = 208.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(488, 536)
+texture = ExtResource("19_qauke")
+expand_mode = 1
+
+[node name="tree" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 248.0
+offset_top = -340.0
+offset_right = 944.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(352, 360)
+texture = ExtResource("20_xmm0l")
+expand_mode = 1
+
+[node name="icon3" type="TextureRect" parent="."]
+offset_left = -1656.0
+offset_top = -392.0
+offset_right = -112.0
+offset_bottom = 1152.0
+pivot_offset = Vector2(752, 776)
+texture = ExtResource("12_3dq2e")
+expand_mode = 1
 
 [node name="labal_down" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_uinpi")
@@ -87,3 +215,117 @@ rotation = -0.359641
 pivot_offset = Vector2(164.12, 113.531)
 texture = ExtResource("2_kbspv")
 expand_mode = 1
+
+[node name="pressx" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 424.0
+offset_top = -268.0
+offset_right = 776.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(176, 184)
+texture = ExtResource("15_6gusk")
+expand_mode = 1
+
+[node name="pro" type="TextureProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 824.0
+offset_top = -700.0
+offset_right = 1592.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.08, 1)
+fill_mode = 3
+texture_progress = ExtResource("16_ie7p3")
+
+[node name="exp" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -284.0
+offset_right = 392.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("17_c2stf")
+expand_mode = 1
+
+[node name="star1" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -380.0
+offset_right = 192.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(288, 280)
+texture = ExtResource("18_v1gmv")
+expand_mode = 1
+
+[node name="star2" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -568.0
+offset_top = -348.0
+offset_right = 8.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(288, 280)
+texture = ExtResource("18_v1gmv")
+expand_mode = 1
+
+[node name="star3" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 112.0
+offset_top = -340.0
+offset_right = 688.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(288, 280)
+texture = ExtResource("18_v1gmv")
+expand_mode = 1
+
+[node name="blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_eyka8")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1920.0
+offset_top = -1172.0
+offset_right = 1920.0
+offset_bottom = 1172.0
+grow_horizontal = 2
+grow_vertical = 2
