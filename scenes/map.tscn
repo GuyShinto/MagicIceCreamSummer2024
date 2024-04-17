@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=24 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
 [ext_resource type="Texture2D" uid="uid://bqefhhqf6o3q2" path="res://artwork/road.png" id="3_4qlyq"]
@@ -7,9 +7,15 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="4_i4hf1"]
 [ext_resource type="PackedScene" uid="uid://d0oi5rtre11ta" path="res://scenes/objects/cooly.tscn" id="4_vhmns"]
 [ext_resource type="PackedScene" uid="uid://erup7tk34o2n" path="res://scenes/ui.tscn" id="4_ytiwv"]
+[ext_resource type="PackedScene" uid="uid://d3pnps10m85uf" path="res://scenes/objects/vibe.tscn" id="5_jc3pp"]
 [ext_resource type="Texture2D" uid="uid://bctqsbb2cstwy" path="res://artwork/player_shell.png" id="5_nqpcx"]
+[ext_resource type="PackedScene" uid="uid://bah7dxaijttc2" path="res://scenes/objects/fridge.tscn" id="6_t0a4k"]
+[ext_resource type="PackedScene" uid="uid://cevnly25jko6q" path="res://scenes/objects/freeze.tscn" id="7_rh7mv"]
+[ext_resource type="PackedScene" uid="uid://c4h0n5vu6g1xl" path="res://scenes/objects/cone.tscn" id="8_2iofa"]
 [ext_resource type="Texture2D" uid="uid://dd5vqs2e5cc2y" path="res://artwork/background_parallax2.png" id="9_b60b1"]
+[ext_resource type="PackedScene" uid="uid://by2hv8lkjqboj" path="res://scenes/objects/fan.tscn" id="9_f4w5i"]
 [ext_resource type="Texture2D" uid="uid://bc1n8xxrfhku7" path="res://artwork/background_parallax1.png" id="9_sh8ua"]
+[ext_resource type="PackedScene" uid="uid://oid37qewiy1t" path="res://scenes/objects/air.tscn" id="10_5mtvr"]
 [ext_resource type="Texture2D" uid="uid://duiqwbvqup48v" path="res://artwork/background_parallax_lower.png" id="10_h54iy"]
 [ext_resource type="Script" path="res://scripts/mouse_local.gd" id="12_ou6y3"]
 
@@ -90,6 +96,24 @@ position = Vector2(-288, -168)
 
 [node name="cooly" parent="objects" instance=ExtResource("4_vhmns")]
 position = Vector2(240, -64)
+
+[node name="vibe" parent="objects" instance=ExtResource("5_jc3pp")]
+position = Vector2(-464, -296)
+
+[node name="fridge" parent="objects" instance=ExtResource("6_t0a4k")]
+position = Vector2(400, -224)
+
+[node name="freeze" parent="objects" instance=ExtResource("7_rh7mv")]
+position = Vector2(600, -280)
+
+[node name="cone" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(-504, -424)
+
+[node name="fan" parent="objects" instance=ExtResource("9_f4w5i")]
+position = Vector2(240, -360)
+
+[node name="air" parent="objects" instance=ExtResource("10_5mtvr")]
+position = Vector2(-368, -464)
 
 [node name="players" type="Node2D" parent="."]
 

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/global.gd"
 Postprocess="*res://scenes/postprocess.tscn"
+Effects="*res://scenes/effects.tscn"
 
 [input]
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4h0n5vu6g1xl"]
+
+[ext_resource type="Texture2D" uid="uid://boc6ds0318sjo" path="res://artwork/cone.png" id="1_sqldb"]
+
+[node name="cone" type="RigidBody2D"]
+mass = 10.0
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(0, -30)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("1_sqldb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -30)
+scale = Vector2(0.065, 0.065)
+polygon = PackedVector2Array(114, -442.3, 114, -431.7, 202, -167.6, 202, -166.2, 302.3, 300.8, 419, 315.2, 419, 323.8, 436.4, 404, 429.4, 404, 408.4, 450, 398.9, 450, 299.5, 459, -308, 459, -308, 456.8, -426, 441.8, -426, 425.7, -436, 371, -430.9, 371, -418, 314, -405.9, 314, -302.3, 293.6, -171, -287, -169, -287, -110.9, -442, -104.4, -442, -72, -451.5, -72, -455.7)

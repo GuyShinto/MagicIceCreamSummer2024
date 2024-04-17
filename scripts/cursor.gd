@@ -64,7 +64,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			_click()
-			_spell()
+			_spell3()
 		elif Input.is_action_just_pressed("right_click"):
 			_click()
 			Global.rewards._show(randi_range(1,7))
@@ -86,6 +86,10 @@ func _spell2():
 	for ice in Global.mouse.list:
 		if ice.has_node("melt"):
 			ice.get_node("melt")._on_timeout()
+
+func _spell3():
+	if not get_tree().paused:
+		Effects.SetRipple(get_global_mouse_position())
 
 func SetSize(alpha:Vector2):
 	self.scale = alpha
