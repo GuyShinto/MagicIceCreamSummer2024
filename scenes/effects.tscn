@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn4pmf4261f6f"]
+[gd_scene load_steps=6 format=3 uid="uid://bn4pmf4261f6f"]
 
 [ext_resource type="Script" path="res://scripts/effects.gd" id="1_x07lh"]
 [ext_resource type="Shader" path="res://shaders/ripple.gdshader" id="2_avbm3"]
+[ext_resource type="Shader" path="res://shaders/shiny_glow.gdshader" id="3_bo85d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u8tut"]
 shader = ExtResource("2_avbm3")
@@ -11,6 +12,9 @@ shader_parameter/time = 0.0
 shader_parameter/fade = 0.0
 shader_parameter/local = null
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7ei6"]
+shader = ExtResource("3_bo85d")
+
 [node name="effects" type="CanvasLayer"]
 layer = 10
 script = ExtResource("1_x07lh")
@@ -18,6 +22,22 @@ script = ExtResource("1_x07lh")
 [node name="screen" type="ColorRect" parent="."]
 process_mode = 3
 material = SubResource("ShaderMaterial_u8tut")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1172.0
+offset_top = -782.0
+offset_right = 1172.0
+offset_bottom = 782.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="screen2" type="ColorRect" parent="."]
+process_mode = 3
+material = SubResource("ShaderMaterial_m7ei6")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
