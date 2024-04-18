@@ -1068,7 +1068,46 @@ position = Vector2(0, -91)
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="enemy" parent="enemies" instance=ExtResource("30_8xr42")]
-position = Vector2(543, 82)
+position = Vector2(19980, 1375)
+
+[node name="enemy2" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(21766, 1452)
+
+[node name="enemy3" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(23183, 1473)
+
+[node name="enemy4" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(24384, 1447)
+
+[node name="enemy5" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(26996, 1459)
+
+[node name="enemy6" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(27909, 1471)
+
+[node name="enemy7" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(29941, 1447)
+
+[node name="enemy8" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(32293, 1459)
+
+[node name="enemy9" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(34203, 1348)
+
+[node name="enemy10" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(53586, -2090)
+
+[node name="enemy11" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(71040, 4520)
+
+[node name="enemy12" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(75517, 4497)
+
+[node name="enemy13" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(78614, 4500)
+
+[node name="enemy14" parent="enemies" instance=ExtResource("30_8xr42")]
+position = Vector2(80028, 4523)
 
 [node name="water" type="Node2D" parent="." groups=["water_group"]]
 
