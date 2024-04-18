@@ -2,9 +2,10 @@ extends TextureRect
 
 @export var maxIceMove:float = 200
 
-var speedMosue :float = 0
-var indexItem :int = 0
-var hasSkill:bool
+var speedMosue :float
+var indexItem :int
+var hasSkill :bool
+var indexMagic :int
 
 var skillui = preload("res://scenes/skill.tscn")
 
@@ -32,17 +33,24 @@ func _set_mouse(_index):
 			indexItem = 0
 		else:
 			indexItem = _index
-		self.texture = Global.items[indexItem-1].cursor
+		var thisItem = Global.items[indexItem-1]
+		self.texture = thisItem.cursor
+		indexMagic = thisItem.id
 		_click()
 
 func _process(_delta):
 	if Input.is_action_pressed("left_click"):
-		#_spell4()
-		_spell1()
-		pass
-	elif Input.is_action_just_pressed("right_click"):
-		#_spell1()
-		pass
+		match indexMagic:
+			1:
+				_spell1()
+			6:
+				_spell4()
+	elif Input.is_action_pressed("right_click"):
+		match indexMagic:
+			1:
+				_spell1long()
+			6:
+				_spell4long()
 
 func _input(event):
 	if event is InputEventKey:
@@ -69,15 +77,30 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			_click()
-			_spell7()
+			match indexMagic:
+				4:
+					_spell5()
+				7:
+					_spell6()
+			#match indexMagic:
+			#	1:
+			#		_spell7()
 			#_spell7()
 			#_spell3()
 			#_spell3()
 			#_spell()
 		elif Input.is_action_just_pressed("right_click"):
 			_click()
+			match indexMagic:
+				4:
+					_spell5back()
+				7:
+					_spell6long()
+			#match indexMagic:
+			#	1:
+			#		_spell7()
 			#_skill()
-			_spell6()
+			#_spell6()
 			#AudioManager.reward.play()
 		elif Input.is_action_pressed("left_wheel"):
 			_set_mouse(indexItem+1)
@@ -89,27 +112,41 @@ func _input(event):
 
 func _spell1():
 	for ice in Global.mouse.list:
-		if ice:
+		if Global._check_null(ice):
+			if ice.is_in_group("ice"):
+				var mousePostion:Vector2 = Global.mouse.global_position
+				ice.linear_velocity = Vector2(clamp(mousePostion.x-ice.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-ice.global_position.y,-maxIceMove,maxIceMove))*2
+
+func _spell1long():
+	for ice in Global.mouse.listl:
+		if Global._check_null(ice):
 			if ice.is_in_group("ice"):
 				var mousePostion:Vector2 = Global.mouse.global_position
 				ice.linear_velocity = Vector2(clamp(mousePostion.x-ice.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-ice.global_position.y,-maxIceMove,maxIceMove))
 
 func _spell2():
 	for ice in Global.mouse.list:
-		if ice:
+		if Global._check_null(ice):
 			if ice.has_node("melt"):
 				ice.get_node("melt")._on_timeout()
 
 func _spell3():
 	for o in Global.mouse.list:
-		if o:
+		if Global._check_null(o):
 			if o.has_node("object"):
 				if o.get_node("object").canFreeze:
 					o.get_node("object")._add_cool(1)
 
 func _spell4():
 	for wat in Global.mouse.list:
-		if wat:
+		if Global._check_null(wat):
+			if wat.is_in_group("water"):
+				var mousePostion:Vector2 = Global.mouse.global_position
+				wat.linear_velocity = Vector2(clamp(mousePostion.x-wat.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-wat.global_position.y,-maxIceMove,maxIceMove))*0.5
+
+func _spell4long():
+	for wat in Global.mouse.listl:
+		if Global._check_null(wat):
 			if wat.is_in_group("water"):
 				var mousePostion:Vector2 = Global.mouse.global_position
 				wat.linear_velocity = Vector2(clamp(mousePostion.x-wat.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-wat.global_position.y,-maxIceMove,maxIceMove))
@@ -118,20 +155,39 @@ func _spell5():
 	if not get_tree().paused:
 		Effects.SetRipple(get_global_mouse_position())
 	for i in Global.mouse.listl:
-		if i:
+		if Global._check_null(i):
 			if i.is_in_group("water") or i.is_in_group("ice"):
 				var mousePostion:Vector2 = Global.mouse.global_position
 				i.linear_velocity = -Vector2(1.0,1.0)/(Vector2(clamp(mousePostion.x-i.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-i.global_position.y,-maxIceMove,maxIceMove))*0.00001)
 
+func _spell5back():
+	if not get_tree().paused:
+		Effects.SetRipple(get_global_mouse_position())
+	for i in Global.mouse.listl:
+		if Global._check_null(i):
+			if i.is_in_group("water") or i.is_in_group("ice"):
+				var mousePostion:Vector2 = Global.mouse.global_position
+				i.linear_velocity = Vector2(1.0,1.0)/(Vector2(clamp(mousePostion.x-i.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-i.global_position.y,-maxIceMove,maxIceMove))*0.00001)
+
+
 func _spell6():
 	for el in Global.mouse.list:
-		if el:
+		if Global._check_null(el):
 			if el.has_node("electrical"):
 				el.get_node("electrical")._add_energy(5)
+			if el.is_in_group("watergun"):
+				el.get_node("water_gun")._shoot()
+func _spell6long():
+	for el in Global.mouse.listl:
+		if Global._check_null(el):
+			if el.has_node("electrical"):
+				el.get_node("electrical")._add_energy(1)
+			if el.is_in_group("watergun"):
+				el.get_node("water_gun")._shoot()
 
 func _spell7():
 	for w in Global.mouse.list:
-		if w:
+		if Global._check_null(w):
 			if w.is_in_group("watergun"):
 				w.get_node("water_gun")._shoot()
 

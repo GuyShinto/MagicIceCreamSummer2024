@@ -853,6 +853,18 @@ position = Vector2(27954, 1163)
 [node name="watergun_6" parent="objects" instance=ExtResource("12_js1tq")]
 position = Vector2(33650, 1175)
 
+[node name="ice2" parent="objects" instance=ExtResource("4_84b7g")]
+position = Vector2(-182, -193)
+
+[node name="ice3" parent="objects" instance=ExtResource("4_84b7g")]
+position = Vector2(-248, -173)
+
+[node name="watergun_7" parent="objects" instance=ExtResource("12_js1tq")]
+position = Vector2(-379, -29)
+
+[node name="freeze11" parent="objects" instance=ExtResource("7_rh7mv")]
+position = Vector2(255, 70)
+
 [node name="players" type="Node2D" parent="."]
 
 [node name="player" parent="players" instance=ExtResource("17_a7kvp")]

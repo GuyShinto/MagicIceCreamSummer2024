@@ -23,3 +23,14 @@ func _ready():
 
 func _get_end():
 	get_tree().current_scene.add_child(theend.instantiate())
+
+func _check_null(_object):
+	if _object:
+		if not is_instance_valid(_object):
+			mouse.list.erase(_object)
+			mouse.listl.erase(_object)
+			return false
+		else:
+			return true
+	else:
+		return false
