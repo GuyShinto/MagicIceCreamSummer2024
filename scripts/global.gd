@@ -1,6 +1,6 @@
 extends Node
 
-var despawn_y : float = 1000
+var despawn_y : float = 10000
 
 var water:Node2D
 var rewards:Panel

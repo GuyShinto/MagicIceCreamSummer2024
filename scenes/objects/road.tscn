@@ -5,19 +5,28 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbni0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qm2e"]
-size = Vector2(1280, 114)
+size = Vector2(1536, 114)
 
 [node name="road" type="StaticBody2D"]
 collision_layer = 7
 
 [node name="icon" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_nbni0")
+position = Vector2(-6.10352e-05, 31.75)
+scale = Vector2(1.2, 1.24708)
 texture = ExtResource("1_pv43q")
 
 [node name="icon2" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_nbni0")
-position = Vector2(0, 158)
+position = Vector2(0.438427, 224)
 rotation = 3.14159
+scale = Vector2(1.2004, 1.24213)
+texture = ExtResource("1_pv43q")
+
+[node name="icon3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nbni0")
+position = Vector2(0.438427, 512)
+scale = Vector2(1.2004, 1.24213)
 texture = ExtResource("1_pv43q")
 
 [node name="collision" type="CollisionShape2D" parent="."]

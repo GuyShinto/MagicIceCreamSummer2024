@@ -1,8 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=35 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
+[ext_resource type="Texture2D" uid="uid://c52jw3k5p8ga2" path="res://artwork/house_1.png" id="2_ivgwf"]
 [ext_resource type="PackedScene" uid="uid://ddy27muki4lid" path="res://scenes/objects/road.tscn" id="2_ofcyl"]
+[ext_resource type="Texture2D" uid="uid://b36y8yg2vtqhf" path="res://artwork/house_2.png" id="3_mggic"]
 [ext_resource type="PackedScene" uid="uid://cx8jhcse056l0" path="res://scenes/objects/ice.tscn" id="4_84b7g"]
+[ext_resource type="Texture2D" uid="uid://cjk8fafv2h8uo" path="res://artwork/house_3.png" id="4_iqdrl"]
 [ext_resource type="PackedScene" uid="uid://d0oi5rtre11ta" path="res://scenes/objects/cooly.tscn" id="4_vhmns"]
 [ext_resource type="PackedScene" uid="uid://erup7tk34o2n" path="res://scenes/ui.tscn" id="4_ytiwv"]
 [ext_resource type="PackedScene" uid="uid://d3pnps10m85uf" path="res://scenes/objects/vibe.tscn" id="5_jc3pp"]
@@ -39,17 +42,130 @@ radius = 364.26
 [node name="camera" type="Camera2D" parent="."]
 script = ExtResource("1_kb7a6")
 
+[node name="background" type="Node2D" parent="."]
+
+[node name="house" type="Sprite2D" parent="background"]
+position = Vector2(3463, -236)
+scale = Vector2(0.544141, 0.544141)
+texture = ExtResource("2_ivgwf")
+
+[node name="house2" type="Sprite2D" parent="background"]
+position = Vector2(4927, -240)
+scale = Vector2(0.544141, 0.544141)
+texture = ExtResource("3_mggic")
+
+[node name="house3" type="Sprite2D" parent="background"]
+position = Vector2(1876.19, -259.187)
+scale = Vector2(0.688769, 0.688769)
+texture = ExtResource("4_iqdrl")
+
+[node name="house4" type="Sprite2D" parent="background"]
+position = Vector2(1876.19, -259.187)
+scale = Vector2(0.688769, 0.688769)
+texture = ExtResource("4_iqdrl")
+
+[node name="house5" type="Sprite2D" parent="background"]
+position = Vector2(7455, -339)
+rotation = -0.0956501
+scale = Vector2(0.544141, 0.544141)
+texture = ExtResource("2_ivgwf")
+
+[node name="house6" type="Sprite2D" parent="background"]
+position = Vector2(9958, -646)
+rotation = -0.19205
+scale = Vector2(0.544141, 0.544141)
+texture = ExtResource("2_ivgwf")
+
+[node name="house7" type="Sprite2D" parent="background"]
+position = Vector2(13006, -971)
+rotation = 0.0370237
+scale = Vector2(0.544141, 0.544141)
+texture = ExtResource("2_ivgwf")
+
+[node name="house8" type="Sprite2D" parent="background"]
+position = Vector2(16995, 145)
+rotation = 0.495899
+scale = Vector2(0.544141, 0.544141)
+texture = ExtResource("2_ivgwf")
+
+[node name="house9" type="Sprite2D" parent="background"]
+position = Vector2(11515, -929)
+rotation = -0.0563211
+scale = Vector2(0.544141, 0.544141)
+texture = ExtResource("3_mggic")
+
+[node name="house10" type="Sprite2D" parent="background"]
+position = Vector2(20338, 1116)
+rotation = 0.0623001
+scale = Vector2(0.544141, 0.544141)
+texture = ExtResource("3_mggic")
+
+[node name="house11" type="Sprite2D" parent="background"]
+position = Vector2(22213, 1172)
+scale = Vector2(0.544141, 0.544141)
+texture = ExtResource("2_ivgwf")
+
 [node name="floors" type="Node2D" parent="."]
 
-[node name="road2" parent="floors" instance=ExtResource("2_ofcyl")]
-position = Vector2(1278, 304)
-
 [node name="road" parent="floors" instance=ExtResource("2_ofcyl")]
-position = Vector2(0, 274)
+position = Vector2(0, 212)
+
+[node name="road2" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(1536, 212)
 
 [node name="road3" parent="floors" instance=ExtResource("2_ofcyl")]
-position = Vector2(2539, 377)
-rotation = 0.113372
+position = Vector2(3072, 212)
+
+[node name="road4" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(4592, 212)
+
+[node name="road5" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(6077, 185)
+rotation = -0.0349066
+
+[node name="road6" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(7577, 106)
+rotation = -0.0698132
+
+[node name="road7" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(9063, -49.0001)
+rotation = -0.135875
+
+[node name="road8" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(10520, -307)
+rotation = -0.21209
+
+[node name="road9" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(12018, -504)
+rotation = -0.050944
+
+[node name="road10" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(13534, -482)
+rotation = 0.0779486
+
+[node name="road11" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(15013, -223)
+rotation = 0.268034
+
+[node name="road12" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(16400, 337)
+rotation = 0.498172
+
+[node name="road13" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(17714, 949.001)
+rotation = 0.37843
+
+[node name="road14" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(19082, 1377)
+rotation = 0.234706
+
+[node name="road15" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(20470, 1580)
+rotation = 0.0692038
+
+[node name="road16" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(21942, 1627)
+rotation = -0.00162329
 
 [node name="objects" type="Node2D" parent="."]
 
@@ -142,7 +258,6 @@ position = Vector2(0, -92)
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 1)
