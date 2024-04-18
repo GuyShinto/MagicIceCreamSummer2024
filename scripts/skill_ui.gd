@@ -79,6 +79,7 @@ func _ready():
 	iconV1 = icon1.position
 	iconV2 = icon2.position
 	proV = pro.position
+	AudioManager.dark3.play()
 	var tween = create_tween()
 	tween.tween_method(SetFade, 0.0, 1.0, 2.0).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	var tween2 = create_tween()
@@ -95,6 +96,7 @@ func _ready():
 	sword.texture = sword_frame[3]
 	await get_tree().create_timer(frame_pre).timeout
 	sword.texture = sword_frame[4]
+	AudioManager.dark4.play()
 	canpress = true
 	var tween3 = create_tween()
 	tween3.tween_method(SetFade4, 0.0, 1.0, 2.0).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
@@ -115,6 +117,7 @@ func _ready():
 	var tween6 = create_tween()
 	tween6.tween_method(SetFade5, 0.0, 1.0, 1.0).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	total += randi_range(1000,10000)
+	AudioManager.exp2.play()
 	damge.text = str(total)
 	var tween7 = create_tween()
 	tween7.tween_method(SetShack, 0.0, 1.0, 6.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)

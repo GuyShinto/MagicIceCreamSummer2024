@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c143jlx5a48xq"]
+[gd_scene load_steps=24 format=3 uid="uid://c143jlx5a48xq"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_a50u8"]
 [ext_resource type="AudioStream" uid="uid://bvraa0aha8xrp" path="res://sounds/sfx/WOW Anime Sound.mp3" id="2_050qa"]
@@ -15,6 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://bcrct0knk7rg1" path="res://sounds/sfx/Ice5.ogg" id="13_4eh18"]
 [ext_resource type="AudioStream" uid="uid://dk1i4tmegpysx" path="res://sounds/sfx/Explosion1.ogg" id="14_cp4jj"]
 [ext_resource type="AudioStream" uid="uid://co0slbue85ex3" path="res://sounds/sfx/Explosion2.ogg" id="15_kqppw"]
+[ext_resource type="AudioStream" uid="uid://b6q517g13lge" path="res://sounds/sfx/Darkness3.ogg" id="16_rkdth"]
+[ext_resource type="AudioStream" uid="uid://5uoui24js0iw" path="res://sounds/sfx/Darkness4.ogg" id="17_drun2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjytb"]
 font_size = 32
@@ -198,4 +200,14 @@ bus = &"Sfx"
 
 [node name="exp2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_kqppw")
+bus = &"Sfx"
+
+[node name="dark3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_rkdth")
+pitch_scale = 0.3
+bus = &"Sfx"
+
+[node name="dark4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_drun2")
+pitch_scale = 0.3
 bus = &"Sfx"

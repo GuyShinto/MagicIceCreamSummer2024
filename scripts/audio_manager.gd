@@ -12,6 +12,8 @@ extends CanvasLayer
 @onready var ice5 := $"ice5"
 @onready var exp1 := $"exp1"
 @onready var exp2 := $"exp2"
+@onready var dark3 := $"dark3"
+@onready var dark4 := $"dark4"
 
 @onready var music := $"music"
 @onready var sfx := $"sfx"
