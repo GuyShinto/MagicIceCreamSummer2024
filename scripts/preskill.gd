@@ -9,7 +9,9 @@ func _ready():
 	BaseV = icon.global_position
 	var tween = create_tween()
 	tween.tween_method(SetFade, 0.0, 1.0, 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(0.7).timeout
+	AudioManager.broken.play()
+	await get_tree().create_timer(0.1).timeout
 	broken.visible = true
 	var tween1 = create_tween()
 	tween1.tween_method(SetFade2, 0.0, 1.0, 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)

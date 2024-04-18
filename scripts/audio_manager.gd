@@ -18,6 +18,7 @@ extends CanvasLayer
 @onready var dark4 := $"dark4"
 @onready var magic3 := $"magic3"
 @onready var magic4 := $"magic4"
+@onready var broken := $"broken"
 @onready var paralyze1 := $"paralyze1"
 
 @onready var music := $"music"
