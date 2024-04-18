@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://7tjrnkk8uldd"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_jiubd"]
+[ext_resource type="Texture2D" uid="uid://bpcgvjukaw12l" path="res://artwork/people_idle.png" id="2_uwk1q"]
+[ext_resource type="Texture2D" uid="uid://c15mas3d1nf70" path="res://artwork/people_attack_upper_highlight.png" id="3_2uk6l"]
+[ext_resource type="Texture2D" uid="uid://b7e4rnejwhdar" path="res://artwork/people_attack_lower.png" id="4_n26qy"]
+[ext_resource type="Texture2D" uid="uid://u4wwuxbg11tt" path="res://artwork/people_attack_upper.png" id="5_6ecpp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ryork"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_54gaf"]
+radius = 64.0
+height = 256.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvxbg"]
+radius = 416.077
+
+[node name="enemy" type="RigidBody2D"]
+mass = 40.0
+physics_material_override = SubResource("PhysicsMaterial_ryork")
+lock_rotation = true
+script = ExtResource("1_jiubd")
+
+[node name="idle" type="Sprite2D" parent="."]
+scale = Vector2(0.205294, 0.207433)
+texture = ExtResource("2_uwk1q")
+offset = Vector2(-38.9684, -578.501)
+
+[node name="collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -128)
+shape = SubResource("CapsuleShape2D_54gaf")
+
+[node name="attack" type="Node2D" parent="."]
+
+[node name="highlight" type="Sprite2D" parent="attack"]
+position = Vector2(-35.1757, -134.6)
+scale = Vector2(0.21318, 0.21318)
+texture = ExtResource("3_2uk6l")
+
+[node name="down" type="Sprite2D" parent="attack"]
+position = Vector2(2, -48)
+scale = Vector2(0.223399, 0.223399)
+texture = ExtResource("4_n26qy")
+
+[node name="up" type="Sprite2D" parent="attack"]
+position = Vector2(35.8243, -77.6002)
+scale = Vector2(0.201278, 0.201278)
+texture = ExtResource("5_6ecpp")
+offset = Vector2(-350.35, -283.808)
+
+[node name="area" type="Area2D" parent="."]
+visible = false
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+shape = SubResource("CircleShape2D_kvxbg")
+debug_color = Color(0, 0.6, 0.701961, 0.145098)
