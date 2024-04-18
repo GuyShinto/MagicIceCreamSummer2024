@@ -23,8 +23,12 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			if isOver and getItemID and not Global.player.OnDie:
-				Global.rewards._show(clamp(getItemID,1,7))
-				queue_free()
+				if getItemID != 666:
+					Global.rewards._show(clamp(getItemID,1,7))
+					queue_free()
+				else:
+					Global.cursor._skill()
+					queue_free()
 
 func _entered():
 	isOver = true

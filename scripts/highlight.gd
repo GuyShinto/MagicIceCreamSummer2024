@@ -16,6 +16,7 @@ func _ready():
 	
 func _entered():
 	if not onHighlight:
+		AudioManager.click.play()
 		var tween = create_tween()
 		tween.tween_method(SetFade, time, 1.0, 0.3).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 		main.texture = highlight

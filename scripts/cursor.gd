@@ -67,7 +67,6 @@ func _process(_delta):
 func _input(event):
 	if event is InputEventKey:
 		if Input.is_action_pressed("sort1"):
-			_skill()
 			_set_mouse(1)
 		elif Input.is_action_pressed("sort2"):
 			ChangeScene.Restart()
