@@ -18,7 +18,7 @@ var cool_material = null
 var cp :float
 var hp : float
 
-var BaseFriction:float
+var BaseFriction:float = 1.0
 
 func _ready():
 	#if canContact:
@@ -90,13 +90,13 @@ func _lowcool():
 func _highcool():
 	cpbar.value = cp
 	var fcp:float = clamp(cp/maxCp,0.0,1.0)
-	main.physics_material_override.friction = 1.-BaseFriction*fcp
+	main.physics_material_override.friction = clamp(BaseFriction-fcp,0.0,1.0)
 	cool_material.material.set_shader_parameter("cool",fcp)
-	if cp >= maxCp:
+	#if cp >= maxCp:
 		#frezze
-		pass
+	#	pass
 	#main.get_node("icon").texture = electricalOn
-	pass
+	#pass
 
 func _entered(_rid, _body, _body_index, _local_index):
 	if (abs(main.linear_velocity.x) > 500 or abs(main.linear_velocity.y) > 500):
