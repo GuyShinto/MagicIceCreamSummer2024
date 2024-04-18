@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://fk2eraxf2tv1"]
+
+[ext_resource type="Script" path="res://scripts/change_scene.gd" id="1_ngibk"]
+[ext_resource type="Shader" path="res://shaders/FadeScene.gdshader" id="2_8obsc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1loyv"]
+shader = ExtResource("2_8obsc")
+shader_parameter/in_color = null
+shader_parameter/out_color = null
+shader_parameter/in_out = 0.0
+shader_parameter/position = 1.0
+shader_parameter/opposite = false
+shader_parameter/size = Vector2(16, 16)
+
+[node name="change_scene" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_ngibk")
+
+[node name="fade" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1loyv")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1172.0
+offset_top = -782.0
+offset_right = 1172.0
+offset_bottom = 782.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

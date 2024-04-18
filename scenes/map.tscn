@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=47 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
 [ext_resource type="Texture2D" uid="uid://c52jw3k5p8ga2" path="res://artwork/house_1.png" id="2_ivgwf"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dd7s0ljuhs3j8" path="res://artwork/pole.png" id="5_eem6h"]
 [ext_resource type="PackedScene" uid="uid://d3pnps10m85uf" path="res://scenes/objects/vibe.tscn" id="5_jc3pp"]
 [ext_resource type="PackedScene" uid="uid://bah7dxaijttc2" path="res://scenes/objects/fridge.tscn" id="6_t0a4k"]
+[ext_resource type="Script" path="res://scripts/objects.gd" id="7_g3x1w"]
 [ext_resource type="PackedScene" uid="uid://cevnly25jko6q" path="res://scenes/objects/freeze.tscn" id="7_rh7mv"]
 [ext_resource type="PackedScene" uid="uid://c4h0n5vu6g1xl" path="res://scenes/objects/cone.tscn" id="8_2iofa"]
 [ext_resource type="Texture2D" uid="uid://dd5vqs2e5cc2y" path="res://artwork/background_parallax2.png" id="9_b60b1"]
@@ -38,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://7tjrnkk8uldd" path="res://scenes/objects/enemy.tscn" id="30_8xr42"]
 [ext_resource type="Texture2D" uid="uid://beky2fkj8v5bx" path="res://artwork/cursor_green.png" id="30_ivng3"]
 [ext_resource type="Texture2D" uid="uid://472382btjbj2" path="res://artwork/cursor_orange.png" id="31_kiam1"]
+[ext_resource type="Script" path="res://scripts/water_layer.gd" id="32_5vsto"]
 [ext_resource type="Texture2D" uid="uid://dpvsx2aok083t" path="res://artwork/cursor_purple.png" id="32_e4ww0"]
 [ext_resource type="Texture2D" uid="uid://ca435rt1jgfl3" path="res://artwork/cursor_red.png" id="33_k1u2h"]
 [ext_resource type="Texture2D" uid="uid://cj01mrfnxfsll" path="res://artwork/cursor_sky.png" id="34_mefpm"]
@@ -514,6 +516,7 @@ position = Vector2(80493, 4715)
 position = Vector2(82028, 4715)
 
 [node name="objects" type="Node2D" parent="."]
+script = ExtResource("7_g3x1w")
 
 [node name="ice" parent="objects" instance=ExtResource("4_84b7g")]
 position = Vector2(-112, -139)
@@ -1110,6 +1113,7 @@ position = Vector2(78614, 4500)
 position = Vector2(80028, 4523)
 
 [node name="water" type="Node2D" parent="." groups=["water_group"]]
+script = ExtResource("32_5vsto")
 
 [node name="items" type="Node2D" parent="."]
 

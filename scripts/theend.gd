@@ -12,3 +12,8 @@ func _ready():
 	
 func _process(delta):
 	list.position.y -= delta*50
+
+func _input(event):
+	if event is InputEventKey:
+		if Input.is_action_pressed("restart"):
+			ChangeScene.Restart()

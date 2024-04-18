@@ -17,8 +17,8 @@ var objects:Node2D
 var theend := preload("res://scenes/theend.tscn")
 
 func _ready():
-	objects = get_tree().current_scene.get_node("objects")
-	water = get_tree().get_first_node_in_group("water_group")
+	#objects = get_tree().current_scene.get_node("objects")
+	#water = get_tree().get_first_node_in_group("water_group")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _get_end():

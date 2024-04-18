@@ -173,8 +173,9 @@ func _ready():
 	var tween14 = create_tween()
 	tween14.tween_method(SetStar2, 1.0, 0.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await get_tree().create_timer(5).timeout
-	_blurbg()
+	#_blurbg()
 	Global._get_end()
+	queue_free()
 
 func _blurbg():
 	var tweennew = create_tween()

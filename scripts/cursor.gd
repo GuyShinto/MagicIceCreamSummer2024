@@ -67,8 +67,10 @@ func _process(_delta):
 func _input(event):
 	if event is InputEventKey:
 		if Input.is_action_pressed("sort1"):
+			_skill()
 			_set_mouse(1)
 		elif Input.is_action_pressed("sort2"):
+			ChangeScene.Restart()
 			_set_mouse(2)
 		elif Input.is_action_pressed("sort3"):
 			_set_mouse(3)
@@ -94,9 +96,15 @@ func _input(event):
 					AudioManager.ice1.play()
 				2:
 					AudioManager.skill1.play()
+				3:
+					AudioManager.ice4.play()
 				4:
 					AudioManager.magic3.play()
 					_spell5()
+				5:
+					AudioManager.ice3.play()
+				6:
+					AudioManager.ice5.play()
 				7:
 					AudioManager.paralyze1.play()
 					_spell6()
@@ -107,9 +115,15 @@ func _input(event):
 					AudioManager.ice1.play()
 				2:
 					AudioManager.skill1.play()
+				3:
+					AudioManager.ice4.play()
 				4:
 					AudioManager.magic4.play()
 					_spell5back()
+				5:
+					AudioManager.ice3.play()
+				6:
+					AudioManager.ice5.play()
 				7:
 					AudioManager.paralyze1.play()
 					_spell6long()
