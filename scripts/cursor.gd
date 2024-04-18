@@ -1,6 +1,9 @@
 extends TextureRect
 
 @export var maxIceMove:float = 200
+@export var effectIndex:Array[Texture2D]
+
+@onready var effect := $"effect"
 
 var speedMosue :float
 var indexItem :int
@@ -24,6 +27,12 @@ func _physics_process(_delta):
 func _click():
 	var tween = create_tween()
 	tween.tween_method(SetSize, Vector2(1.0,1.0)*0.9, Vector2(1.0,1.0), 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+
+func _effect():
+	if indexMagic != 0:
+		effect.texture = effectIndex[indexMagic-1]
+		var tween = create_tween()
+		tween.tween_method(SetEffect, 2.0, 0.0, 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 
 func _set_mouse(_index):
 	if Global.items.size():
@@ -90,6 +99,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			_click()
+			_effect()
 			match indexMagic:
 				1:
 					AudioManager.ice1.play()
@@ -109,6 +119,7 @@ func _input(event):
 					_spell6()
 		elif Input.is_action_just_pressed("right_click"):
 			_click()
+			_effect()
 			match indexMagic:
 				1:
 					AudioManager.ice1.play()
@@ -251,3 +262,6 @@ func SetSize(alpha:Vector2):
 
 func SetFade(alpha:float):
 	self.rotation = alpha
+
+func SetEffect(alpha:float):
+	effect.modulate.a = alpha

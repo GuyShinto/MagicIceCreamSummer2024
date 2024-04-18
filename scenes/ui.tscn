@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://erup7tk34o2n"]
+[gd_scene load_steps=47 format=3 uid="uid://erup7tk34o2n"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7tlaj"]
 [ext_resource type="Script" path="res://scripts/temperature.gd" id="2_fq0aw"]
@@ -29,6 +29,13 @@
 [ext_resource type="Texture2D" uid="uid://dmkm12ys5ykb1" path="res://artwork/new.png" id="19_hrn2n"]
 [ext_resource type="Texture2D" uid="uid://b0nji2deshrdx" path="res://artwork/button.png" id="21_gen20"]
 [ext_resource type="Texture2D" uid="uid://cqc81kps1bupw" path="res://artwork/button_highlight.png" id="22_f5bkw"]
+[ext_resource type="Texture2D" uid="uid://c22ysn2s8b5r" path="res://artwork/effect_yellow.png" id="30_8u3un"]
+[ext_resource type="Texture2D" uid="uid://bgud4t8o0nfp8" path="res://artwork/effect_blue.png" id="30_k3ic3"]
+[ext_resource type="Texture2D" uid="uid://lg7n8l0e1y1e" path="res://artwork/effect_green.png" id="31_3s1rl"]
+[ext_resource type="Texture2D" uid="uid://mrvua0d33wjs" path="res://artwork/effect_orange.png" id="32_tmupl"]
+[ext_resource type="Texture2D" uid="uid://cq4ms7h5a5vo3" path="res://artwork/effect_purple.png" id="33_vqxgr"]
+[ext_resource type="Texture2D" uid="uid://djq2p6eha047l" path="res://artwork/effect_red.png" id="34_hmdgm"]
+[ext_resource type="Texture2D" uid="uid://biclisfuyaslf" path="res://artwork/effect_sky.png" id="35_ulnkx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8c1u0"]
 
@@ -333,3 +340,16 @@ mouse_filter = 2
 texture = ExtResource("4_cnm1i")
 expand_mode = 1
 script = ExtResource("14_323sj")
+effectIndex = Array[Texture2D]([ExtResource("30_k3ic3"), ExtResource("31_3s1rl"), ExtResource("32_tmupl"), ExtResource("33_vqxgr"), ExtResource("34_hmdgm"), ExtResource("35_ulnkx"), ExtResource("30_8u3un")])
+
+[node name="effect" type="TextureRect" parent="cursor"]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+texture = ExtResource("30_8u3un")
+expand_mode = 1
