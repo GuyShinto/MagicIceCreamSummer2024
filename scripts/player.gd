@@ -64,14 +64,16 @@ func _change_hair(_vlaue):
 		hair.texture = hairNormal
 
 func _physics_process(_delta):
-	self.angular_velocity = Input.get_axis("left", "right") * speed * _delta
+	var dis:float = Input.get_axis("left", "right")
+	if abs(dis) > 0:
+		self.angular_velocity = dis * speed * _delta
 	if not OnDie:
 		if global_rotation < -2.0 or global_rotation > 2.0:
 			eye.texture = eyeDying
 		else:
-			if abs(self.angular_velocity) > 0:
+			if abs(dis) > 0:
 				eye.texture = eyeMove
-				if self.angular_velocity > 0:
+				if dis > 0:
 					eye.flip_h = false
 				else:
 					eye.flip_h = true
