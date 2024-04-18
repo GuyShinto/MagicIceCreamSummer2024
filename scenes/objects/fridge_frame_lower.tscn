@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfmxjxi8inupn"]
+[gd_scene load_steps=4 format=3 uid="uid://dfmxjxi8inupn"]
 
 [ext_resource type="Texture2D" uid="uid://s7k3kx0w1nui" path="res://artwork/fridge_frame_lower.png" id="1_hot2s"]
+[ext_resource type="PackedScene" uid="uid://dmx0v2h8ii6jp" path="res://scenes/components/fridge_ice.tscn" id="2_flvim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35m2i"]
 
 [node name="fridge_frame_lower" type="RigidBody2D"]
 collision_layer = 2
@@ -16,3 +19,13 @@ texture = ExtResource("1_hot2s")
 visible = false
 scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(210, -319.6, 210, -313.2, 224, -299.1, 224, -291, 241.3, 241, 239, 241, 231, 320, 224.6, 320, 205.6, 336, 189, 336, -197, 337, -197, 332.6, -229, 318.5, -229, 309.8, -239.9, 180, -237.7, 180, -223.7, -298, -218.3, -298, -203.3, -320, -186.5, -320, -27, -327.6, -27, -329.4)
+
+[node name="open" type="Panel" parent="."]
+offset_left = -45.0
+offset_top = -65.0
+offset_right = 46.0
+offset_bottom = 66.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_35m2i")
+
+[node name="fridge_ice" parent="." instance=ExtResource("2_flvim")]

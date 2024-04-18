@@ -3,6 +3,7 @@ extends Node
 @onready var timer :Timer = $"timer"
 @onready var main := $".."
 
+#@export var canContact : bool = true
 @export var canFreeze : bool = true
 @export var damge:float = 1
 @export var maxHp:float = 30
@@ -18,6 +19,10 @@ var cp :float
 var hp : float
 
 func _ready():
+	#if canContact:
+	#	if main is RigidBody2D:
+	#		main.contact_monitor = true
+	#		main.max_contacts_reported = 1
 	if main is RigidBody2D:
 		main.body_shape_entered.connect(_entered)
 	if main.has_node("hpbar"):
@@ -86,6 +91,8 @@ func _highcool():
 
 func _entered(_rid, _body, _body_index, _local_index):
 	if (abs(main.linear_velocity.x) > 500 or abs(main.linear_velocity.y) > 500):
+		#if _body is RigidBody2D:
+		#	_body.freeze = false
 		if _body.is_in_group("player"):
 			_body.get_node("object")._take_damge(1)
 

@@ -164,7 +164,6 @@ scale = Vector2(0.544141, 0.544141)
 texture = ExtResource("3_mggic")
 
 [node name="floors" type="Node2D" parent="."]
-visible = false
 
 [node name="road" parent="floors" instance=ExtResource("2_ofcyl")]
 position = Vector2(0, 212)
@@ -413,7 +412,7 @@ position = Vector2(3, -76)
 position = Vector2(600, -280)
 
 [node name="cone" parent="objects" instance=ExtResource("8_2iofa")]
-position = Vector2(-504, -424)
+position = Vector2(1419, 80)
 
 [node name="fan" parent="objects" instance=ExtResource("9_f4w5i")]
 position = Vector2(240, -360)
@@ -431,13 +430,46 @@ position = Vector2(-264, -248)
 position = Vector2(408, -128)
 
 [node name="sign" parent="objects" instance=ExtResource("14_fiqnm")]
-position = Vector2(795, -198)
+position = Vector2(12774, -670)
 
 [node name="blue_icetank_upper" parent="objects" instance=ExtResource("19_03556")]
 position = Vector2(-445, -116)
 
 [node name="orange_icetank_upper" parent="objects" instance=ExtResource("21_d15pb")]
 position = Vector2(243, -316)
+
+[node name="sign2" parent="objects" instance=ExtResource("14_fiqnm")]
+position = Vector2(52408, -2244)
+
+[node name="cone2" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(3062, 76)
+
+[node name="cone3" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(13417, -635)
+
+[node name="cone4" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(13727, -602)
+
+[node name="cone5" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(14045, -583)
+
+[node name="cone6" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(14235, -571)
+
+[node name="cone7" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(52605, -2257)
+
+[node name="cone8" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(52779, -2213)
+
+[node name="cone9" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(53067, -2152)
+
+[node name="cone10" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(53329, -2105)
+
+[node name="cone11" parent="objects" instance=ExtResource("8_2iofa")]
+position = Vector2(51837, -2261)
 
 [node name="players" type="Node2D" parent="."]
 
@@ -446,13 +478,13 @@ position = Vector2(243, -316)
 [node name="upper_objects" type="Node2D" parent="."]
 
 [node name="bucket_m" parent="upper_objects" instance=ExtResource("15_ef27f")]
-position = Vector2(1075, 111)
+position = Vector2(2462, 63)
 
 [node name="bucket_l" parent="upper_objects" instance=ExtResource("16_dsh0w")]
-position = Vector2(946, -13)
+position = Vector2(21641, 1482)
 
 [node name="bucket_s" parent="upper_objects" instance=ExtResource("17_v3od1")]
-position = Vector2(799, -35)
+position = Vector2(23341, 1494)
 
 [node name="blue_icetank_lower" parent="upper_objects" instance=ExtResource("18_goerj")]
 position = Vector2(-445, -15)
@@ -463,11 +495,66 @@ position = Vector2(244, -247)
 [node name="player_shell_upper" parent="upper_objects" instance=ExtResource("25_wubf4")]
 position = Vector2(0, -92)
 
+[node name="bucket_s2" parent="upper_objects" instance=ExtResource("17_v3od1")]
+position = Vector2(24749, 1478)
+
+[node name="bucket_s3" parent="upper_objects" instance=ExtResource("17_v3od1")]
+position = Vector2(27732, 1483)
+
+[node name="bucket_s4" parent="upper_objects" instance=ExtResource("17_v3od1")]
+position = Vector2(30113, 1470)
+
+[node name="bucket_s5" parent="upper_objects" instance=ExtResource("17_v3od1")]
+position = Vector2(32475, 1466)
+
+[node name="bucket_l2" parent="upper_objects" instance=ExtResource("16_dsh0w")]
+position = Vector2(23606, 1469)
+
+[node name="bucket_l3" parent="upper_objects" instance=ExtResource("16_dsh0w")]
+position = Vector2(24216, 1463)
+
+[node name="bucket_l4" parent="upper_objects" instance=ExtResource("16_dsh0w")]
+position = Vector2(25778, 1472)
+
+[node name="bucket_l5" parent="upper_objects" instance=ExtResource("16_dsh0w")]
+position = Vector2(27364, 1479)
+
+[node name="bucket_l6" parent="upper_objects" instance=ExtResource("16_dsh0w")]
+position = Vector2(28667, 1474)
+
+[node name="bucket_l7" parent="upper_objects" instance=ExtResource("16_dsh0w")]
+position = Vector2(31025, 1459)
+
+[node name="bucket_m2" parent="upper_objects" instance=ExtResource("15_ef27f")]
+position = Vector2(20992, 1467)
+
+[node name="bucket_m3" parent="upper_objects" instance=ExtResource("15_ef27f")]
+position = Vector2(22593, 1478)
+
+[node name="bucket_m4" parent="upper_objects" instance=ExtResource("15_ef27f")]
+position = Vector2(24090, 1437)
+
+[node name="bucket_m5" parent="upper_objects" instance=ExtResource("15_ef27f")]
+position = Vector2(25500, 1462)
+
+[node name="bucket_m6" parent="upper_objects" instance=ExtResource("15_ef27f")]
+position = Vector2(31509, 1474)
+
+[node name="bucket_m7" parent="upper_objects" instance=ExtResource("15_ef27f")]
+position = Vector2(24090, 1437)
+
+[node name="bucket_m8" parent="upper_objects" instance=ExtResource("15_ef27f")]
+position = Vector2(23834, 1451)
+
+[node name="bucket_m9" parent="upper_objects" instance=ExtResource("15_ef27f")]
+position = Vector2(33618, 1434)
+
 [node name="water" type="Node2D" parent="." groups=["water_group"]]
 
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 1)

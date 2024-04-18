@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4y5n7wq08hfq"]
+[gd_scene load_steps=4 format=3 uid="uid://c4y5n7wq08hfq"]
 
 [ext_resource type="Texture2D" uid="uid://ds5cpvoi77ijq" path="res://artwork/fridge_frame_upper.png" id="1_qmcq8"]
+[ext_resource type="PackedScene" uid="uid://dmx0v2h8ii6jp" path="res://scenes/components/fridge_ice.tscn" id="2_p8ak7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gd4v"]
 
 [node name="fridge_frame_upper" type="RigidBody2D"]
 collision_layer = 2
@@ -16,3 +19,13 @@ texture = ExtResource("1_qmcq8")
 visible = false
 scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(228, -118.9, 228, -108, 239.1, -4, 236.6, -4, 231.5, 103, 226, 103, 214, 119, -215, 119, -215, 109.7, -231, 64.7, -231, 61.9, -226.8, -116, -216.4, -116, -134, -119.6, -134, -121.1)
+
+[node name="open" type="Panel" parent="."]
+offset_left = -45.0
+offset_top = -23.0
+offset_right = 46.0
+offset_bottom = 24.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7gd4v")
+
+[node name="fridge_ice" parent="." instance=ExtResource("2_p8ak7")]

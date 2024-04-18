@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cevnly25jko6q"]
+[gd_scene load_steps=8 format=3 uid="uid://cevnly25jko6q"]
 
 [ext_resource type="Texture2D" uid="uid://xuy85shv03et" path="res://artwork/freeze_off.png" id="1_tlq8h"]
 [ext_resource type="PackedScene" uid="uid://beh2hjltheqi2" path="res://scenes/components/electrical.tscn" id="2_3afdl"]
 [ext_resource type="Texture2D" uid="uid://dkkf5omkj44t6" path="res://artwork/freeze_on.png" id="3_x8qca"]
 [ext_resource type="PackedScene" uid="uid://nagx8ytpbr8s" path="res://scenes/components/cpbar.tscn" id="4_6ujm3"]
 [ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="4_x3kbj"]
+[ext_resource type="PackedScene" uid="uid://dmx0v2h8ii6jp" path="res://scenes/components/fridge_ice.tscn" id="6_1hexe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xp6u2"]
 radius = 142.285
@@ -40,3 +41,5 @@ electricalOn = ExtResource("3_x8qca")
 [node name="cpbar" parent="." instance=ExtResource("4_6ujm3")]
 offset_top = -140.0
 offset_bottom = 372.0
+
+[node name="fridge_ice" parent="." instance=ExtResource("6_1hexe")]

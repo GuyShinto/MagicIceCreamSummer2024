@@ -16,9 +16,13 @@ var energy:float
 
 var HasOn:bool
 
+var fridge_ice = null
+
 func _ready():
 	#energy = maxEnergy
 	#timer.wait_time = 1
+	if main.has_node("fridge_ice"):
+		fridge_ice = main.get_node("fridge_ice")
 	main.get_node("area").area_entered.connect(_entered)
 	main.get_node("area").area_exited.connect(_exited)
 	timer.timeout.connect(_on_timeout)
@@ -58,4 +62,6 @@ func _off():
 
 func _on():
 	HasOn = true
+	if fridge_ice:
+		fridge_ice._spawn_ice(2)
 	main.get_node("icon").texture = electricalOn
