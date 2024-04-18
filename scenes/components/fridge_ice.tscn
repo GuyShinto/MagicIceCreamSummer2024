@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmx0v2h8ii6jp"]
+
+[ext_resource type="Script" path="res://scripts/fridge_ice.gd" id="1_bd2c4"]
+
+[node name="fridge_ice" type="Node"]
+script = ExtResource("1_bd2c4")
