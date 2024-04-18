@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://7tjrnkk8uldd"]
+[gd_scene load_steps=12 format=3 uid="uid://7tjrnkk8uldd"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_jiubd"]
 [ext_resource type="Texture2D" uid="uid://bpcgvjukaw12l" path="res://artwork/people_idle.png" id="2_uwk1q"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://u4wwuxbg11tt" path="res://artwork/people_attack_upper.png" id="5_6ecpp"]
 [ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="6_1lfb4"]
 [ext_resource type="PackedScene" uid="uid://c0s33wnas2xmu" path="res://scenes/components/hpbar.tscn" id="7_sl6ro"]
+[ext_resource type="PackedScene" uid="uid://nagx8ytpbr8s" path="res://scenes/components/cpbar.tscn" id="8_crsb0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ryork"]
 
@@ -23,7 +24,7 @@ physics_material_override = SubResource("PhysicsMaterial_ryork")
 lock_rotation = true
 script = ExtResource("1_jiubd")
 
-[node name="idle" type="Sprite2D" parent="."]
+[node name="icon" type="Sprite2D" parent="."]
 scale = Vector2(0.205294, 0.207433)
 texture = ExtResource("2_uwk1q")
 offset = Vector2(-38.9684, -578.501)
@@ -71,6 +72,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.145098)
 [node name="hpbar" parent="." instance=ExtResource("7_sl6ro")]
 offset_top = -296.0
 offset_bottom = 216.0
+
+[node name="cpbar" parent="." instance=ExtResource("8_crsb0")]
+offset_top = -352.0
+offset_bottom = 160.0
 
 [node name="timer" type="Timer" parent="."]
 process_callback = 0

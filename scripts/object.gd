@@ -17,6 +17,7 @@ var hpbar = null
 var cool_material = null
 var cp :float
 var hp : float
+var frezze : bool
 
 var BaseFriction:float = 1.0
 
@@ -55,7 +56,6 @@ func SetFadeH(alpha:float):
 func _show_cp():
 	var tween = create_tween()
 	tween.tween_method(SetFadeC, cpbar.modulate.a, PI, showtime).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-	
 func _show_hp():
 	var tween = create_tween()
 	tween.tween_method(SetFadeH, hpbar.modulate.a, PI, showtime).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
@@ -92,9 +92,10 @@ func _highcool():
 	var fcp:float = clamp(cp/maxCp,0.0,1.0)
 	main.physics_material_override.friction = clamp(BaseFriction-fcp,0.0,1.0)
 	cool_material.material.set_shader_parameter("cool",fcp)
-	#if cp >= maxCp:
-		#frezze
-	#	pass
+	if cp >= maxCp:
+		frezze=true
+	else:
+		frezze=false
 	#main.get_node("icon").texture = electricalOn
 	#pass
 

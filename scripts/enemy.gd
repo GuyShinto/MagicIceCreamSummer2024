@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 @onready var area:Area2D = $"area"
-@onready var idle:Sprite2D = $"idle"
+@onready var idle:Sprite2D = $"icon"
 @onready var attack:Node2D = $"attack"
 @onready var attack_up:Sprite2D = $"attack/up"
 @onready var attack_down:Sprite2D = $"attack/down"
@@ -29,7 +29,10 @@ func _ready():
 	timer.timeout.connect(_timeout)
 
 func _timeout():
-	if attack.visible:
+	attack_highlight.material = idle.material
+	attack_down.material = idle.material
+	attack_up.material = idle.material
+	if attack.visible and not object.frezze:
 		_shoot(2)
 
 func _shoot(ran:int = 1):
@@ -40,35 +43,38 @@ func _shoot(ran:int = 1):
 		Global.water.add_child(water)
 
 func _physics_process(_delta):
-	if time < TAU:
-		time += _delta*4
-	else:
-		time = 0.0
-	idle.scale.y = BaseS.y + sin(time)*0.01
-	attack.scale.y = 1 + sin(time)*0.08
-	if Global.player:
-		if Global.player.global_position.x-self.global_position.x > 0:
-			idle.scale.x = -BaseS.x
-			attack_up.scale.x = -BaseSUP.x
-			attack_down.scale.x = -BaseSDOWN.x
-			attack_highlight.scale.x = -BaseSDOWN.x
-			attack_up.look_at(Global.player.global_position)
-			attack_highlight.rotation = attack_up.rotation
+	if not object.frezze:
+		if time < TAU:
+			time += _delta*4
 		else:
-			idle.scale.x = BaseS.x
-			attack_up.scale.x = BaseSUP.x
-			attack_down.scale.x = BaseSDOWN.x
-			attack_highlight.scale.x = BaseSDOWN.x
-			attack_up.look_at(Global.player.global_position)
-			attack_up.rotation += 3.0
-			attack_highlight.rotation = attack_up.rotation
+			time = 0.0
+		idle.scale.y = BaseS.y + sin(time)*0.01
+		attack.scale.y = 1 + sin(time)*0.08
+		if Global.player:
+			if Global.player.global_position.x-self.global_position.x > 0:
+				idle.scale.x = -BaseS.x
+				attack_up.scale.x = -BaseSUP.x
+				attack_down.scale.x = -BaseSDOWN.x
+				attack_highlight.scale.x = -BaseSDOWN.x
+				attack_up.look_at(Global.player.global_position)
+				attack_highlight.rotation = attack_up.rotation
+			else:
+				idle.scale.x = BaseS.x
+				attack_up.scale.x = BaseSUP.x
+				attack_down.scale.x = BaseSDOWN.x
+				attack_highlight.scale.x = BaseSDOWN.x
+				attack_up.look_at(Global.player.global_position)
+				attack_up.rotation += 3.0
+				attack_highlight.rotation = attack_up.rotation
 
 func _entered(_area):
 	if _area.is_in_group("player"):
-		HasTarget()
+		if not object.frezze:
+			HasTarget()
 func _exited(_area):
 	if _area.is_in_group("player"):
-		NotHasTarget()
+		if not object.frezze:
+			NotHasTarget()
 func HasTarget():
 	idle.visible = false
 	attack.visible = true
