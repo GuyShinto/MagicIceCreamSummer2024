@@ -11,6 +11,7 @@ var hasSkill :bool
 var indexMagic :int
 
 var skillui = preload("res://scenes/skill.tscn")
+var preskill = preload("res://scenes/preskill.tscn")
 
 func _ready():
 	Global.cursor = self
@@ -254,7 +255,12 @@ func _spell7():
 
 func _skill():
 	if not hasSkill:
+		var preskillr = preskill.instantiate()
+		AudioManager.skill3.play()
+		get_tree().current_scene.add_child(preskillr)
+		await get_tree().create_timer(2.0).timeout
 		get_tree().current_scene.add_child(skillui.instantiate())
+		preskillr.queue_free()
 		hasSkill = true
 
 func SetSize(alpha:Vector2):

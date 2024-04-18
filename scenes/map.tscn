@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://ca435rt1jgfl3" path="res://artwork/cursor_red.png" id="33_k1u2h"]
 [ext_resource type="Texture2D" uid="uid://cj01mrfnxfsll" path="res://artwork/cursor_sky.png" id="34_mefpm"]
 [ext_resource type="Texture2D" uid="uid://cwhafsokbrwia" path="res://artwork/cursor_yellow.png" id="35_5s2b0"]
-[ext_resource type="Texture2D" uid="uid://bnttwey8q4ed0" path="res://artwork/frame/skill_freme5.png" id="40_yudbf"]
+[ext_resource type="Texture2D" uid="uid://bw2g02qu83siy" path="res://artwork/icon_icecream_rainbow_hignlight.png" id="40_0p3dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvxa2"]
 size = Vector2(177, 689)
@@ -1178,7 +1178,7 @@ offset_left = 848.0
 offset_top = -224.0
 offset_right = 954.0
 offset_bottom = -118.0
-texture = ExtResource("40_yudbf")
+texture = ExtResource("40_0p3dt")
 getItemID = 666
 
 [node name="barrier" type="StaticBody2D" parent="."]

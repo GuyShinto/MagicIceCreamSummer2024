@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var malt := $"malt"
 @onready var skill_1 := $"skill_1"
 @onready var skill1 := $"skill1"
+@onready var skill3 := $"skill3"
 @onready var fall := $"fall"
 @onready var click := $"click"
 @onready var ice1 := $"ice1"

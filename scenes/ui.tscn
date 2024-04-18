@@ -1,17 +1,24 @@
-[gd_scene load_steps=47 format=3 uid="uid://erup7tk34o2n"]
+[gd_scene load_steps=54 format=3 uid="uid://erup7tk34o2n"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7tlaj"]
 [ext_resource type="Script" path="res://scripts/temperature.gd" id="2_fq0aw"]
 [ext_resource type="Texture2D" uid="uid://bgbeyy3sbbxvg" path="res://artwork/icon_temperature.png" id="2_yjk3f"]
 [ext_resource type="PackedScene" uid="uid://b03hqvt6otq7r" path="res://scenes/components/highlight.tscn" id="3_f0dmt"]
+[ext_resource type="Texture2D" uid="uid://bjncvc1vclwk8" path="res://artwork/tutorial_green.png" id="3_fd2xs"]
 [ext_resource type="Texture2D" uid="uid://csx3f63rycbco" path="res://artwork/indicator_cool.png" id="3_wjvlm"]
+[ext_resource type="Texture2D" uid="uid://be8i1fg3iee72" path="res://artwork/tutorial_orange.png" id="4_5k82h"]
 [ext_resource type="Texture2D" uid="uid://44h0lu41nptn" path="res://artwork/icon_temperature_highlight.png" id="4_bk0ro"]
 [ext_resource type="Texture2D" uid="uid://cj01mrfnxfsll" path="res://artwork/cursor_sky.png" id="4_cnm1i"]
 [ext_resource type="Texture2D" uid="uid://u74jeokpkmvl" path="res://artwork/icon_ice.png" id="4_j2jd2"]
 [ext_resource type="Texture2D" uid="uid://c6gxbircgb321" path="res://artwork/indicator_highlight.png" id="5_2k11r"]
+[ext_resource type="Texture2D" uid="uid://b7vqofwt3qdgx" path="res://artwork/tutorial_purple.png" id="5_cc1qf"]
 [ext_resource type="Texture2D" uid="uid://3w68weol06mf" path="res://artwork/icon_fire.png" id="5_n8eee"]
+[ext_resource type="Texture2D" uid="uid://dphukn18bd0kr" path="res://artwork/tutorial_red.png" id="6_3gk2l"]
 [ext_resource type="Texture2D" uid="uid://xdqqfpcwmrnc" path="res://artwork/icon_ice_highlight.png" id="7_g0ey0"]
+[ext_resource type="Texture2D" uid="uid://vfoah4x4m3i7" path="res://artwork/tutorial_sky.png" id="7_tttt2"]
+[ext_resource type="Texture2D" uid="uid://chbkh48fgamwf" path="res://artwork/tutorial_yellow.png" id="8_8lr7i"]
 [ext_resource type="Texture2D" uid="uid://dowxxa7h5wv0c" path="res://artwork/icon_fire_highlight.png" id="9_3mkrf"]
+[ext_resource type="Texture2D" uid="uid://dgnid217257wf" path="res://artwork/tutorial_blue.png" id="12_i0iy5"]
 [ext_resource type="Script" path="res://scripts/rewards.gd" id="13_6pg3b"]
 [ext_resource type="Texture2D" uid="uid://qa66dkkrdqrd" path="res://artwork/background_rewards.png" id="13_u444q"]
 [ext_resource type="Texture2D" uid="uid://x30547yg8ic5" path="res://artwork/icecream_sky.png" id="14_0xt2j"]
@@ -65,6 +72,7 @@ shader_parameter/NUMBER = 150.0
 
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_7tlaj")
+indexTutorial = Array[Texture2D]([ExtResource("12_i0iy5"), ExtResource("3_fd2xs"), ExtResource("4_5k82h"), ExtResource("5_cc1qf"), ExtResource("6_3gk2l"), ExtResource("7_tttt2"), ExtResource("8_8lr7i")])
 
 [node name="temperature" type="Panel" parent="."]
 anchors_preset = 1
@@ -172,11 +180,13 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="desc" type="Panel" parent="."]
-offset_top = 144.0
-offset_right = 384.0
-offset_bottom = 320.0
+[node name="desc" type="TextureRect" parent="."]
+visible = false
+offset_top = 128.0
+offset_right = 192.0
+offset_bottom = 336.0
 mouse_filter = 2
+expand_mode = 1
 
 [node name="rewards" type="Panel" parent="."]
 process_mode = 3

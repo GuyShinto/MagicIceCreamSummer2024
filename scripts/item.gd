@@ -9,6 +9,8 @@ var id:int
 var normal:Texture2D
 var highlight:Texture2D
 
+var index:int
+
 var onHighlight:bool
 
 var time:float = 0
@@ -24,6 +26,7 @@ func _pressed():
 func _entered():
 	if not onHighlight:
 		AudioManager.click.play()
+		Global.ui._showT(index)
 		var tween = get_tree().create_tween()
 		tween.tween_method(SetFade, time, 1.0, 0.3).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 		icon.texture = highlight
@@ -31,6 +34,7 @@ func _entered():
 
 func _exited():
 	if onHighlight:
+		Global.ui._hideT()
 		var tween = get_tree().create_tween()
 		tween.tween_method(SetFade, time, 0.0, 0.3).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 		icon.texture = normal
