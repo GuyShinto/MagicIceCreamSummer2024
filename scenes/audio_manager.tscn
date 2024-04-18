@@ -1,0 +1,145 @@
+[gd_scene load_steps=11 format=3 uid="uid://c143jlx5a48xq"]
+
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_a50u8"]
+[ext_resource type="AudioStream" uid="uid://bvraa0aha8xrp" path="res://sounds/sfx/WOW Anime Sound.mp3" id="2_050qa"]
+[ext_resource type="Texture2D" uid="uid://c5egu1yoo5ahw" path="res://artwork/icon_music.png" id="2_ru20c"]
+[ext_resource type="Texture2D" uid="uid://crtfc2sw6sans" path="res://artwork/icon_soundwave.png" id="3_dw7kf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qjytb"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7x57b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv6jc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuhyf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc4fe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjm2d"]
+
+[node name="audio_manager" type="CanvasLayer"]
+script = ExtResource("1_a50u8")
+
+[node name="music" type="VSlider" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -482.0
+offset_right = -110.0
+offset_bottom = -127.0
+grow_horizontal = 0
+grow_vertical = 0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label" type="Label" parent="music"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_top = -48.0
+offset_right = 45.5
+offset_bottom = -3.0
+grow_horizontal = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_qjytb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx" type="VSlider" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -482.0
+offset_right = -30.0
+offset_bottom = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label" type="Label" parent="sfx"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_top = -48.0
+offset_right = 45.5
+offset_bottom = -3.0
+grow_horizontal = 2
+text = "Sfx"
+label_settings = SubResource("LabelSettings_qjytb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="icon" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -113.0
+offset_right = -84.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_ru20c")
+expand_mode = 1
+
+[node name="button" type="Button" parent="icon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -36.5
+offset_right = 36.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7x57b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fv6jc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uuhyf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mc4fe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wjm2d")
+flat = true
+
+[node name="ishow" type="TextureRect" parent="icon"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -51.0
+offset_right = 93.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_dw7kf")
+expand_mode = 1
+
+[node name="reward" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_050qa")
+bus = &"Sfx"
