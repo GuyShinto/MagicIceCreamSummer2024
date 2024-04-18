@@ -1,9 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://c143jlx5a48xq"]
+[gd_scene load_steps=22 format=3 uid="uid://c143jlx5a48xq"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_a50u8"]
 [ext_resource type="AudioStream" uid="uid://bvraa0aha8xrp" path="res://sounds/sfx/WOW Anime Sound.mp3" id="2_050qa"]
 [ext_resource type="Texture2D" uid="uid://c5egu1yoo5ahw" path="res://artwork/icon_music.png" id="2_ru20c"]
 [ext_resource type="Texture2D" uid="uid://crtfc2sw6sans" path="res://artwork/icon_soundwave.png" id="3_dw7kf"]
+[ext_resource type="AudioStream" uid="uid://coolshv11ct6b" path="res://sounds/sfx/Poison.ogg" id="5_enwpk"]
+[ext_resource type="AudioStream" uid="uid://cfl55q0m1bkuy" path="res://sounds/sfx/Teleport.ogg" id="6_5fllq"]
+[ext_resource type="AudioStream" uid="uid://oglu4ne5or8e" path="res://sounds/sfx/Fall.ogg" id="7_qy7i1"]
+[ext_resource type="AudioStream" uid="uid://c4rq6yktaw1hf" path="res://sounds/sfx/Cursor1.ogg" id="8_oo2o5"]
+[ext_resource type="AudioStream" uid="uid://d1cgxbcc2wv00" path="res://sounds/sfx/Ice1.ogg" id="9_phccj"]
+[ext_resource type="AudioStream" uid="uid://cgf6omadf77un" path="res://sounds/sfx/Ice2.ogg" id="10_ust2b"]
+[ext_resource type="AudioStream" uid="uid://0axbqokny78p" path="res://sounds/sfx/Ice3.ogg" id="11_m38po"]
+[ext_resource type="AudioStream" uid="uid://dd6i5hiij1w85" path="res://sounds/sfx/Ice4.ogg" id="12_jiftg"]
+[ext_resource type="AudioStream" uid="uid://bcrct0knk7rg1" path="res://sounds/sfx/Ice5.ogg" id="13_4eh18"]
+[ext_resource type="AudioStream" uid="uid://dk1i4tmegpysx" path="res://sounds/sfx/Explosion1.ogg" id="14_cp4jj"]
+[ext_resource type="AudioStream" uid="uid://co0slbue85ex3" path="res://sounds/sfx/Explosion2.ogg" id="15_kqppw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjytb"]
 font_size = 32
@@ -142,4 +153,49 @@ expand_mode = 1
 
 [node name="reward" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_050qa")
+bus = &"Sfx"
+
+[node name="malt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_enwpk")
+bus = &"Sfx"
+
+[node name="skill_1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5fllq")
+bus = &"Sfx"
+
+[node name="fall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_qy7i1")
+pitch_scale = 0.5
+bus = &"Sfx"
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_oo2o5")
+bus = &"Sfx"
+
+[node name="ice1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_phccj")
+bus = &"Sfx"
+
+[node name="ice2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_ust2b")
+bus = &"Sfx"
+
+[node name="ice3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_m38po")
+bus = &"Sfx"
+
+[node name="ice4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_jiftg")
+bus = &"Sfx"
+
+[node name="ice5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_4eh18")
+bus = &"Sfx"
+
+[node name="exp1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_cp4jj")
+bus = &"Sfx"
+
+[node name="exp2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_kqppw")
 bus = &"Sfx"

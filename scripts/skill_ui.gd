@@ -101,7 +101,9 @@ func _ready():
 	await get_tree().create_timer(1).timeout
 	var tween4 = create_tween()
 	tween4.tween_method(SetFade3, 0.0, 1.0, 8.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	await get_tree().create_timer(10).timeout #real 10
+	await get_tree().create_timer(9).timeout #real 10
+	AudioManager.skill_1.play()
+	await get_tree().create_timer(1).timeout
 	canpress = false
 	var tween5 = create_tween()
 	tween5.tween_method(SetFade4, 1.0, 0.0, 1.0).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
@@ -127,11 +129,13 @@ func _ready():
 	bgT += 5.0
 	
 	ricong = true
+	AudioManager.fall.play()
 	await get_tree().create_timer(5).timeout
 	ricong = false
 	var tween8 = create_tween()
 	tween8.tween_method(SetStar, 0.0, 1.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	await get_tree().create_timer(0.3).timeout
+	AudioManager.ice1.play()
 	var tween9 = create_tween()
 	tween9.tween_method(SetStar, 1.0, 0.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await get_tree().create_timer(2).timeout
@@ -146,6 +150,7 @@ func _ready():
 	await get_tree().create_timer(0.2).timeout
 	var tween11 = create_tween()
 	tween11.tween_method(SetBr, 0.0, 1.0, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	AudioManager.exp2.play()
 	total += randi_range(10000,100000)
 	damge.text = str(total)
 	var tween12 = create_tween()
@@ -155,11 +160,13 @@ func _ready():
 	yee.position = yeeV2
 	tree.position = treeV2
 	ricong2 = true
+	AudioManager.fall.play()
 	await get_tree().create_timer(5).timeout
 	ricong2 = false
 	var tween13 = create_tween()
 	tween13.tween_method(SetStar2, 0.0, 1.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	await get_tree().create_timer(0.3).timeout
+	AudioManager.ice1.play()
 	var tween14 = create_tween()
 	tween14.tween_method(SetStar2, 1.0, 0.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await get_tree().create_timer(5).timeout
@@ -177,6 +184,7 @@ func SetFadeNew(alpha:float):
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed and canpress:
+			AudioManager.click.play()
 			pro.value += 1
 			var tween = create_tween()
 			tween.tween_method(SetSize, 0.0, 1.0, 0.8).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)

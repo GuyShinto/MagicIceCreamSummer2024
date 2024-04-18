@@ -36,6 +36,7 @@ func _timeout():
 	if global_rotation < -2.0 or global_rotation > 2.0:
 		object._take_damge(1 + _cold)
 	if Global.temperature.heat > atMalt:
+		AudioManager.malt.play()
 		object._take_damge(Global.temperature.heat/10)
 		_show_heat(false)
 	elif Global.temperature.heat < -atMalt*2:
