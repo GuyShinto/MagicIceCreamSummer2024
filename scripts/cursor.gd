@@ -43,14 +43,22 @@ func _process(_delta):
 		match indexMagic:
 			1:
 				_spell1()
+			3:
+				_spell3()
 			6:
 				_spell4()
+			5:
+				_spell2()
 	elif Input.is_action_pressed("right_click"):
 		match indexMagic:
 			1:
 				_spell1long()
+			3:
+				_spell3long()
 			6:
 				_spell4long()
+			5:
+				_spell2long()
 
 func _input(event):
 	if event is InputEventKey:
@@ -127,15 +135,31 @@ func _spell1long():
 func _spell2():
 	for ice in Global.mouse.list:
 		if Global._check_null(ice):
+			if ice.has_node("object"):
+				if ice.get_node("object").canFreeze:
+					ice.get_node("object")._add_cool(-0.1)
 			if ice.has_node("melt"):
 				ice.get_node("melt")._on_timeout()
+
+func _spell2long():
+	for ice in Global.mouse.listl:
+		if Global._check_null(ice):
+			if ice.has_node("object"):
+				if ice.get_node("object").canFreeze:
+					ice.get_node("object")._add_cool(-0.01)
 
 func _spell3():
 	for o in Global.mouse.list:
 		if Global._check_null(o):
 			if o.has_node("object"):
 				if o.get_node("object").canFreeze:
-					o.get_node("object")._add_cool(1)
+					o.get_node("object")._add_cool(0.1)
+func _spell3long():
+	for o in Global.mouse.listl:
+		if Global._check_null(o):
+			if o.has_node("object"):
+				if o.get_node("object").canFreeze:
+					o.get_node("object")._add_cool(0.01)
 
 func _spell4():
 	for wat in Global.mouse.list:
@@ -176,14 +200,14 @@ func _spell6():
 			if el.has_node("electrical"):
 				el.get_node("electrical")._add_energy(5)
 			if el.is_in_group("watergun"):
-				el.get_node("water_gun")._shoot()
+				el.get_node("water_gun")._shoot(3)
 func _spell6long():
 	for el in Global.mouse.listl:
 		if Global._check_null(el):
 			if el.has_node("electrical"):
 				el.get_node("electrical")._add_energy(1)
 			if el.is_in_group("watergun"):
-				el.get_node("water_gun")._shoot()
+				el.get_node("water_gun")._shoot(2)
 
 func _spell7():
 	for w in Global.mouse.list:
