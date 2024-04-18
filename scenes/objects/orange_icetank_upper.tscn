@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd2l527w2ry2y"]
+[gd_scene load_steps=6 format=3 uid="uid://cd2l527w2ry2y"]
 
 [ext_resource type="Texture2D" uid="uid://dja8uhkrewi5q" path="res://artwork/orange_icetank_upper.png" id="1_nogce"]
 [ext_resource type="PackedScene" uid="uid://dmx0v2h8ii6jp" path="res://scenes/components/fridge_ice.tscn" id="2_tenun"]
+[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_6os2r"]
+[ext_resource type="PackedScene" uid="uid://nagx8ytpbr8s" path="res://scenes/components/cpbar.tscn" id="4_cmvyt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksol5"]
 
@@ -31,3 +33,9 @@ offset_right = 51.0
 offset_bottom = 69.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ksol5")
+
+[node name="object" parent="." instance=ExtResource("3_6os2r")]
+
+[node name="cpbar" parent="." instance=ExtResource("4_cmvyt")]
+offset_top = -62.0
+offset_bottom = 450.0

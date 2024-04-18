@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp3gr1vkxxgjv"]
+[gd_scene load_steps=4 format=3 uid="uid://dp3gr1vkxxgjv"]
 
 [ext_resource type="Texture2D" uid="uid://bewsa33mx5wro" path="res://artwork/bucket_2.png" id="1_403rr"]
+[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="2_s457e"]
+[ext_resource type="PackedScene" uid="uid://nagx8ytpbr8s" path="res://scenes/components/cpbar.tscn" id="3_cfef8"]
 
 [node name="bucket_l" type="RigidBody2D"]
 mass = 20.0
@@ -15,3 +17,9 @@ visible = false
 position = Vector2(4.76837e-07, -13)
 scale = Vector2(0.100624, 0.100624)
 polygon = PackedVector2Array(327.953, 89.4417, 457.146, -139.131, 482, -128.2, 482, -122.2, 486.96, -89.4417, 488.8, -63, 472.8, -35, 467.2, -35, 432.5, -19.8, 346.8, 128, 337.7, 128, 98.3, 144, 96.9, 144, -302, 133.7, -302, 132, -351, 127, -351, 119.7, -430.8, -18.6, -481, -41.6, -481, -47.5, -494, -72.6, -494, -79.3, -479.6, -132, -471.6, -132, -447.208, -139.131, -308.077, 99.3796)
+
+[node name="object" parent="." instance=ExtResource("2_s457e")]
+
+[node name="cpbar" parent="." instance=ExtResource("3_cfef8")]
+offset_top = -97.0
+offset_bottom = 415.0

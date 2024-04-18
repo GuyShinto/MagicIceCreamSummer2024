@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://7c6s3fqkd0xx"]
+[gd_scene load_steps=6 format=3 uid="uid://7c6s3fqkd0xx"]
 
 [ext_resource type="Texture2D" uid="uid://bubcer43r4csb" path="res://artwork/blue_icetank_upper.png" id="1_d7orl"]
 [ext_resource type="PackedScene" uid="uid://dmx0v2h8ii6jp" path="res://scenes/components/fridge_ice.tscn" id="2_e4rj2"]
+[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_8pkq1"]
+[ext_resource type="PackedScene" uid="uid://nagx8ytpbr8s" path="res://scenes/components/cpbar.tscn" id="4_452yt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3i8r3"]
 
@@ -30,3 +32,9 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_3i8r3")
 
 [node name="fridge_ice" parent="." instance=ExtResource("2_e4rj2")]
 offset = Vector2(0, 25)
+
+[node name="object" parent="." instance=ExtResource("3_8pkq1")]
+
+[node name="cpbar" parent="." instance=ExtResource("4_452yt")]
+offset_top = -73.0
+offset_bottom = 439.0
