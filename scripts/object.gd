@@ -106,5 +106,8 @@ func _process(_delta):
 		Global.temperature.cold.erase(self)
 		Global.temperature.cooly.erase(self)
 		if main == Global.player:
-			Global.player = null
-		main.queue_free()
+			if not Global.player.OnDie:
+				Global._get_end()
+				Global.player.OnDie = true
+		else:
+			main.queue_free()

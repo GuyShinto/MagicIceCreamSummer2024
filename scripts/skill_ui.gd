@@ -59,6 +59,7 @@ var ricont2:float
 var total:int
 
 func _ready():
+	get_tree().paused = true
 	damgeV = damge.position
 	yeeV = yee.pivot_offset
 	treeV = tree.pivot_offset
@@ -175,6 +176,7 @@ func _ready():
 	await get_tree().create_timer(5).timeout
 	#_blurbg()
 	Global._get_end()
+	Global.temperature.coldS = 10.0
 	queue_free()
 
 func _blurbg():

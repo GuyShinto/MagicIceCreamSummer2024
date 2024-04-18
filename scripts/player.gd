@@ -32,15 +32,16 @@ func _ready():
 	timer.timeout.connect(_timeout)
 
 func _timeout():
-	var _cold = Global.temperature.heat/20
-	if global_rotation < -2.0 or global_rotation > 2.0:
-		object._take_damge(1 + _cold)
-	if Global.temperature.heat > atMalt:
-		AudioManager.malt.play()
-		object._take_damge(Global.temperature.heat/10)
-		_show_heat(false)
-	elif Global.temperature.heat < -atMalt*2:
-		_show_heat(true)
+	if not OnDie:
+		var _cold = Global.temperature.heat/20
+		if global_rotation < -2.0 or global_rotation > 2.0:
+			object._take_damge(1 + _cold)
+		if Global.temperature.heat > atMalt:
+			AudioManager.malt.play()
+			object._take_damge(Global.temperature.heat/10)
+			_show_heat(false)
+		elif Global.temperature.heat < -atMalt*2:
+			_show_heat(true)
 
 func _show_heat(isCold):
 	if isCold:
@@ -65,6 +66,8 @@ func _change_hair(_vlaue):
 
 func _physics_process(_delta):
 	var dis:float = Input.get_axis("left", "right")
+	if OnDie:
+		dis = 0.0;
 	if abs(dis) > 0:
 		self.angular_velocity = dis * speed * _delta
 	if not OnDie:

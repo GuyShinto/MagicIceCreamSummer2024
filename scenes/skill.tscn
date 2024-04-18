@@ -48,6 +48,7 @@ shader_parameter/GOLDEN_ANGLE = 2.39996
 shader_parameter/NUMBER = 150.0
 
 [node name="skill" type="CanvasLayer"]
+process_mode = 3
 layer = 110
 script = ExtResource("1_o3exi")
 sword_frame = Array[Texture2D]([ExtResource("6_ejhdc"), ExtResource("3_t6q1q"), ExtResource("4_3hdsp"), ExtResource("5_3gfr1"), ExtResource("6_2dyf5"), ExtResource("7_s85eq")])

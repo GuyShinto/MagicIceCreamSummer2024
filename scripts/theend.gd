@@ -7,6 +7,7 @@ extends CanvasLayer
 #var time:float
 
 func _ready():
+	get_tree().paused = false
 	#listV = list.position
 	pass
 	
