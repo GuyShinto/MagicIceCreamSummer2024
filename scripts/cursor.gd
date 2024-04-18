@@ -91,6 +91,7 @@ func _input(event):
 			_click()
 			match indexMagic:
 				4:
+					AudioManager.magic3.play()
 					_spell5()
 				7:
 					_spell6()
@@ -98,6 +99,7 @@ func _input(event):
 			_click()
 			match indexMagic:
 				4:
+					AudioManager.magic4.play()
 					_spell5back()
 				7:
 					_spell6long()

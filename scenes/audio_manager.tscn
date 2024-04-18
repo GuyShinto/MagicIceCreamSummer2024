@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c143jlx5a48xq"]
+[gd_scene load_steps=26 format=3 uid="uid://c143jlx5a48xq"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_a50u8"]
 [ext_resource type="AudioStream" uid="uid://bvraa0aha8xrp" path="res://sounds/sfx/WOW Anime Sound.mp3" id="2_050qa"]
@@ -17,6 +17,8 @@
 [ext_resource type="AudioStream" uid="uid://co0slbue85ex3" path="res://sounds/sfx/Explosion2.ogg" id="15_kqppw"]
 [ext_resource type="AudioStream" uid="uid://b6q517g13lge" path="res://sounds/sfx/Darkness3.ogg" id="16_rkdth"]
 [ext_resource type="AudioStream" uid="uid://5uoui24js0iw" path="res://sounds/sfx/Darkness4.ogg" id="17_drun2"]
+[ext_resource type="AudioStream" uid="uid://ct0cvfxcuj0fo" path="res://sounds/sfx/Magic3.ogg" id="18_1c1e1"]
+[ext_resource type="AudioStream" uid="uid://b7vrdo0rgud0e" path="res://sounds/sfx/Magic4.ogg" id="19_g5nyc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjytb"]
 font_size = 32
@@ -154,61 +156,70 @@ mouse_filter = 2
 texture = ExtResource("3_dw7kf")
 expand_mode = 1
 
-[node name="reward" type="AudioStreamPlayer2D" parent="."]
+[node name="reward" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_050qa")
 bus = &"Sfx"
 
-[node name="malt" type="AudioStreamPlayer2D" parent="."]
+[node name="malt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_enwpk")
 bus = &"Sfx"
 
-[node name="skill_1" type="AudioStreamPlayer2D" parent="."]
+[node name="skill_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_5fllq")
 bus = &"Sfx"
 
-[node name="fall" type="AudioStreamPlayer2D" parent="."]
+[node name="fall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_qy7i1")
 pitch_scale = 0.5
 bus = &"Sfx"
 
-[node name="click" type="AudioStreamPlayer2D" parent="."]
+[node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_oo2o5")
 bus = &"Sfx"
 
-[node name="ice1" type="AudioStreamPlayer2D" parent="."]
+[node name="ice1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_phccj")
 bus = &"Sfx"
 
-[node name="ice2" type="AudioStreamPlayer2D" parent="."]
+[node name="ice2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_ust2b")
 bus = &"Sfx"
 
-[node name="ice3" type="AudioStreamPlayer2D" parent="."]
+[node name="ice3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_m38po")
 bus = &"Sfx"
 
-[node name="ice4" type="AudioStreamPlayer2D" parent="."]
+[node name="ice4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_jiftg")
 bus = &"Sfx"
 
-[node name="ice5" type="AudioStreamPlayer2D" parent="."]
+[node name="ice5" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_4eh18")
 bus = &"Sfx"
 
-[node name="exp1" type="AudioStreamPlayer2D" parent="."]
+[node name="exp1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_cp4jj")
 bus = &"Sfx"
 
-[node name="exp2" type="AudioStreamPlayer2D" parent="."]
+[node name="exp2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_kqppw")
 bus = &"Sfx"
 
-[node name="dark3" type="AudioStreamPlayer2D" parent="."]
+[node name="dark3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_rkdth")
 pitch_scale = 0.3
 bus = &"Sfx"
 
-[node name="dark4" type="AudioStreamPlayer2D" parent="."]
+[node name="dark4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_drun2")
 pitch_scale = 0.3
+bus = &"Sfx"
+
+[node name="magic3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_1c1e1")
+bus = &"Sfx"
+
+[node name="magic4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_g5nyc")
+pitch_scale = 2.0
 bus = &"Sfx"
