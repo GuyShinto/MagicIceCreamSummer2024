@@ -1,5 +1,8 @@
 extends Node
 
+@export var offset:Vector2
+@export var ices:int = 10
+
 @onready var main := $".."
 
 var isOver : bool
@@ -14,7 +17,7 @@ func _ready():
 func _spawn_ice(ran):
 	for i in range(1,randi_range(1,ran)):
 		var ins = ice.instantiate()
-		ins.global_position = main.global_position
+		ins.global_position = main.global_position + offset
 		Global.objects.add_child(ins)
 
 func _entered():
@@ -26,6 +29,6 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("left_click"):
 			if isOver and main.freeze:
-				_spawn_ice(10)
+				_spawn_ice(ices)
 				main.freeze = false
 				
