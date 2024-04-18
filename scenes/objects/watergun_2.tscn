@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch288sc7inqsh"]
+[gd_scene load_steps=5 format=3 uid="uid://ch288sc7inqsh"]
 
 [ext_resource type="Texture2D" uid="uid://3e5q61x6bmme" path="res://artwork/watergun_2.png" id="1_2a4j3"]
 [ext_resource type="PackedScene" uid="uid://cwf2kpluq8n3j" path="res://scenes/components/water_gun.tscn" id="2_1mha6"]
+[ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="3_3rdq8"]
+[ext_resource type="PackedScene" uid="uid://nagx8ytpbr8s" path="res://scenes/components/cpbar.tscn" id="4_2lk00"]
 
 [node name="watergun_2" type="RigidBody2D" groups=["water", "watergun"]]
 mass = 5.0
@@ -22,3 +24,9 @@ position = Vector2(73, -1)
 position = Vector2(135, -1)
 
 [node name="water_gun" parent="." instance=ExtResource("2_1mha6")]
+
+[node name="object" parent="." instance=ExtResource("3_3rdq8")]
+
+[node name="cpbar" parent="." instance=ExtResource("4_2lk00")]
+offset_top = -79.0
+offset_bottom = 433.0
