@@ -869,6 +869,7 @@ position = Vector2(255, 70)
 [node name="players" type="Node2D" parent="."]
 
 [node name="player" parent="players" instance=ExtResource("17_a7kvp")]
+speed = 500
 
 [node name="upper_objects" type="Node2D" parent="."]
 

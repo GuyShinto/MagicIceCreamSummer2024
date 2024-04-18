@@ -102,7 +102,7 @@ func _entered(_rid, _body, _body_index, _local_index):
 	if (abs(main.linear_velocity.x) > 500 or abs(main.linear_velocity.y) > 500):
 		#if _body is RigidBody2D:
 		#	_body.freeze = false
-		if _body.is_in_group("player"):
+		if _body.is_in_group("player") or _body.is_in_group("enemy"):
 			_body.get_node("object")._take_damge(1)
 
 func _process(_delta):
