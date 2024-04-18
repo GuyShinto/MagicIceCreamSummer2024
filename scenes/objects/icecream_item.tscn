@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt0ftq0dvoqpx"]
+
+[ext_resource type="Texture2D" uid="uid://yrh1tfvrwmtm" path="res://artwork/cursor_blue.png" id="1_emh2u"]
+[ext_resource type="Script" path="res://scripts/icecream_item.gd" id="2_omhov"]
+
+[node name="icecream_item" type="TextureRect"]
+offset_left = -53.0
+offset_top = -55.0
+offset_right = 53.0
+offset_bottom = 51.0
+pivot_offset = Vector2(53, 55)
+texture = ExtResource("1_emh2u")
+expand_mode = 1
+script = ExtResource("2_omhov")

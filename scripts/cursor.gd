@@ -79,7 +79,6 @@ func _input(event):
 			#_skill()
 			_spell6()
 			#AudioManager.reward.play()
-			#Global.rewards._show(randi_range(1,7))
 		elif Input.is_action_pressed("left_wheel"):
 			_set_mouse(indexItem+1)
 		elif Input.is_action_pressed("right_wheel"):

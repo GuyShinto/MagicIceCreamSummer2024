@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=42 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
 [ext_resource type="Texture2D" uid="uid://c52jw3k5p8ga2" path="res://artwork/house_1.png" id="2_ivgwf"]
 [ext_resource type="PackedScene" uid="uid://ddy27muki4lid" path="res://scenes/objects/road.tscn" id="2_ofcyl"]
+[ext_resource type="PackedScene" uid="uid://bt0ftq0dvoqpx" path="res://scenes/objects/icecream_item.tscn" id="2_qul4d"]
 [ext_resource type="Texture2D" uid="uid://b36y8yg2vtqhf" path="res://artwork/house_2.png" id="3_mggic"]
 [ext_resource type="PackedScene" uid="uid://cx8jhcse056l0" path="res://scenes/objects/ice.tscn" id="4_84b7g"]
 [ext_resource type="Texture2D" uid="uid://cjk8fafv2h8uo" path="res://artwork/house_3.png" id="4_iqdrl"]
@@ -33,6 +34,12 @@
 [ext_resource type="PackedScene" uid="uid://c4y5n7wq08hfq" path="res://scenes/objects/fridge_frame_upper.tscn" id="25_8imd5"]
 [ext_resource type="PackedScene" uid="uid://b5vh06l6upboq" path="res://scenes/objects/player_shell_upper.tscn" id="25_wubf4"]
 [ext_resource type="PackedScene" uid="uid://dfmxjxi8inupn" path="res://scenes/objects/fridge_frame_lower.tscn" id="26_43nqq"]
+[ext_resource type="Texture2D" uid="uid://beky2fkj8v5bx" path="res://artwork/cursor_green.png" id="30_ivng3"]
+[ext_resource type="Texture2D" uid="uid://472382btjbj2" path="res://artwork/cursor_orange.png" id="31_kiam1"]
+[ext_resource type="Texture2D" uid="uid://dpvsx2aok083t" path="res://artwork/cursor_purple.png" id="32_e4ww0"]
+[ext_resource type="Texture2D" uid="uid://ca435rt1jgfl3" path="res://artwork/cursor_red.png" id="33_k1u2h"]
+[ext_resource type="Texture2D" uid="uid://cj01mrfnxfsll" path="res://artwork/cursor_sky.png" id="34_mefpm"]
+[ext_resource type="Texture2D" uid="uid://cwhafsokbrwia" path="res://artwork/cursor_yellow.png" id="35_5s2b0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2y705"]
 radius = 364.26
@@ -916,6 +923,63 @@ position = Vector2(74293, 4459)
 position = Vector2(0, -91)
 
 [node name="water" type="Node2D" parent="." groups=["water_group"]]
+
+[node name="items" type="Node2D" parent="."]
+
+[node name="icecream_item" parent="items" instance=ExtResource("2_qul4d")]
+offset_left = 391.0
+offset_top = -191.0
+offset_right = 497.0
+offset_bottom = -85.0
+getItemID = 1
+
+[node name="icecream_item2" parent="items" instance=ExtResource("2_qul4d")]
+offset_left = 597.0
+offset_top = -233.0
+offset_right = 703.0
+offset_bottom = -127.0
+texture = ExtResource("30_ivng3")
+getItemID = 2
+
+[node name="icecream_item3" parent="items" instance=ExtResource("2_qul4d")]
+offset_left = 185.0
+offset_top = -306.0
+offset_right = 291.0
+offset_bottom = -200.0
+texture = ExtResource("31_kiam1")
+getItemID = 3
+
+[node name="icecream_item4" parent="items" instance=ExtResource("2_qul4d")]
+offset_left = 61.0
+offset_top = -452.0
+offset_right = 167.0
+offset_bottom = -346.0
+texture = ExtResource("32_e4ww0")
+getItemID = 4
+
+[node name="icecream_item5" parent="items" instance=ExtResource("2_qul4d")]
+offset_left = 305.0
+offset_top = -423.0
+offset_right = 411.0
+offset_bottom = -317.0
+texture = ExtResource("33_k1u2h")
+getItemID = 5
+
+[node name="icecream_item6" parent="items" instance=ExtResource("2_qul4d")]
+offset_left = 476.0
+offset_top = -398.0
+offset_right = 582.0
+offset_bottom = -292.0
+texture = ExtResource("34_mefpm")
+getItemID = 6
+
+[node name="icecream_item7" parent="items" instance=ExtResource("2_qul4d")]
+offset_left = 662.0
+offset_top = -384.0
+offset_right = 768.0
+offset_bottom = -278.0
+texture = ExtResource("35_5s2b0")
+getItemID = 7
 
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
 

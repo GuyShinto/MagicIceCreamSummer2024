@@ -18,7 +18,7 @@ func _physics_process(_delta):
 				if shake_fade > 0 and duration > 0:
 					_set_shake()
 			else:
-				_follow(target.position,false)
+				_follow(target.c,false)
 				if shake_fade > 0 and duration > 0:
 					_set_shake()
 
