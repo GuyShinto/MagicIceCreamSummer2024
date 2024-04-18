@@ -46,6 +46,7 @@ func _show(_id):
 		if (ic.id == _id):
 			getItem = ic
 			hasShow = true
+			AudioManager.reward.play()
 			get_tree().paused = true
 			self.visible = true
 			BGIcon.texture = ic.background

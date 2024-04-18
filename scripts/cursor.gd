@@ -43,6 +43,8 @@ func _process(_delta):
 		match indexMagic:
 			1:
 				_spell1()
+			2:
+				_spell8()
 			3:
 				_spell3()
 			6:
@@ -53,6 +55,8 @@ func _process(_delta):
 		match indexMagic:
 			1:
 				_spell1long()
+			2:
+				_spell8()
 			3:
 				_spell3long()
 			6:
@@ -90,13 +94,6 @@ func _input(event):
 					_spell5()
 				7:
 					_spell6()
-			#match indexMagic:
-			#	1:
-			#		_spell7()
-			#_spell7()
-			#_spell3()
-			#_spell3()
-			#_spell()
 		elif Input.is_action_just_pressed("right_click"):
 			_click()
 			match indexMagic:
@@ -104,11 +101,7 @@ func _input(event):
 					_spell5back()
 				7:
 					_spell6long()
-			#match indexMagic:
-			#	1:
-			#		_spell7()
 			#_skill()
-			#_spell6()
 			#AudioManager.reward.play()
 		elif Input.is_action_pressed("up_wheel"):
 			_set_mouse(indexItem+1)
@@ -167,6 +160,14 @@ func _spell4():
 			if wat.is_in_group("water"):
 				var mousePostion:Vector2 = Global.mouse.global_position
 				wat.linear_velocity = Vector2(clamp(mousePostion.x-wat.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-wat.global_position.y,-maxIceMove,maxIceMove))*0.5
+
+func _spell8():
+	for wat in Global.mouse.list:
+		if Global._check_null(wat):
+			if wat is RigidBody2D:
+				if not(wat.is_in_group("player")):
+					var mousePostion:Vector2 = Global.mouse.global_position
+					wat.linear_velocity = Vector2(clamp(mousePostion.x-wat.global_position.x,-maxIceMove,maxIceMove),clamp(mousePostion.y-wat.global_position.y,-maxIceMove,maxIceMove))*0.01
 
 func _spell4long():
 	for wat in Global.mouse.listl:

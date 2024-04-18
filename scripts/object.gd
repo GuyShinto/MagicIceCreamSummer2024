@@ -18,6 +18,8 @@ var cool_material = null
 var cp :float
 var hp : float
 
+var BaseFriction:float
+
 func _ready():
 	#if canContact:
 	#	if main is RigidBody2D:
@@ -26,6 +28,9 @@ func _ready():
 	if main is RigidBody2D:
 		if not main.physics_material_override:
 			main.physics_material_override = PhysicsMaterial.new()
+			BaseFriction = main.physics_material_override.friction
+		else:
+			BaseFriction = main.physics_material_override.friction
 		main.body_shape_entered.connect(_entered)
 	if main.has_node("hpbar"):
 		hasHp = true
@@ -85,7 +90,7 @@ func _lowcool():
 func _highcool():
 	cpbar.value = cp
 	var fcp:float = clamp(cp/maxCp,0.0,1.0)
-	main.physics_material_override.friction = 1.-fcp
+	main.physics_material_override.friction = 1.-BaseFriction*fcp
 	cool_material.material.set_shader_parameter("cool",fcp)
 	if cp >= maxCp:
 		#frezze
