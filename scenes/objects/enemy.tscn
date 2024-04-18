@@ -18,7 +18,7 @@ height = 256.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_kvxbg"]
 radius = 416.077
 
-[node name="enemy" type="RigidBody2D"]
+[node name="enemy" type="RigidBody2D" groups=["enemy"]]
 mass = 40.0
 physics_material_override = SubResource("PhysicsMaterial_ryork")
 lock_rotation = true
@@ -60,7 +60,7 @@ position = Vector2(-635.936, -158.984)
 [node name="to" type="Marker2D" parent="attack/up"]
 position = Vector2(-953.905, -158.984)
 
-[node name="area" type="Area2D" parent="."]
+[node name="area" type="Area2D" parent="." groups=["enemy"]]
 visible = false
 
 [node name="collision" type="CollisionShape2D" parent="area"]
@@ -68,6 +68,7 @@ shape = SubResource("CircleShape2D_kvxbg")
 debug_color = Color(0, 0.6, 0.701961, 0.145098)
 
 [node name="object" parent="." instance=ExtResource("6_1lfb4")]
+maxHp = 10.0
 
 [node name="hpbar" parent="." instance=ExtResource("7_sl6ro")]
 offset_top = -296.0

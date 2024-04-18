@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx8jhcse056l0"]
+[gd_scene load_steps=7 format=3 uid="uid://cx8jhcse056l0"]
 
 [ext_resource type="PackedScene" uid="uid://sctptykp0ome" path="res://scenes/components/melt.tscn" id="1_oqy7f"]
 [ext_resource type="PackedScene" uid="uid://dk6bfjygvn27l" path="res://scenes/components/object.tscn" id="2_de4v3"]
 [ext_resource type="Texture2D" uid="uid://dthasv372nj0f" path="res://artwork/ice.png" id="3_xqj2p"]
+[ext_resource type="PackedScene" uid="uid://bovptxkvubmuu" path="res://scenes/components/hit.tscn" id="4_4fp5a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ritmh"]
 friction = 0.0
@@ -31,3 +32,5 @@ texture = ExtResource("3_xqj2p")
 [node name="collision" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_inpjl")
+
+[node name="hit" parent="." instance=ExtResource("4_4fp5a")]

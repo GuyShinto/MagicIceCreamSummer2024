@@ -5,7 +5,6 @@ extends Node
 
 #@export var canContact : bool = true
 @export var canFreeze : bool = true
-@export var damge:float = 1
 @export var maxHp:float = 30
 @export var maxCp : float = 60
 @export var maltcp:float = 1
@@ -32,7 +31,6 @@ func _ready():
 			BaseFriction = main.physics_material_override.friction
 		else:
 			BaseFriction = main.physics_material_override.friction
-		main.body_shape_entered.connect(_entered)
 	if main.has_node("hpbar"):
 		hasHp = true
 		hpbar = main.get_node("hpbar")
@@ -69,10 +67,11 @@ func _add_cool(_value):
 			_highcool()
 
 func _take_damge(_value):
-	hp = clamp(hp-_value,0,maxHp)
-	hpbar.value = hp
-	if _value > 0:
-		_show_hp()
+	if hasHp:
+		hp = clamp(hp-_value,0,maxHp)
+		hpbar.value = hp
+		if _value > 0:
+			_show_hp()
 
 func _on_timeout():
 	if cp <= 0:
@@ -99,12 +98,7 @@ func _highcool():
 	#main.get_node("icon").texture = electricalOn
 	#pass
 
-func _entered(_rid, _body, _body_index, _local_index):
-	if (abs(main.linear_velocity.x) > 500 or abs(main.linear_velocity.y) > 500):
-		#if _body is RigidBody2D:
-		#	_body.freeze = false
-		if _body.is_in_group("player") or _body.is_in_group("enemy"):
-			_body.get_node("object")._take_damge(1)
+
 
 func _process(_delta):
 	if (Global.despawn_y <= main.position.y) or (hasHp and hp <= 0):
