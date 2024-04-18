@@ -30,7 +30,7 @@ func _set_mouse(_index):
 		if _index <= -1:
 			indexItem = Global.items.size()
 		elif _index > Global.items.size():
-			indexItem = 0
+			indexItem = 1
 		else:
 			indexItem = _index
 		var thisItem = Global.items[indexItem-1]
@@ -110,9 +110,9 @@ func _input(event):
 			#_skill()
 			#_spell6()
 			#AudioManager.reward.play()
-		elif Input.is_action_pressed("left_wheel"):
+		elif Input.is_action_pressed("up_wheel"):
 			_set_mouse(indexItem+1)
-		elif Input.is_action_pressed("right_wheel"):
+		elif Input.is_action_pressed("down_wheel"):
 			_set_mouse(indexItem-1)
 	if event is InputEventMouseMotion:
 		self.position = get_viewport().get_mouse_position()
