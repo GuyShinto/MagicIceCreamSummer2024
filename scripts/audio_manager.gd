@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var reward := $"reward"
 @onready var malt := $"malt"
 @onready var skill_1 := $"skill_1"
+@onready var skill1 := $"skill1"
 @onready var fall := $"fall"
 @onready var click := $"click"
 @onready var ice1 := $"ice1"
@@ -16,6 +17,7 @@ extends CanvasLayer
 @onready var dark4 := $"dark4"
 @onready var magic3 := $"magic3"
 @onready var magic4 := $"magic4"
+@onready var paralyze1 := $"paralyze1"
 
 @onready var music := $"music"
 @onready var sfx := $"sfx"

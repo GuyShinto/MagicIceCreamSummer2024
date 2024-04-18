@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c143jlx5a48xq"]
+[gd_scene load_steps=28 format=3 uid="uid://c143jlx5a48xq"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_a50u8"]
 [ext_resource type="AudioStream" uid="uid://bvraa0aha8xrp" path="res://sounds/sfx/WOW Anime Sound.mp3" id="2_050qa"]
@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://5uoui24js0iw" path="res://sounds/sfx/Darkness4.ogg" id="17_drun2"]
 [ext_resource type="AudioStream" uid="uid://ct0cvfxcuj0fo" path="res://sounds/sfx/Magic3.ogg" id="18_1c1e1"]
 [ext_resource type="AudioStream" uid="uid://b7vrdo0rgud0e" path="res://sounds/sfx/Magic4.ogg" id="19_g5nyc"]
+[ext_resource type="AudioStream" uid="uid://rcnj2gdssqjy" path="res://sounds/sfx/Paralyze1.ogg" id="20_ol0b1"]
+[ext_resource type="AudioStream" uid="uid://cu1q4icvaibwo" path="res://sounds/sfx/Skill1.ogg" id="21_xlyy2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjytb"]
 font_size = 32
@@ -222,4 +224,12 @@ bus = &"Sfx"
 [node name="magic4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_g5nyc")
 pitch_scale = 2.0
+bus = &"Sfx"
+
+[node name="paralyze1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_ol0b1")
+bus = &"Sfx"
+
+[node name="skill1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_xlyy2")
 bus = &"Sfx"

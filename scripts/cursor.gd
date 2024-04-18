@@ -90,18 +90,28 @@ func _input(event):
 		if Input.is_action_just_pressed("left_click"):
 			_click()
 			match indexMagic:
+				1:
+					AudioManager.ice1.play()
+				2:
+					AudioManager.skill1.play()
 				4:
 					AudioManager.magic3.play()
 					_spell5()
 				7:
+					AudioManager.paralyze1.play()
 					_spell6()
 		elif Input.is_action_just_pressed("right_click"):
 			_click()
 			match indexMagic:
+				1:
+					AudioManager.ice1.play()
+				2:
+					AudioManager.skill1.play()
 				4:
 					AudioManager.magic4.play()
 					_spell5back()
 				7:
+					AudioManager.paralyze1.play()
 					_spell6long()
 			#_skill()
 			#AudioManager.reward.play()
