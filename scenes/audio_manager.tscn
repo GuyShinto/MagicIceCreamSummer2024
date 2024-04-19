@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c143jlx5a48xq"]
+[gd_scene load_steps=34 format=3 uid="uid://c143jlx5a48xq"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_a50u8"]
 [ext_resource type="FontFile" uid="uid://dwt70hmkpth8w" path="res://fonts/Itim-Regular.ttf" id="2_5nmgb"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://cu1q4icvaibwo" path="res://sounds/sfx/Skill1.ogg" id="21_xlyy2"]
 [ext_resource type="AudioStream" uid="uid://bpfteackh4rc5" path="res://sounds/sfx/Skill3.ogg" id="22_btfcl"]
 [ext_resource type="AudioStream" uid="uid://dvwxivvbk2agd" path="res://sounds/sfx/broken.ogg" id="23_ria1x"]
+[ext_resource type="AudioStream" uid="uid://co12geo56bbif" path="res://sounds/music/Détection.mp3" id="25_4shm8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0h2d"]
 bg_color = Color(0, 0.588235, 1, 1)
@@ -253,3 +254,8 @@ bus = &"Sfx"
 [node name="broken" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_ria1x")
 bus = &"Sfx"
+
+[node name="into" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_4shm8")
+autoplay = true
+bus = &"Music"
