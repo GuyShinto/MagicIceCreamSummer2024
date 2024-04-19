@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+@onready var into := $"into"
+@onready var die := $"die"
+@onready var music_bg := $"music_bg"
+
 @onready var reward := $"reward"
 @onready var malt := $"malt"
 @onready var skill_1 := $"skill_1"

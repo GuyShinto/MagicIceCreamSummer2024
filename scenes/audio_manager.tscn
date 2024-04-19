@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c143jlx5a48xq"]
+[gd_scene load_steps=36 format=3 uid="uid://c143jlx5a48xq"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_a50u8"]
 [ext_resource type="FontFile" uid="uid://dwt70hmkpth8w" path="res://fonts/Itim-Regular.ttf" id="2_5nmgb"]
@@ -25,6 +25,8 @@
 [ext_resource type="AudioStream" uid="uid://bpfteackh4rc5" path="res://sounds/sfx/Skill3.ogg" id="22_btfcl"]
 [ext_resource type="AudioStream" uid="uid://dvwxivvbk2agd" path="res://sounds/sfx/broken.ogg" id="23_ria1x"]
 [ext_resource type="AudioStream" uid="uid://co12geo56bbif" path="res://sounds/music/Détection.mp3" id="25_4shm8"]
+[ext_resource type="AudioStream" uid="uid://ci7r84qwf4hs1" path="res://sounds/music/Croissant.mp3" id="26_kvy0b"]
+[ext_resource type="AudioStream" uid="uid://cltm68lse1mqy" path="res://sounds/music/Milkshake.mp3" id="27_ldmbt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0h2d"]
 bg_color = Color(0, 0.588235, 1, 1)
@@ -258,4 +260,12 @@ bus = &"Sfx"
 [node name="into" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_4shm8")
 autoplay = true
+bus = &"Music"
+
+[node name="die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_kvy0b")
+bus = &"Music"
+
+[node name="music_bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_ldmbt")
 bus = &"Music"

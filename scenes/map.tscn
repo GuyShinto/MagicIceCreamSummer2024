@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=49 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_mq8k3"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d3pnps10m85uf" path="res://scenes/objects/vibe.tscn" id="5_jc3pp"]
 [ext_resource type="PackedScene" uid="uid://bah7dxaijttc2" path="res://scenes/objects/fridge.tscn" id="6_t0a4k"]
 [ext_resource type="Script" path="res://scripts/objects.gd" id="7_g3x1w"]
+[ext_resource type="Texture2D" uid="uid://xpx5bpripmtf" path="res://artwork/mixu.png" id="7_lwuej"]
 [ext_resource type="PackedScene" uid="uid://cevnly25jko6q" path="res://scenes/objects/freeze.tscn" id="7_rh7mv"]
 [ext_resource type="PackedScene" uid="uid://c4h0n5vu6g1xl" path="res://scenes/objects/cone.tscn" id="8_2iofa"]
 [ext_resource type="Texture2D" uid="uid://dd5vqs2e5cc2y" path="res://artwork/background_parallax2.png" id="9_b60b1"]
@@ -303,6 +304,11 @@ texture = ExtResource("5_eem6h")
 position = Vector2(80740, 4049)
 scale = Vector2(0.556452, 0.556452)
 texture = ExtResource("5_eem6h")
+
+[node name="xiue" type="Sprite2D" parent="background"]
+position = Vector2(-1991, -5)
+scale = Vector2(1.49456, 1.49456)
+texture = ExtResource("7_lwuej")
 
 [node name="floors" type="Node2D" parent="."]
 

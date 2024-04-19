@@ -6,6 +6,7 @@ extends CanvasLayer
 var BaseV:Vector2
 
 func _ready():
+	AudioManager.music_bg.stop()
 	BaseV = icon.global_position
 	var tween = create_tween()
 	tween.tween_method(SetFade, 0.0, 1.0, 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)

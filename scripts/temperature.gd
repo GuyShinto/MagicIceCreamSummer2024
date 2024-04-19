@@ -5,6 +5,7 @@ extends Panel
 @onready var title : Label = $"indicator/icon/title"
 @onready var timer :Timer = $"timer"
 
+@export var hoter:float = 0.5;
 @export var maxHeat:float = 40;
 
 var icon_cool:Texture2D = preload("res://artwork/indicator_cool.png")
@@ -50,7 +51,7 @@ func SetFade(alpha:float):
 	indicator.position.y = baseIndicator.y - clamp(alpha,-80,80)
 
 func _timeout():
-	_hot(1.0 - (cold.size()*0.2) - (sum_cool()) - coldS)
+	_hot(hoter - (cold.size()*0.2) - (sum_cool()) - coldS)
 
 func sum_cool():
 	var _sum:float = 0

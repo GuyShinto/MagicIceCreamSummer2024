@@ -8,6 +8,9 @@ extends CanvasLayer
 
 func _ready():
 	get_tree().paused = false
+	AudioManager.into.stop()
+	AudioManager.music_bg.stop()
+	AudioManager.die.play()
 	#listV = list.position
 	pass
 	

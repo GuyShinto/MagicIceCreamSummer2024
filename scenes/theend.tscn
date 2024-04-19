@@ -25,10 +25,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -405.0
-offset_top = 72.0
+offset_left = -740.0
+offset_top = 110.0
 offset_right = -8.0
-offset_bottom = 1650.0
+offset_bottom = 1994.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Game by XVI III
@@ -56,6 +56,11 @@ RMMV
 Music
 into - Détection by Studio Meow Meow
 thricedotted.itch.io
+
+die - Croissant by RUSTED MUSIC STUDIO
+rustedstudio.itch.io
+
+music - 
 
 Font
 Cadson Demak
