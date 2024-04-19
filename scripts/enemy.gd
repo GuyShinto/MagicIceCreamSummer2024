@@ -20,7 +20,7 @@ var BaseSUP:Vector2
 var BaseSDOWN:Vector2
 
 func _ready():
-	HasTarget()
+	NotHasTarget()
 	BaseS = idle.scale
 	BaseSUP = attack_up.scale
 	BaseSDOWN = attack_down.scale

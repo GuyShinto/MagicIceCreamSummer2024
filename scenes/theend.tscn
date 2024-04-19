@@ -6,10 +6,14 @@
 [sub_resource type="LabelSettings" id="LabelSettings_1fx77"]
 font = ExtResource("2_72t0u")
 font_size = 40
+outline_size = 10
+outline_color = Color(0.329412, 0.360784, 0.67451, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_76366"]
 font = ExtResource("2_72t0u")
 font_size = 50
+outline_size = 16
+outline_color = Color(0, 0.117647, 0.815686, 1)
 
 [node name="theend" type="CanvasLayer"]
 layer = 128
