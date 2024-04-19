@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://itbdhfu73jx3"]
+[gd_scene load_steps=5 format=3 uid="uid://itbdhfu73jx3"]
 
 [ext_resource type="Script" path="res://scripts/theend.gd" id="1_8lk4x"]
+[ext_resource type="FontFile" uid="uid://dwt70hmkpth8w" path="res://fonts/Itim-Regular.ttf" id="2_72t0u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1fx77"]
-font_size = 32
+font = ExtResource("2_72t0u")
+font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_76366"]
+font = ExtResource("2_72t0u")
 font_size = 50
 
 [node name="theend" type="CanvasLayer"]
@@ -18,44 +21,45 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -392.0
-offset_top = 32.0
+offset_left = -405.0
+offset_top = 72.0
 offset_right = -8.0
-offset_bottom = 1517.0
+offset_bottom = 1650.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "fasffffffffff
-fasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasfffffffffffasffffffffff
-fasffffffffff
-fasffffffffff
-fasffffffffff"
+text = "Game by XVI III
+
+
+
+Game Designer
+XVI III
+
+Programmer
+XVI III
+
+Artist
+XVI III
+
+VFX Artist
+XVI III
+
+Story Writer
+XVI III
+
+Sound FX
+RMMV
+
+Music background
+
+
+Font
+Cadson Demak
+
+
+
+Thank you for playing my game :)"
 label_settings = SubResource("LabelSettings_1fx77")
+horizontal_alignment = 1
 
 [node name="restart" type="Label" parent="."]
 anchors_preset = 2

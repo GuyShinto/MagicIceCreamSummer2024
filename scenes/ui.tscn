@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://erup7tk34o2n"]
+[gd_scene load_steps=55 format=3 uid="uid://erup7tk34o2n"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7tlaj"]
 [ext_resource type="Script" path="res://scripts/temperature.gd" id="2_fq0aw"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://csx3f63rycbco" path="res://artwork/indicator_cool.png" id="3_wjvlm"]
 [ext_resource type="Texture2D" uid="uid://be8i1fg3iee72" path="res://artwork/tutorial_orange.png" id="4_5k82h"]
 [ext_resource type="Texture2D" uid="uid://44h0lu41nptn" path="res://artwork/icon_temperature_highlight.png" id="4_bk0ro"]
-[ext_resource type="Texture2D" uid="uid://cj01mrfnxfsll" path="res://artwork/cursor_sky.png" id="4_cnm1i"]
 [ext_resource type="Texture2D" uid="uid://u74jeokpkmvl" path="res://artwork/icon_ice.png" id="4_j2jd2"]
 [ext_resource type="Texture2D" uid="uid://c6gxbircgb321" path="res://artwork/indicator_highlight.png" id="5_2k11r"]
 [ext_resource type="Texture2D" uid="uid://b7vqofwt3qdgx" path="res://artwork/tutorial_purple.png" id="5_cc1qf"]
@@ -42,6 +41,8 @@
 [ext_resource type="Texture2D" uid="uid://mrvua0d33wjs" path="res://artwork/effect_orange.png" id="32_tmupl"]
 [ext_resource type="Texture2D" uid="uid://cq4ms7h5a5vo3" path="res://artwork/effect_purple.png" id="33_vqxgr"]
 [ext_resource type="Texture2D" uid="uid://djq2p6eha047l" path="res://artwork/effect_red.png" id="34_hmdgm"]
+[ext_resource type="FontFile" uid="uid://dwt70hmkpth8w" path="res://fonts/Itim-Regular.ttf" id="34_slugh"]
+[ext_resource type="Texture2D" uid="uid://eivlqprc11ns" path="res://artwork/cursor_normal.png" id="35_1pdm0"]
 [ext_resource type="Texture2D" uid="uid://biclisfuyaslf" path="res://artwork/effect_sky.png" id="35_ulnkx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8c1u0"]
@@ -181,7 +182,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="desc" type="TextureRect" parent="."]
-visible = false
 offset_top = 128.0
 offset_right = 192.0
 offset_bottom = 336.0
@@ -328,7 +328,9 @@ offset_right = 192.0
 offset_bottom = 96.0
 pivot_offset = Vector2(96, 48)
 mouse_filter = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.247059, 0.341176, 1, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("34_slugh")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hdgwt")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_03bvq")
@@ -347,7 +349,7 @@ process_mode = 3
 offset_right = 88.0
 offset_bottom = 88.0
 mouse_filter = 2
-texture = ExtResource("4_cnm1i")
+texture = ExtResource("35_1pdm0")
 expand_mode = 1
 script = ExtResource("14_323sj")
 effectIndex = Array[Texture2D]([ExtResource("30_k3ic3"), ExtResource("31_3s1rl"), ExtResource("32_tmupl"), ExtResource("33_vqxgr"), ExtResource("34_hmdgm"), ExtResource("35_ulnkx"), ExtResource("30_8u3un")])

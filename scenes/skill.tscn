@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c8v11gdpbqqyd"]
+[gd_scene load_steps=28 format=3 uid="uid://c8v11gdpbqqyd"]
 
 [ext_resource type="Script" path="res://scripts/skill_ui.gd" id="1_o3exi"]
 [ext_resource type="Texture2D" uid="uid://b8s2peu7uabvm" path="res://artwork/frame_skill.png" id="1_xpyc5"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cs48w47n486bx" path="res://artwork/yee.png" id="19_qauke"]
 [ext_resource type="Texture2D" uid="uid://b5qgmpq5erbxh" path="res://artwork/tree_evil.png" id="20_xmm0l"]
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="21_5db6r"]
+[ext_resource type="FontFile" uid="uid://dwt70hmkpth8w" path="res://fonts/Itim-Regular.ttf" id="21_al57t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uinpi"]
 shader = ExtResource("4_ejxu1")
@@ -33,12 +34,15 @@ shader_parameter/direction = Vector2(1, 0)
 shader_parameter/speed = -0.2
 
 [sub_resource type="LabelSettings" id="LabelSettings_3t8hc"]
+font = ExtResource("21_al57t")
 font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_42p5s"]
+font = ExtResource("21_al57t")
 font_size = 128
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.862745, 0.454902, 0.956863, 1)
 outline_size = 32
+outline_color = Color(1, 0.992157, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eyka8"]
 shader = ExtResource("21_5db6r")

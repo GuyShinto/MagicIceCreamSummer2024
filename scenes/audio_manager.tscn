@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://c143jlx5a48xq"]
+[gd_scene load_steps=31 format=3 uid="uid://c143jlx5a48xq"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_a50u8"]
+[ext_resource type="FontFile" uid="uid://dwt70hmkpth8w" path="res://fonts/Itim-Regular.ttf" id="2_5nmgb"]
 [ext_resource type="AudioStream" uid="uid://bvraa0aha8xrp" path="res://sounds/sfx/WOW Anime Sound.mp3" id="2_050qa"]
 [ext_resource type="Texture2D" uid="uid://c5egu1yoo5ahw" path="res://artwork/icon_music.png" id="2_ru20c"]
 [ext_resource type="Texture2D" uid="uid://crtfc2sw6sans" path="res://artwork/icon_soundwave.png" id="3_dw7kf"]
@@ -25,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://dvwxivvbk2agd" path="res://sounds/sfx/broken.ogg" id="23_ria1x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjytb"]
+font = ExtResource("2_5nmgb")
 font_size = 32
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)

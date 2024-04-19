@@ -23,6 +23,12 @@ Effects="*res://scenes/effects.tscn"
 AudioManager="*res://scenes/audio_manager.tscn"
 ChangeScene="*res://scenes/change_scene.tscn"
 
+[display]
+
+window/size/viewport_width=1980
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
 [input]
 
 left={

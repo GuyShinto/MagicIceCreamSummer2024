@@ -1,22 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://b13yiwd71ujho"]
+[gd_scene load_steps=9 format=3 uid="uid://b13yiwd71ujho"]
 
 [ext_resource type="Script" path="res://scripts/into.gd" id="1_upcgi"]
 [ext_resource type="Texture2D" uid="uid://dd7s0ljuhs3j8" path="res://artwork/pole.png" id="2_g2aom"]
 [ext_resource type="Texture2D" uid="uid://cjk8fafv2h8uo" path="res://artwork/house_3.png" id="3_6boau"]
 [ext_resource type="Texture2D" uid="uid://bqefhhqf6o3q2" path="res://artwork/road.png" id="4_tdx68"]
+[ext_resource type="Texture2D" uid="uid://dbqtebwc7kuwl" path="res://artwork/logo_title.png" id="5_ae8ie"]
+[ext_resource type="FontFile" uid="uid://dwt70hmkpth8w" path="res://fonts/Itim-Regular.ttf" id="6_8xdn5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0yl07"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4o541"]
+font = ExtResource("6_8xdn5")
+font_size = 48
 
 [node name="into" type="Node2D"]
 script = ExtResource("1_upcgi")
 
 [node name="pole" type="Sprite2D" parent="."]
-position = Vector2(16, 120)
+position = Vector2(-648, 120)
 scale = Vector2(0.556452, 0.556452)
 texture = ExtResource("2_g2aom")
 
 [node name="house4" type="Sprite2D" parent="."]
-position = Vector2(808, 304)
+position = Vector2(632, 304)
 scale = Vector2(0.688769, 0.688769)
 texture = ExtResource("3_6boau")
 
@@ -58,3 +64,21 @@ position = Vector2(-1007.56, 1008.5)
 rotation = 3.14159
 scale = Vector2(1.2004, 1.24213)
 texture = ExtResource("4_tdx68")
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(-2.28882e-05, -1704)
+scale = Vector2(1.19492, 1.19492)
+texture = ExtResource("5_ae8ie")
+
+[node name="camera" type="Camera2D" parent="."]
+offset = Vector2(0, -1500)
+
+[node name="text" type="Label" parent="."]
+offset_left = -248.0
+offset_top = -1176.0
+offset_right = 256.0
+offset_bottom = -1118.0
+text = "- Press any key to start -"
+label_settings = SubResource("LabelSettings_4o541")
+horizontal_alignment = 1
+vertical_alignment = 1

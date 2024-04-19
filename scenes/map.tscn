@@ -1,6 +1,7 @@
-[gd_scene load_steps=48 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=49 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_mq8k3"]
 [ext_resource type="Texture2D" uid="uid://c52jw3k5p8ga2" path="res://artwork/house_1.png" id="2_ivgwf"]
 [ext_resource type="PackedScene" uid="uid://ddy27muki4lid" path="res://scenes/objects/road.tscn" id="2_ofcyl"]
 [ext_resource type="PackedScene" uid="uid://bt0ftq0dvoqpx" path="res://scenes/objects/icecream_item.tscn" id="2_qul4d"]
@@ -52,7 +53,8 @@ size = Vector2(177, 689)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2y705"]
 radius = 364.26
 
-[node name="map" type="Node2D"]
+[node name="map" type="Node2D" groups=["map"]]
+script = ExtResource("1_mq8k3")
 
 [node name="camera" type="Camera2D" parent="."]
 script = ExtResource("1_kb7a6")
