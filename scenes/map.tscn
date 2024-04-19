@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://5a8xxdgot35"]
+[gd_scene load_steps=48 format=3 uid="uid://5a8xxdgot35"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_kb7a6"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_mq8k3"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ddy27muki4lid" path="res://scenes/objects/road.tscn" id="2_ofcyl"]
 [ext_resource type="PackedScene" uid="uid://bt0ftq0dvoqpx" path="res://scenes/objects/icecream_item.tscn" id="2_qul4d"]
 [ext_resource type="Texture2D" uid="uid://b36y8yg2vtqhf" path="res://artwork/house_2.png" id="3_mggic"]
-[ext_resource type="PackedScene" uid="uid://cx8jhcse056l0" path="res://scenes/objects/ice.tscn" id="4_84b7g"]
 [ext_resource type="Texture2D" uid="uid://cjk8fafv2h8uo" path="res://artwork/house_3.png" id="4_iqdrl"]
 [ext_resource type="PackedScene" uid="uid://d0oi5rtre11ta" path="res://scenes/objects/cooly.tscn" id="4_vhmns"]
 [ext_resource type="PackedScene" uid="uid://erup7tk34o2n" path="res://scenes/ui.tscn" id="4_ytiwv"]
@@ -72,12 +71,12 @@ scale = Vector2(0.544141, 0.544141)
 texture = ExtResource("3_mggic")
 
 [node name="house3" type="Sprite2D" parent="background"]
-position = Vector2(1876.19, -259.187)
+position = Vector2(36216, 888)
 scale = Vector2(0.688769, 0.688769)
 texture = ExtResource("4_iqdrl")
 
 [node name="house4" type="Sprite2D" parent="background"]
-position = Vector2(1876.19, -259.187)
+position = Vector2(528, -259.187)
 scale = Vector2(0.688769, 0.688769)
 texture = ExtResource("4_iqdrl")
 
@@ -196,7 +195,7 @@ scale = Vector2(0.688769, 0.688769)
 texture = ExtResource("4_iqdrl")
 
 [node name="pole" type="Sprite2D" parent="background"]
-position = Vector2(1041, -446)
+position = Vector2(-464, -446)
 scale = Vector2(0.556452, 0.556452)
 texture = ExtResource("5_eem6h")
 
@@ -518,11 +517,11 @@ position = Vector2(80493, 4715)
 [node name="road57" parent="floors" instance=ExtResource("2_ofcyl")]
 position = Vector2(82028, 4715)
 
+[node name="road58" parent="floors" instance=ExtResource("2_ofcyl")]
+position = Vector2(-1528, 212)
+
 [node name="objects" type="Node2D" parent="."]
 script = ExtResource("7_g3x1w")
-
-[node name="ice" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(-112, -139)
 
 [node name="cooly" parent="objects" instance=ExtResource("4_vhmns")]
 position = Vector2(5253, 70)
@@ -860,22 +859,24 @@ position = Vector2(27954, 1163)
 [node name="watergun_6" parent="objects" instance=ExtResource("12_js1tq")]
 position = Vector2(33650, 1175)
 
-[node name="ice2" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(-182, -193)
-
-[node name="ice3" parent="objects" instance=ExtResource("4_84b7g")]
-position = Vector2(-248, -173)
-
 [node name="watergun_7" parent="objects" instance=ExtResource("12_js1tq")]
-position = Vector2(-379, -29)
+position = Vector2(6136, -24)
 
 [node name="freeze11" parent="objects" instance=ExtResource("7_rh7mv")]
-position = Vector2(255, 70)
+position = Vector2(864, 80)
+
+[node name="fridge9" parent="objects" instance=ExtResource("6_t0a4k")]
+position = Vector2(704, 76)
+
+[node name="fridge_frame_upper" parent="objects/fridge9" instance=ExtResource("25_8imd5")]
+position = Vector2(0, -181)
+
+[node name="fridge_frame_lower" parent="objects/fridge9" instance=ExtResource("26_43nqq")]
+position = Vector2(3, -76)
 
 [node name="players" type="Node2D" parent="."]
 
 [node name="player" parent="players" instance=ExtResource("17_a7kvp")]
-speed = 500
 
 [node name="upper_objects" type="Node2D" parent="."]
 
@@ -1121,65 +1122,65 @@ script = ExtResource("32_5vsto")
 [node name="items" type="Node2D" parent="."]
 
 [node name="icecream_item" parent="items" instance=ExtResource("2_qul4d")]
-offset_left = 391.0
-offset_top = -191.0
-offset_right = 497.0
-offset_bottom = -85.0
+offset_left = 1024.0
+offset_top = -192.0
+offset_right = 1130.0
+offset_bottom = -86.0
 getItemID = 1
 
 [node name="icecream_item2" parent="items" instance=ExtResource("2_qul4d")]
-offset_left = 597.0
-offset_top = -233.0
-offset_right = 703.0
-offset_bottom = -127.0
+offset_left = 15928.0
+offset_top = -312.0
+offset_right = 16034.0
+offset_bottom = -206.0
 texture = ExtResource("30_ivng3")
 getItemID = 2
 
 [node name="icecream_item3" parent="items" instance=ExtResource("2_qul4d")]
-offset_left = 185.0
-offset_top = -306.0
-offset_right = 291.0
-offset_bottom = -200.0
+offset_left = 19384.0
+offset_top = 1024.0
+offset_right = 19490.0
+offset_bottom = 1130.0
 texture = ExtResource("31_kiam1")
 getItemID = 3
 
 [node name="icecream_item4" parent="items" instance=ExtResource("2_qul4d")]
-offset_left = 61.0
-offset_top = -452.0
-offset_right = 167.0
-offset_bottom = -346.0
+offset_left = 36872.0
+offset_top = 744.0
+offset_right = 36978.0
+offset_bottom = 850.0
 texture = ExtResource("32_e4ww0")
 getItemID = 4
 
 [node name="icecream_item5" parent="items" instance=ExtResource("2_qul4d")]
-offset_left = 305.0
-offset_top = -423.0
-offset_right = 411.0
-offset_bottom = -317.0
+offset_left = 10624.0
+offset_top = -792.0
+offset_right = 10730.0
+offset_bottom = -686.0
 texture = ExtResource("33_k1u2h")
 getItemID = 5
 
 [node name="icecream_item6" parent="items" instance=ExtResource("2_qul4d")]
-offset_left = 476.0
-offset_top = -398.0
-offset_right = 582.0
-offset_bottom = -292.0
+offset_left = 5584.0
+offset_top = -232.0
+offset_right = 5690.0
+offset_bottom = -126.0
 texture = ExtResource("34_mefpm")
 getItemID = 6
 
 [node name="icecream_item7" parent="items" instance=ExtResource("2_qul4d")]
-offset_left = 662.0
-offset_top = -384.0
-offset_right = 768.0
-offset_bottom = -278.0
+offset_left = 30200.0
+offset_top = 976.0
+offset_right = 30306.0
+offset_bottom = 1082.0
 texture = ExtResource("35_5s2b0")
 getItemID = 7
 
 [node name="icecream_item8" parent="items" instance=ExtResource("2_qul4d")]
-offset_left = 848.0
-offset_top = -224.0
-offset_right = 954.0
-offset_bottom = -118.0
+offset_left = 80512.0
+offset_top = 4352.0
+offset_right = 80618.0
+offset_bottom = 4458.0
 texture = ExtResource("40_0p3dt")
 getItemID = 666
 

@@ -1,11 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://b13yiwd71ujho"]
+[gd_scene load_steps=17 format=3 uid="uid://b13yiwd71ujho"]
 
 [ext_resource type="Script" path="res://scripts/into.gd" id="1_upcgi"]
+[ext_resource type="Texture2D" uid="uid://b71mh4hthynbq" path="res://artwork/player_eye5.png" id="2_3fcyd"]
 [ext_resource type="Texture2D" uid="uid://dd7s0ljuhs3j8" path="res://artwork/pole.png" id="2_g2aom"]
+[ext_resource type="Texture2D" uid="uid://bc1n8xxrfhku7" path="res://artwork/background_parallax1.png" id="2_n7ltd"]
 [ext_resource type="Texture2D" uid="uid://cjk8fafv2h8uo" path="res://artwork/house_3.png" id="3_6boau"]
 [ext_resource type="Texture2D" uid="uid://bqefhhqf6o3q2" path="res://artwork/road.png" id="4_tdx68"]
 [ext_resource type="Texture2D" uid="uid://dbqtebwc7kuwl" path="res://artwork/logo_title.png" id="5_ae8ie"]
 [ext_resource type="FontFile" uid="uid://dwt70hmkpth8w" path="res://fonts/Itim-Regular.ttf" id="6_8xdn5"]
+[ext_resource type="Texture2D" uid="uid://dl2bfv7d6cobi" path="res://artwork/electrical_transfromer.png" id="6_s2anv"]
+[ext_resource type="Texture2D" uid="uid://bgsmeihm5bi4d" path="res://artwork/player_face_real.png" id="8_56ape"]
+[ext_resource type="Texture2D" uid="uid://3w68weol06mf" path="res://artwork/icon_fire.png" id="9_jucas"]
+[ext_resource type="Texture2D" uid="uid://t16n30wfq2bm" path="res://artwork/player_shell_upper.png" id="9_o01fd"]
+[ext_resource type="Texture2D" uid="uid://cnqwo3yaho6om" path="res://artwork/player_eye3.png" id="10_2p5sk"]
+[ext_resource type="Texture2D" uid="uid://jf5lkccxjx8l" path="res://artwork/player_shell_lower.png" id="11_nupj6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0yl07"]
 
@@ -15,52 +23,57 @@ font_size = 48
 
 [node name="into" type="Node2D"]
 script = ExtResource("1_upcgi")
+eye5 = ExtResource("2_3fcyd")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(0, -347)
+texture = ExtResource("2_n7ltd")
 
 [node name="pole" type="Sprite2D" parent="."]
-position = Vector2(-648, 120)
+position = Vector2(-648, -227)
 scale = Vector2(0.556452, 0.556452)
 texture = ExtResource("2_g2aom")
 
 [node name="house4" type="Sprite2D" parent="."]
-position = Vector2(632, 304)
+position = Vector2(632, -43)
 scale = Vector2(0.688769, 0.688769)
 texture = ExtResource("3_6boau")
 
 [node name="icon" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0yl07")
-position = Vector2(520, 816.25)
+position = Vector2(520, 469.25)
 scale = Vector2(1.2, 1.24708)
 texture = ExtResource("4_tdx68")
 
 [node name="icon2" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0yl07")
-position = Vector2(520.438, 1008.5)
+position = Vector2(520.438, 661.5)
 rotation = 3.14159
 scale = Vector2(1.2004, 1.24213)
 texture = ExtResource("4_tdx68")
 
 [node name="icon3" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0yl07")
-position = Vector2(2048, 816.25)
+position = Vector2(2048, 469.25)
 scale = Vector2(1.2, 1.24708)
 texture = ExtResource("4_tdx68")
 
 [node name="icon4" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0yl07")
-position = Vector2(2048.44, 1008.5)
+position = Vector2(2048.44, 661.5)
 rotation = 3.14159
 scale = Vector2(1.2004, 1.24213)
 texture = ExtResource("4_tdx68")
 
 [node name="icon5" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0yl07")
-position = Vector2(-1008, 816.25)
+position = Vector2(-1008, 469.25)
 scale = Vector2(1.2, 1.24708)
 texture = ExtResource("4_tdx68")
 
 [node name="icon6" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0yl07")
-position = Vector2(-1007.56, 1008.5)
+position = Vector2(-1007.56, 661.5)
 rotation = 3.14159
 scale = Vector2(1.2004, 1.24213)
 texture = ExtResource("4_tdx68")
@@ -70,8 +83,40 @@ position = Vector2(-2.28882e-05, -1704)
 scale = Vector2(1.19492, 1.19492)
 texture = ExtResource("5_ae8ie")
 
+[node name="ele" type="Sprite2D" parent="."]
+position = Vector2(-632, 64)
+scale = Vector2(0.146739, 0.146739)
+texture = ExtResource("6_s2anv")
+
 [node name="camera" type="Camera2D" parent="."]
 offset = Vector2(0, -1500)
+
+[node name="face" type="Sprite2D" parent="."]
+position = Vector2(-33, 217)
+scale = Vector2(0.339673, 0.339673)
+texture = ExtResource("8_56ape")
+
+[node name="up" type="Sprite2D" parent="face"]
+position = Vector2(26.496, -103.04)
+scale = Vector2(0.56623, 0.56623)
+texture = ExtResource("9_o01fd")
+
+[node name="eye" type="Sprite2D" parent="face"]
+position = Vector2(35.3281, 14.72)
+scale = Vector2(1.02682, 1.02682)
+texture = ExtResource("10_2p5sk")
+flip_h = true
+
+[node name="down" type="Sprite2D" parent="."]
+position = Vector2(-24, 244)
+scale = Vector2(0.192333, 0.192333)
+texture = ExtResource("11_nupj6")
+
+[node name="fire" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-626, -40)
+scale = Vector2(0.120312, 0.120312)
+texture = ExtResource("9_jucas")
 
 [node name="text" type="Label" parent="."]
 offset_left = -248.0

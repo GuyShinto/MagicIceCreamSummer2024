@@ -50,7 +50,7 @@ func SetFade(alpha:float):
 	indicator.position.y = baseIndicator.y - clamp(alpha,-80,80)
 
 func _timeout():
-	_hot(-0.5 - (cold.size()*0.2) - (sum_cool()) - coldS)
+	_hot(1.0 - (cold.size()*0.2) - (sum_cool()) - coldS)
 
 func sum_cool():
 	var _sum:float = 0
