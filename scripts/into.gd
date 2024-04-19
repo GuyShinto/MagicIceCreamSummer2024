@@ -26,7 +26,7 @@ func _input(event):
 func _starting():
 	_text.visible = false
 	await get_tree().create_timer(2).timeout
-	var wait_time = 1.0 #real 10.0
+	var wait_time = 10.0 #real 10.0
 	var tween1 = create_tween()
 	tween1.tween_property(camera,"offset:y",0.0,wait_time).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN_OUT)
 	await get_tree().create_timer(wait_time).timeout

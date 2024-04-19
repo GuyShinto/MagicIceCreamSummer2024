@@ -1201,7 +1201,6 @@ shape = SubResource("RectangleShape2D_rvxa2")
 [node name="ui" parent="." instance=ExtResource("4_ytiwv")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 1)
